@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Support triageBox</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: radial-gradient(1200px 600px at 20% -10%, #0f2a1f 0%, #0b1512 55%) #0b1512;
+      color: #d7e5de; padding: 56px 20px 80px; min-height: 100vh;
+    }
+    main { max-width: 640px; margin: 0 auto; text-align: center; }
+    h1 { font-size: 26px; color: #eaf6f0; letter-spacing: -0.02em; }
+    h1 span { color: #34d399; }
+    .sub { color: #8fa89d; margin: 8px 0 34px; }
+    .card {
+      background: #101d18; border: 1px solid #1e3a2f; border-radius: 14px;
+      padding: 20px 22px; margin: 14px 0; text-align: left;
+    }
+    .card h2 { font-size: 15px; color: #d1fae5; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+    .addr {
+      display: block; background: #0b2018; border: 1px solid #1e3a2f; border-radius: 8px;
+      padding: 10px 12px; font: 13px ui-monospace, SFMono-Regular, Menlo, monospace;
+      color: #a7f3d0; word-break: break-all; margin: 8px 0; cursor: pointer;
+    }
+    .addr:hover { border-color: #34d399; }
+    .hint { color: #6b8a7c; font-size: 12.5px; }
+    .btn {
+      display: inline-block; background: linear-gradient(135deg, #10b981, #34d399);
+      color: #06281c; font-weight: 700; text-decoration: none;
+      border-radius: 10px; padding: 12px 22px; margin: 6px 4px;
+    }
+    .btn.ghost { background: transparent; border: 1px solid #1e5a44; color: #5eead4; }
+    .copied { color: #34d399; font-size: 12px; margin-left: 8px; }
+    footer { margin-top: 36px; color: #6b8a7c; font-size: 13px; }
+    footer a { color: #5eead4; }
+  </style>
+</head>
+<body>
+<main>
+  <h1>Support <span>triageBox</span></h1>
+  <p class="sub">triageBox is free, has no server and collects nothing — it runs on coffee.<br />If it saves you time, anything below is hugely appreciated. ♥</p>
+
+  <div class="card">
+    <h2>💳 Card / instant</h2>
+    <p><a class="btn" href="https://revolut.me/REVTAG_TODO" rel="noopener">Revolut Pay</a>
+       <a class="btn ghost" href="https://ko-fi.com/KOFI_TODO" rel="noopener">Ko-fi</a></p>
+    <p class="hint">Links open the payment page in a new tab. No account data ever touches triageBox.</p>
+  </div>
+
+  <div class="card">
+    <h2>₿ Bitcoin</h2>
+    <span class="addr" data-copy>BTC_ADDRESS_TODO</span>
+    <p class="hint">Native SegWit (bc1…). Click to copy.</p>
+  </div>
+
+  <div class="card">
+    <h2>Ξ Ethereum &amp; stablecoins</h2>
+    <span class="addr" data-copy>ETH_ADDRESS_TODO</span>
+    <p class="hint">Same address for ETH and ERC-20 tokens (USDC, USDT) on Ethereum mainnet. Click to copy.</p>
+  </div>
+
+  <footer>
+    <a href="privacy.html">Privacy policy</a> · triageBox for Chrome
+  </footer>
+</main>
+<script>
+  document.querySelectorAll('[data-copy]').forEach((el) => {
+    el.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(el.textContent.trim());
+        const note = document.createElement('span');
+        note.className = 'copied'; note.textContent = 'copied ✓';
+        el.after(note); setTimeout(() => note.remove(), 1500);
+      } catch { /* ignore */ }
+    });
+  });
+</script>
+</body>
+</html>
