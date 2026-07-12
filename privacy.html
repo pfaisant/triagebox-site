@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>triageBox — Privacy Policy</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: radial-gradient(1200px 600px at 20% -10%, #0f2a1f 0%, #0b1512 55%) #0b1512;
+      color: #d7e5de; padding: 56px 20px 80px; min-height: 100vh;
+    }
+    main { max-width: 760px; margin: 0 auto; }
+    h1 { font-size: 26px; color: #eaf6f0; letter-spacing: -0.02em; margin-bottom: 4px; }
+    h1 span { color: #34d399; }
+    .meta { color: #8fa89d; font-size: 14px; margin-bottom: 26px; }
+    h2 { font-size: 18px; color: #d1fae5; margin: 30px 0 8px; }
+    p, li { color: #c3d4cc; margin-bottom: 10px; }
+    ul { padding-left: 22px; }
+    a { color: #5eead4; }
+    .lead {
+      border: 1px solid #1e5a44; border-left: 4px solid #34d399; background: #0d2219;
+      border-radius: 10px; padding: 14px 16px; margin: 18px 0; color: #d1fae5;
+    }
+    table { width: 100%; border-collapse: collapse; margin: 12px 0 6px; font-size: 14px; }
+    th, td { text-align: left; padding: 9px 10px; border: 1px solid #1e3a2f; vertical-align: top; }
+    th { background: #101d18; color: #d1fae5; }
+    td { background: #0d1814; }
+    code { background: #0b2018; border: 1px solid #1e3a2f; border-radius: 5px; padding: 1px 6px; font-size: 13px; color: #a7f3d0; }
+  </style>
+</head>
+<body>
+<main>
+  <h1>triage<span>Box</span> — Privacy Policy</h1>
+  <p class="meta">Effective date: 12 July 2026 · Contact: paulfaisant@gmail.com</p>
+
+  <p>triageBox is a Chrome extension that helps you triage your own Gmail inbox: unread badge,
+  fast actions (archive / snooze / mark read / label), an optional Google Calendar agenda, and
+  optional AI summaries of your email threads.</p>
+
+  <div class="lead"><b>The short version: triageBox has no server. We collect nothing.</b>
+  All data stays in your browser; the extension talks directly from your machine to Google's
+  APIs (and, only if you configure it, to an AI provider using your own API key). Nothing is
+  ever sent to the developer.</div>
+
+  <h2>What the extension accesses, and why</h2>
+  <table>
+    <tr><th>Data</th><th>Why</th><th>Where it goes</th></tr>
+    <tr>
+      <td>Gmail messages and labels (Gmail API, <code>gmail.modify</code> scope)</td>
+      <td>Show your inbox in the popup; perform the actions you click (archive, mark read/unread, label, snooze, trash, report spam)</td>
+      <td>Directly between your browser and Google. A local cache is kept in <code>chrome.storage.local</code> on your device</td>
+    </tr>
+    <tr>
+      <td>Google Calendar events (<code>calendar</code> scope)</td>
+      <td>Show your agenda; create/delete events you ask for</td>
+      <td>Directly between your browser and Google</td>
+    </tr>
+    <tr>
+      <td>Email text and (optionally) a PDF attachment of a thread you ask to summarize or rate</td>
+      <td>Generate the AI summary, relevance score, digest, or answer you requested</td>
+      <td>Sent directly from your browser to the AI provider <b>you</b> configured with <b>your own API key</b> — Google Gemini API and/or xAI (Grok). Never sent anywhere without a user-initiated feature and a key you supplied</td>
+    </tr>
+    <tr>
+      <td>Settings, API keys, summaries cache, usage counters</td>
+      <td>Make the extension work and remember your preferences</td>
+      <td>Stored only in <code>chrome.storage.local</code> on your device. Optional export produces a file on your machine</td>
+    </tr>
+  </table>
+
+  <h2>What we do NOT do</h2>
+  <ul>
+    <li>No developer server, no telemetry, no analytics, no crash reporting.</li>
+    <li>No selling, sharing, or transferring of user data to anyone.</li>
+    <li>No use of data for advertising, profiling, or creditworthiness.</li>
+    <li>No reading of data unrelated to the extension's single purpose (inbox triage).</li>
+  </ul>
+
+  <h2>Authentication</h2>
+  <p>Sign-in uses Google OAuth via Chrome's identity API. The access token is held by your
+  browser and used only for the Google API calls listed above. Revoke access at any time at
+  <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>;
+  uninstalling the extension deletes all locally stored data.</p>
+
+  <h2>Third parties</h2>
+  <p>When you use an AI feature, the content you chose to process is handled by the provider
+  under its own terms: <a href="https://ai.google.dev/gemini-api/terms">Google Gemini API terms</a>
+  or <a href="https://x.ai/legal/terms-of-service">xAI terms</a>. triageBox sends nothing to
+  these providers unless you added a key and triggered the feature.</p>
+
+  <h2>Limited Use disclosure</h2>
+  <p>triageBox's use and transfer of information received from Google APIs adheres to the
+  <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API
+  Services User Data Policy</a>, including the Limited Use requirements.</p>
+
+  <h2>Changes</h2>
+  <p>Changes to this policy will be published at this URL with an updated effective date.</p>
+</main>
+</body>
+</html>
