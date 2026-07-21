@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://pfaisant.github.io/triagebox-site/sitemap.xml
