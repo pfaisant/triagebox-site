@@ -5,34 +5,40 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Support triageBox</title>
   <style>
+    /* Light identity — matches the extension's default theme: white surfaces,
+       neutral grays, deep emerald accents. */
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background: radial-gradient(1200px 600px at 20% -10%, #0f2a1f 0%, #0b1512 55%) #0b1512;
-      color: #d7e5de; padding: 56px 20px 80px; min-height: 100vh;
+      background: radial-gradient(900px 400px at 50% -10%, rgba(14, 159, 110, 0.06) 0%, transparent 60%) #f5f6f8;
+      color: #1b2430; padding: 56px 20px 80px; min-height: 100vh;
     }
     main { max-width: 640px; margin: 0 auto; text-align: center; }
-    h1 { font-size: 26px; color: #eaf6f0; letter-spacing: -0.02em; }
-    h1 span { color: #34d399; }
-    .sub { color: #8fa89d; margin: 8px 0 34px; }
+    h1 { font-size: 26px; color: #1b2430; letter-spacing: -0.02em; }
+    h1 span { color: #0a8a5f; }
+    .sub { color: #5a6472; margin: 8px 0 34px; }
     .card {
-      background: #101d18; border: 1px solid #1e3a2f; border-radius: 14px;
+      background: #ffffff; border: 1px solid #e3e6ea; border-radius: 14px;
       padding: 20px 22px; margin: 14px 0; text-align: left;
+      box-shadow: 0 1px 2px rgba(23, 32, 44, 0.05);
     }
-    .card h2 { font-size: 15px; color: #d1fae5; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+    .card h2 { font-size: 15px; color: #1b2430; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
     .addr {
-      display: block; background: #0b2018; border: 1px solid #1e3a2f; border-radius: 8px;
+      display: block; background: #f3f4f6; border: 1px solid #e3e6ea; border-radius: 8px;
       padding: 10px 12px; font: 13px ui-monospace, SFMono-Regular, Menlo, monospace;
-      color: #a7f3d0; word-break: break-all; margin: 8px 0; cursor: pointer;
+      color: #065f46; word-break: break-all; margin: 8px 0; cursor: pointer;
     }
-    .addr:hover { border-color: #34d399; }
-    .hint { color: #6b8a7c; font-size: 12.5px; }
+    .addr:hover { border-color: #0ea471; }
+    .hint { color: #8b94a1; font-size: 12.5px; }
     .btn {
-      display: inline-block; background: linear-gradient(135deg, #10b981, #34d399);
-      color: #06281c; font-weight: 700; text-decoration: none;
-      border-radius: 10px; padding: 12px 22px; margin: 6px 4px;
+      display: inline-block; background: linear-gradient(180deg, #0ea471, #0a8a5f);
+      color: #ffffff; font-weight: 700; text-decoration: none;
+      border: 1px solid #087a54; border-radius: 10px; padding: 12px 22px; margin: 6px 4px;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22), 0 1px 2px rgba(23, 32, 44, 0.14);
     }
-    .btn.ghost { background: transparent; border: 1px solid #1e5a44; color: #5eead4; }
+    .btn:hover { background: linear-gradient(180deg, #10b47c, #0b9868); }
+    .btn.ghost { background: transparent; border: 1px solid #cbd1d8; color: #0a8a5f; box-shadow: none; }
+    .btn.ghost:hover { border-color: #0ea471; background: rgba(14, 159, 110, 0.06); }
     /* Revolut Pay — official button guidelines: black variant only (no theme greens),
        "Revolut Pay" in PLAIN weight (bold is disallowed), fixed-ratio white mark,
        clear margin ≥ 1/8 of the mark height. */
@@ -45,9 +51,9 @@
     }
     .revolut-pay-btn:hover { background: #24282c; }
     .revolut-pay-btn svg { flex-shrink: 0; display: block; }
-    .copied { color: #34d399; font-size: 12px; margin-left: 8px; }
-    footer { margin-top: 36px; color: #6b8a7c; font-size: 13px; }
-    footer a { color: #5eead4; }
+    .copied { color: #0a8a5f; font-size: 12px; margin-left: 8px; }
+    footer { margin-top: 36px; color: #8b94a1; font-size: 13px; }
+    footer a { color: #0a8a5f; }
   </style>
 </head>
 <body>
