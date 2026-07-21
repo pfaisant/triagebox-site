@@ -96,7 +96,28 @@
   or <a href="https://x.ai/legal/terms-of-service">xAI terms</a>. triageBox sends nothing to
   these providers unless you added a key and triggered the feature.</p>
 
+  <h2>This website (donate page only)</h2>
+  <p>The marketing / donate site at
+  <a href="https://pfaisant.github.io/triagebox-site/">pfaisant.github.io/triagebox-site</a>
+  is separate from the extension. On the <a href="./donate.html">donate page</a> only, a
+  minimal event log may be recorded so the developer can build aggregate statistics
+  (for example unique supporters and rough geography):</p>
+  <ul>
+    <li><strong>What:</strong> IP address, coarse location (country / city from a public geo-IP
+      lookup), timestamp, event type (<code>view</code>, <code>like</code>, <code>unlike</code>),
+      page path, referrer, and browser user-agent.</li>
+    <li><strong>Why:</strong> Count likes without double-counting the same network, and build
+      simple traffic / support statistics. Not used for advertising or profiling.</li>
+    <li><strong>Where:</strong> Processed via a form/inbox service and/or a private spreadsheet
+      controlled by the developer. The public like total is a simple counter service
+      (no message content).</li>
+  </ul>
+  <p>This website logging does <strong>not</strong> apply to the Chrome extension, Gmail data,
+  or AI features. The extension still has no developer server and does not send your mail or
+  settings to the developer.</p>
+
   <h2>Limited Use disclosure</h2>
+
   <p>triageBox's use and transfer of information received from Google APIs adheres to the
   <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API
   Services User Data Policy</a>, including the Limited Use requirements.</p>

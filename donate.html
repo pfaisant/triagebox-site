@@ -108,7 +108,7 @@
 <body>
 <main>
   <h1>Support <span>triageBox</span></h1>
-  <p class="sub">triageBox is free, has no server and collects nothing — it runs on coffee.<br />If it saves you time, anything below is hugely appreciated. ♥</p>
+  <p class="sub">The extension is free, has no server and collects nothing — it runs on coffee.<br />If it saves you time, anything below is hugely appreciated. ♥</p>
 
   <div class="like-wrap">
     <button type="button" class="like-btn" id="like-btn" aria-pressed="false" aria-label="Like triageBox">
@@ -161,15 +161,27 @@
   });
 
   (function () {
-    const API = 'https://api.counterapi.dev/v1/triagebox/likes';
+    /* ── Stats sink ─────────────────────────────────────────────────────────
+       1) Optional Google Apps Script URL (private Sheet) — see stats/README.md
+       2) FormSubmit inbox (IP + event saved for export / statistics)
+       Leave STATS_ENDPOINT empty until you deploy the Apps Script. */
+    const STATS_ENDPOINT = '';
+    const FORMSUBMIT = 'https://formsubmit.co/ajax/paulfaisant@gmail.com';
+    const LIKE_API = 'https://api.counterapi.dev/v1/triagebox/likes';
+    const IP_LIKE_NS = 'https://api.counterapi.dev/v1/triagebox';
     const STORE_KEY = 'triagebox-donate-liked';
+    const VIEW_KEY = 'triagebox-donate-viewed';
+    const LOG_KEY = 'triagebox-stats-buffer';
+
     const btn = document.getElementById('like-btn');
     const countEl = document.getElementById('like-count');
     const labelEl = document.getElementById('like-label');
     const hintEl = document.getElementById('like-hint');
+
     let liked = localStorage.getItem(STORE_KEY) === '1';
     let busy = false;
     let count = null;
+    let client = null; // { ip, country, countryCode, city }
 
     function render() {
       btn.classList.toggle('is-liked', liked);
@@ -184,21 +196,154 @@
       }
     }
 
+    async function resolveClient() {
+      if (client) return client;
+      try {
+        const res = await fetch('https://ipapi.co/json/', { cache: 'no-store' });
+        if (res.ok) {
+          const d = await res.json();
+          if (d && d.ip && !d.error) {
+            client = {
+              ip: String(d.ip),
+              country: d.country_name || '',
+              countryCode: d.country_code || '',
+              city: d.city || '',
+            };
+            return client;
+          }
+        }
+      } catch { /* fall through */ }
+      try {
+        const res = await fetch('https://api.ipify.org?format=json', { cache: 'no-store' });
+        if (res.ok) {
+          const d = await res.json();
+          client = { ip: String(d.ip || 'unknown'), country: '', countryCode: '', city: '' };
+          return client;
+        }
+      } catch { /* fall through */ }
+      client = { ip: 'unknown', country: '', countryCode: '', city: '' };
+      return client;
+    }
+
+    async function sha16(text) {
+      try {
+        const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(text));
+        return Array.from(new Uint8Array(buf))
+          .map((b) => b.toString(16).padStart(2, '0'))
+          .join('')
+          .slice(0, 16);
+      } catch {
+        // Fallback hash for non-secure contexts
+        let h = 0;
+        for (let i = 0; i < text.length; i++) h = (Math.imul(31, h) + text.charCodeAt(i)) | 0;
+        return ('00000000' + (h >>> 0).toString(16)).slice(-8) + '00000000';
+      }
+    }
+
+    function bufferEvent(payload) {
+      try {
+        const prev = JSON.parse(localStorage.getItem(LOG_KEY) || '[]');
+        prev.push(payload);
+        while (prev.length > 200) prev.shift();
+        localStorage.setItem(LOG_KEY, JSON.stringify(prev));
+      } catch { /* ignore quota */ }
+    }
+
+    async function logEvent(action) {
+      const info = await resolveClient();
+      const payload = {
+        action,
+        ip: info.ip,
+        country: info.country,
+        countryCode: info.countryCode,
+        city: info.city,
+        ts: new Date().toISOString(),
+        path: location.pathname,
+        referrer: document.referrer || '',
+        ua: navigator.userAgent,
+        _subject: 'triageBox donate stats: ' + action,
+        _template: 'table',
+        _captcha: 'false',
+        _honey: '',
+      };
+      bufferEvent(payload);
+
+      // Prefer private Google Sheet logger when configured (see stats/README.md)
+      if (STATS_ENDPOINT) {
+        try {
+          await fetch(STATS_ENDPOINT, {
+            method: 'POST',
+            // text/plain avoids a CORS preflight against Apps Script
+            headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+            body: JSON.stringify(payload),
+            mode: 'cors',
+            cache: 'no-store',
+          });
+          return;
+        } catch { /* fall through to FormSubmit */ }
+      }
+
+      // Default sink: FormSubmit (inbox + optional email). Confirm once via their activation mail.
+      // Views are included so you can build traffic stats; disable email alerts in FormSubmit if noisy.
+      try {
+        await fetch(FORMSUBMIT, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+          },
+          body: JSON.stringify(payload),
+          cache: 'no-store',
+        });
+      } catch { /* stats must never break the page */ }
+    }
+
     async function fetchCount() {
-      const res = await fetch(API, { cache: 'no-store' });
+      const res = await fetch(LIKE_API, { cache: 'no-store' });
       if (!res.ok) throw new Error('count fetch failed');
       const data = await res.json();
       return typeof data.count === 'number' ? data.count : 0;
     }
 
     async function bump(direction) {
-      const res = await fetch(API + '/' + direction, { cache: 'no-store' });
+      const res = await fetch(LIKE_API + '/' + direction, { cache: 'no-store' });
       if (!res.ok) throw new Error('count update failed');
       const data = await res.json();
       return typeof data.count === 'number' ? data.count : count;
     }
 
+    async function ipLikeKey() {
+      const info = await resolveClient();
+      const h = await sha16(info.ip || 'unknown');
+      return IP_LIKE_NS + '/ip-' + h;
+    }
+
+    async function ipAlreadyLiked() {
+      try {
+        const res = await fetch(await ipLikeKey(), { cache: 'no-store' });
+        if (!res.ok) return false;
+        const data = await res.json();
+        return typeof data.count === 'number' && data.count > 0;
+      } catch {
+        return false;
+      }
+    }
+
+    async function bumpIpFlag(direction) {
+      try {
+        await fetch((await ipLikeKey()) + '/' + direction, { cache: 'no-store' });
+      } catch { /* non-fatal */ }
+    }
+
     async function init() {
+      // Fire-and-forget: resolve IP, log one page view per browser session
+      resolveClient().then(async () => {
+        if (!sessionStorage.getItem(VIEW_KEY)) {
+          sessionStorage.setItem(VIEW_KEY, '1');
+          await logEvent('view');
+        }
+      });
+
       try {
         count = await fetchCount();
       } catch {
@@ -213,23 +358,48 @@
       busy = true;
       btn.disabled = true;
       const next = !liked;
+
       try {
-        count = await bump(next ? 'up' : 'down');
+        await resolveClient();
+
+        if (next) {
+          // One global like per IP (statistics-friendly); still allow local toggle UX if already counted
+          const already = await ipAlreadyLiked();
+          if (!already) {
+            count = await bump('up');
+            await bumpIpFlag('up');
+          } else {
+            // Keep displayed total in sync without double-counting
+            count = await fetchCount();
+          }
+          await logEvent('like');
+        } else {
+          const already = await ipAlreadyLiked();
+          if (already) {
+            count = await bump('down');
+            await bumpIpFlag('down');
+          } else {
+            count = await fetchCount();
+          }
+          await logEvent('unlike');
+        }
+
         liked = next;
         localStorage.setItem(STORE_KEY, liked ? '1' : '0');
         if (liked) {
           btn.classList.remove('pop');
-          // restart pop animation
           void btn.offsetWidth;
           btn.classList.add('pop');
         }
       } catch {
-        // Optimistic local-only fallback if the counter API is down
         liked = next;
         localStorage.setItem(STORE_KEY, liked ? '1' : '0');
         if (typeof count === 'number') count = Math.max(0, count + (liked ? 1 : -1));
         hintEl.textContent = 'Couldn’t reach the counter — saved on this device only.';
+        // Still try to persist IP for stats
+        logEvent(next ? 'like' : 'unlike');
       }
+
       render();
       btn.disabled = false;
       busy = false;
