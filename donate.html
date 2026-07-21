@@ -16,7 +16,7 @@
     main { max-width: 640px; margin: 0 auto; text-align: center; }
     h1 { font-size: 26px; color: #1b2430; letter-spacing: -0.02em; }
     h1 span { color: #0a8a5f; }
-    .sub { color: #5a6472; margin: 8px 0 34px; }
+    .sub { color: #5a6472; margin: 8px 0 22px; }
     .card {
       background: #ffffff; border: 1px solid #e3e6ea; border-radius: 14px;
       padding: 20px 22px; margin: 14px 0; text-align: left;
@@ -52,6 +52,55 @@
     .revolut-pay-btn:hover { background: #24282c; }
     .revolut-pay-btn svg { flex-shrink: 0; display: block; }
     .copied { color: #0a8a5f; font-size: 12px; margin-left: 8px; }
+
+    /* Like count button */
+    .like-wrap {
+      display: flex; flex-direction: column; align-items: center; gap: 8px;
+      margin: 0 0 28px;
+    }
+    .like-btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: #ffffff; border: 1px solid #e3e6ea; border-radius: 999px;
+      padding: 10px 18px 10px 14px; cursor: pointer; color: #1b2430;
+      font: 600 15px/1 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      box-shadow: 0 1px 2px rgba(23, 32, 44, 0.05);
+      transition: border-color .15s, background .15s, transform .12s, box-shadow .15s;
+    }
+    .like-btn:hover:not(:disabled) {
+      border-color: #0ea471; background: rgba(14, 159, 110, 0.05);
+    }
+    .like-btn:active:not(:disabled) { transform: scale(0.97); }
+    .like-btn:disabled { opacity: 0.7; cursor: wait; }
+    .like-btn.is-liked {
+      border-color: #0ea471; background: rgba(14, 159, 110, 0.1);
+      color: #0a8a5f; box-shadow: 0 0 0 3px rgba(14, 159, 110, 0.12);
+    }
+    .like-btn .heart {
+      width: 22px; height: 22px; display: block;
+      transition: transform .18s cubic-bezier(.34, 1.4, .64, 1);
+    }
+    .like-btn.is-liked .heart { transform: scale(1.12); }
+    .like-btn .heart path {
+      fill: none; stroke: #8b94a1; stroke-width: 1.8;
+      transition: fill .15s, stroke .15s;
+    }
+    .like-btn.is-liked .heart path {
+      fill: #e11d48; stroke: #e11d48;
+    }
+    .like-count {
+      min-width: 1.2em; font-variant-numeric: tabular-nums;
+      font-weight: 700; color: #5a6472;
+    }
+    .like-btn.is-liked .like-count { color: #0a8a5f; }
+    .like-label { font-weight: 600; }
+    .like-hint { color: #8b94a1; font-size: 12.5px; }
+    .like-btn.pop .heart { animation: like-pop .35s ease; }
+    @keyframes like-pop {
+      0% { transform: scale(1); }
+      40% { transform: scale(1.35); }
+      100% { transform: scale(1.12); }
+    }
+
     footer { margin-top: 36px; color: #8b94a1; font-size: 13px; }
     footer a { color: #0a8a5f; }
   </style>
@@ -60,6 +109,17 @@
 <main>
   <h1>Support <span>triageBox</span></h1>
   <p class="sub">triageBox is free, has no server and collects nothing — it runs on coffee.<br />If it saves you time, anything below is hugely appreciated. ♥</p>
+
+  <div class="like-wrap">
+    <button type="button" class="like-btn" id="like-btn" aria-pressed="false" aria-label="Like triageBox">
+      <svg class="heart" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M12 21s-6.7-4.35-9.33-8.1C.9 10.4 1.2 6.9 3.8 5.15A4.7 4.7 0 0 1 12 6.2a4.7 4.7 0 0 1 8.2-1.05c2.6 1.75 2.9 5.25 1.13 7.75C18.7 16.65 12 21 12 21z"/>
+      </svg>
+      <span class="like-label" id="like-label">Like</span>
+      <span class="like-count" id="like-count" aria-live="polite">…</span>
+    </button>
+    <p class="like-hint" id="like-hint">A free thank-you if coffee isn’t an option right now.</p>
+  </div>
 
   <div class="card">
     <h2>💳 Card / instant</h2>
@@ -99,6 +159,85 @@
       } catch { /* ignore */ }
     });
   });
+
+  (function () {
+    const API = 'https://api.counterapi.dev/v1/triagebox/likes';
+    const STORE_KEY = 'triagebox-donate-liked';
+    const btn = document.getElementById('like-btn');
+    const countEl = document.getElementById('like-count');
+    const labelEl = document.getElementById('like-label');
+    const hintEl = document.getElementById('like-hint');
+    let liked = localStorage.getItem(STORE_KEY) === '1';
+    let busy = false;
+    let count = null;
+
+    function render() {
+      btn.classList.toggle('is-liked', liked);
+      btn.setAttribute('aria-pressed', liked ? 'true' : 'false');
+      btn.setAttribute('aria-label', liked ? 'Unlike triageBox' : 'Like triageBox');
+      labelEl.textContent = liked ? 'Liked' : 'Like';
+      countEl.textContent = count === null ? '…' : String(count);
+      if (liked) {
+        hintEl.textContent = 'Thanks — click again to undo.';
+      } else {
+        hintEl.textContent = 'A free thank-you if coffee isn’t an option right now.';
+      }
+    }
+
+    async function fetchCount() {
+      const res = await fetch(API, { cache: 'no-store' });
+      if (!res.ok) throw new Error('count fetch failed');
+      const data = await res.json();
+      return typeof data.count === 'number' ? data.count : 0;
+    }
+
+    async function bump(direction) {
+      const res = await fetch(API + '/' + direction, { cache: 'no-store' });
+      if (!res.ok) throw new Error('count update failed');
+      const data = await res.json();
+      return typeof data.count === 'number' ? data.count : count;
+    }
+
+    async function init() {
+      try {
+        count = await fetchCount();
+      } catch {
+        count = liked ? 1 : 0;
+        hintEl.textContent = 'Count unavailable offline — your like is still saved locally.';
+      }
+      render();
+    }
+
+    btn.addEventListener('click', async () => {
+      if (busy) return;
+      busy = true;
+      btn.disabled = true;
+      const next = !liked;
+      try {
+        count = await bump(next ? 'up' : 'down');
+        liked = next;
+        localStorage.setItem(STORE_KEY, liked ? '1' : '0');
+        if (liked) {
+          btn.classList.remove('pop');
+          // restart pop animation
+          void btn.offsetWidth;
+          btn.classList.add('pop');
+        }
+      } catch {
+        // Optimistic local-only fallback if the counter API is down
+        liked = next;
+        localStorage.setItem(STORE_KEY, liked ? '1' : '0');
+        if (typeof count === 'number') count = Math.max(0, count + (liked ? 1 : -1));
+        hintEl.textContent = 'Couldn’t reach the counter — saved on this device only.';
+      }
+      render();
+      btn.disabled = false;
+      busy = false;
+    });
+
+    render();
+    init();
+  })();
 </script>
 </body>
 </html>
