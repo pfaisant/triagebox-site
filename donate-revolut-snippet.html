@@ -1,0 +1,40 @@
+<!--
+  Revolut Pay button for donate.html (triagebox-site repo) — paste-ready snippet.
+
+  Follows https://developer.revolut.com/docs/resources/marketing-assets-guidelines/revolut-pay-button-guidelines :
+  · one of the three sanctioned variants (this is the BLACK one; white / white-with-border also allowed)
+  · label is exactly "Revolut Pay" — capital R and P, NO bold/italic/other styling
+  · fixed-aspect mark, clear margin ≥ 1/8 of the mark height on all sides
+  · don't recolor it to match the site theme (the current green button is off-guideline)
+
+  Replace href with your existing revolut.me / payment link.
+-->
+<style>
+  .revolut-pay-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 12px 22px;
+    border-radius: 10px;
+    background: #191c1f;
+    border: 1px solid #191c1f;
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 500;         /* plain weight — bold is disallowed on the wordmark */
+    font-style: normal;
+    letter-spacing: 0;
+    text-decoration: none;
+    white-space: nowrap;
+    cursor: pointer;
+  }
+  .revolut-pay-btn:hover { background: #24282c; }
+  .revolut-pay-btn svg { flex-shrink: 0; display: block; }
+</style>
+
+<a class="revolut-pay-btn" href="REPLACE-WITH-YOUR-REVOLUT-LINK" target="_blank" rel="noopener" aria-label="Revolut Pay">
+  <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+    <path fill="#ffffff" d="M17.4 7.9c0-3-2.4-5.4-5.4-5.4H4.6v19h3.9v-15h3.3c1 0 1.9.8 1.9 1.9 0 1-.9 1.9-1.9 1.9h-2.4c-.2 0-.3.1-.3.3v3l6.2 7.9h4.7l-5.9-7.5c2-.5 3.3-2.2 3.3-4.1z"/>
+  </svg>
+  <span>Revolut Pay</span>
+</a>
