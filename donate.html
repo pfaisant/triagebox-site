@@ -167,6 +167,10 @@
        Leave STATS_ENDPOINT empty until you deploy the Apps Script. */
     const STATS_ENDPOINT = '';
     const FORMSUBMIT = 'https://formsubmit.co/ajax/paulfaisant@gmail.com';
+    /* Which events are worth an email. Views are deliberately absent: one mail per
+       visitor is noise, and view COUNTS belong in analytics (Cloudflare Web Analytics
+       on the tunnel, or the Sheet in stats/README.md), not in an inbox. */
+    const EMAIL_EVENTS = ['like', 'unlike', 'donate'];
     const LIKE_API = 'https://api.counterapi.dev/v1/triagebox/likes';
     const IP_LIKE_NS = 'https://api.counterapi.dev/v1/triagebox';
     const STORE_KEY = 'triagebox-donate-liked';
@@ -249,9 +253,44 @@
       } catch { /* ignore quota */ }
     }
 
-    async function logEvent(action) {
+    /* "Chrome 141 on macOS" beats a 120-character user-agent string in a subject line. */
+    function describeDevice(ua) {
+      const b = /Edg\/(\d+)/.exec(ua) ? 'Edge ' + /Edg\/(\d+)/.exec(ua)[1]
+        : /OPR\/(\d+)/.exec(ua) ? 'Opera ' + /OPR\/(\d+)/.exec(ua)[1]
+        : /Chrome\/(\d+)/.exec(ua) ? 'Chrome ' + /Chrome\/(\d+)/.exec(ua)[1]
+        : /Firefox\/(\d+)/.exec(ua) ? 'Firefox ' + /Firefox\/(\d+)/.exec(ua)[1]
+        : /Safari\//.test(ua) ? 'Safari' : 'browser?';
+      const os = /Windows/.test(ua) ? 'Windows'
+        : /iPhone|iPad/.test(ua) ? 'iOS'
+        : /Mac OS X/.test(ua) ? 'macOS'
+        : /Android/.test(ua) ? 'Android'
+        : /Linux/.test(ua) ? 'Linux' : '';
+      const mobile = /Mobi|Android|iPhone/.test(ua) ? ' · mobile' : '';
+      return b + (os ? ' on ' + os : '') + mobile;
+    }
+
+    function placeOf(info) {
+      return [info.city, info.country || info.countryCode].filter(Boolean).join(', ') || 'location unknown';
+    }
+
+    /* The notification email has to be readable ON ITS OWN. FormSubmit renders the
+       `message` field and the subject reliably; the field table did not survive the
+       JSON/AJAX path (every mail arrived "with empty form fields"), so the facts now
+       live in both places and the structured keys are kept only for CSV export. */
+    function humanLine(action, info, extra) {
+      const now = new Date();
+      return [
+        action.toUpperCase() + ' on ' + location.pathname + (extra && extra.target ? ' → ' + extra.target : ''),
+        'When:     ' + now.toISOString().replace('T', ' ').slice(0, 16) + ' UTC',
+        'Where:    ' + placeOf(info) + ' — ' + info.ip,
+        'Device:   ' + describeDevice(navigator.userAgent),
+        'Came from: ' + (document.referrer || 'direct / bookmark'),
+      ].join('\n');
+    }
+
+    async function logEvent(action, extra) {
       const info = await resolveClient();
-      const payload = {
+      const payload = Object.assign({
         action,
         ip: info.ip,
         country: info.country,
@@ -261,11 +300,8 @@
         path: location.pathname,
         referrer: document.referrer || '',
         ua: navigator.userAgent,
-        _subject: 'triageBox donate stats: ' + action,
-        _template: 'table',
-        _captcha: 'false',
-        _honey: '',
-      };
+        device: describeDevice(navigator.userAgent),
+      }, extra || {});
       bufferEvent(payload);
 
       // Prefer private Google Sheet logger when configured (see stats/README.md)
@@ -278,13 +314,18 @@
             body: JSON.stringify(payload),
             mode: 'cors',
             cache: 'no-store',
+            keepalive: true, // survives the navigation a donate click starts
           });
           return;
         } catch { /* fall through to FormSubmit */ }
       }
 
-      // Default sink: FormSubmit (inbox + optional email). Confirm once via their activation mail.
-      // Views are included so you can build traffic stats; disable email alerts in FormSubmit if noisy.
+      // Default sink: FormSubmit. Only for events worth an INTERRUPTION — a like, an
+      // undo, a click on a payment link. Page views used to email one message per
+      // visitor, which is precisely the inbox mess this project exists to fight; they
+      // still reach the Sheet (when configured) and the local buffer. Flip this to
+      // include 'view' if you ever want the noise back.
+      if (!EMAIL_EVENTS.includes(action)) return;
       try {
         await fetch(FORMSUBMIT, {
           method: 'POST',
@@ -292,8 +333,17 @@
             'Content-Type': 'application/json',
             Accept: 'application/json',
           },
-          body: JSON.stringify(payload),
+          body: JSON.stringify(Object.assign({}, payload, {
+            // Everything that matters, in the two things FormSubmit always renders.
+            _subject: 'triageBox ' + action + ' — ' + placeOf(info) + ' — ' + describeDevice(navigator.userAgent),
+            message: humanLine(action, info, extra),
+            _captcha: 'false',
+          })),
           cache: 'no-store',
+          // The donate event fires as the browser leaves for the payment page — without
+          // keepalive the request dies with the document and the one event that matters
+          // is the one that never arrives.
+          keepalive: true,
         });
       } catch { /* stats must never break the page */ }
     }
@@ -335,7 +385,21 @@
       } catch { /* non-fatal */ }
     }
 
+    /* The event actually worth knowing about: someone left for a payment page. A view
+       says a page loaded; this says a human decided. Fired on the way out, so the
+       navigation is never blocked or delayed. */
+    function wireDonateClicks() {
+      for (const a of document.querySelectorAll('a[href^="https://revolut.me"], a[href^="https://ko-fi.com"], a[href^="https://paypal"], a[href*="buymeacoffee"]')) {
+        a.addEventListener('click', () => {
+          let target = a.href;
+          try { target = new URL(a.href).host.replace(/^www\./, ''); } catch { /* keep the raw href */ }
+          void logEvent('donate', { target });
+        }, { passive: true });
+      }
+    }
+
     async function init() {
+      wireDonateClicks();
       // Fire-and-forget: resolve IP, log one page view per browser session
       resolveClient().then(async () => {
         if (!sessionStorage.getItem(VIEW_KEY)) {
