@@ -21,7 +21,7 @@ table — the table came out empty on the JSON/AJAX path, so every notification 
 "Form submission received … with empty form fields":
 
 ```
-Subject: triageBox donate — Paris, France — Chrome 141 on macOS
+Subject: openVault donate — Paris, France — Chrome 141 on macOS
 
 DONATE on /donate.html → revolut.me
 When:     2026-07-27 10:13 UTC
@@ -44,7 +44,7 @@ By default, events go to **[FormSubmit](https://formsubmit.co)** for `paulfaisan
 3. Later events appear in the FormSubmit dashboard (and by email unless you turn notifications off).
 4. Export CSV from FormSubmit when you want to chart unique IPs, countries, likes over time, etc.
 
-A small ring buffer (last 200 events) is also kept in the visitor’s `localStorage` under `triagebox-stats-buffer` (useful only on that device).
+A small ring buffer (last 200 events) is also kept in the visitor’s `localStorage` under `openvault-stats-buffer` (useful only on that device).
 
 ## Optional: private Google Sheet (recommended for real stats)
 

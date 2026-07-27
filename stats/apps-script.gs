@@ -1,10 +1,10 @@
 /**
- * triageBox donate-page stats logger
+ * openVault donate-page stats logger
  * ----------------------------------
  * Saves IP + geo + action rows into a private Google Sheet for statistics.
  *
  * Setup (about 2 minutes):
- * 1. Create a new Google Sheet (e.g. "triageBox donate stats").
+ * 1. Create a new Google Sheet (e.g. "openVault donate stats").
  * 2. Extensions → Apps Script, paste this file, Save.
  * 3. Deploy → New deployment → Type: Web app
  *      - Execute as: Me
@@ -60,6 +60,6 @@ function doPost(e) {
 
 function doGet() {
   return ContentService
-    .createTextOutput(JSON.stringify({ ok: true, service: 'triagebox-stats' }))
+    .createTextOutput(JSON.stringify({ ok: true, service: 'openvault-stats' }))
     .setMimeType(ContentService.MimeType.JSON);
 }

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Support triageBox</title>
+  <title>Support openVault</title>
   <style>
     /* Light identity — matches the extension's default theme: white surfaces,
        neutral grays, deep emerald accents. */
@@ -107,11 +107,11 @@
 </head>
 <body>
 <main>
-  <h1>Support <span>triageBox</span></h1>
+  <h1>Support <span>openVault</span></h1>
   <p class="sub">The extension is free, has no server and collects nothing — it runs on coffee.<br />If it saves you time, anything below is hugely appreciated. ♥</p>
 
   <div class="like-wrap">
-    <button type="button" class="like-btn" id="like-btn" aria-pressed="false" aria-label="Like triageBox">
+    <button type="button" class="like-btn" id="like-btn" aria-pressed="false" aria-label="Like openVault">
       <svg class="heart" viewBox="0 0 24 24" aria-hidden="true">
         <path d="M12 21s-6.7-4.35-9.33-8.1C.9 10.4 1.2 6.9 3.8 5.15A4.7 4.7 0 0 1 12 6.2a4.7 4.7 0 0 1 8.2-1.05c2.6 1.75 2.9 5.25 1.13 7.75C18.7 16.65 12 21 12 21z"/>
       </svg>
@@ -128,7 +128,7 @@
          <span>Revolut Pay</span>
        </a>
        <a class="btn ghost" href="https://ko-fi.com/pfa87" rel="noopener">Ko-fi</a></p>
-    <p class="hint">Links open the payment page in a new tab. No account data ever touches triageBox.</p>
+    <p class="hint">Links open the payment page in a new tab. No account data ever touches openVault.</p>
   </div>
 
   <div class="card">
@@ -145,7 +145,7 @@
   </div> -->
 
   <footer>
-    <a href="privacy.html">Privacy policy</a> · triageBox for Chrome
+    <a href="privacy.html">Privacy policy</a> · openVault for Chrome
   </footer>
 </main>
 <script>
@@ -171,11 +171,11 @@
        visitor is noise, and view COUNTS belong in analytics (Cloudflare Web Analytics
        on the tunnel, or the Sheet in stats/README.md), not in an inbox. */
     const EMAIL_EVENTS = ['like', 'unlike', 'donate'];
-    const LIKE_API = 'https://api.counterapi.dev/v1/triagebox/likes';
-    const IP_LIKE_NS = 'https://api.counterapi.dev/v1/triagebox';
-    const STORE_KEY = 'triagebox-donate-liked';
-    const VIEW_KEY = 'triagebox-donate-viewed';
-    const LOG_KEY = 'triagebox-stats-buffer';
+    const LIKE_API = 'https://api.counterapi.dev/v1/openvault/likes';
+    const IP_LIKE_NS = 'https://api.counterapi.dev/v1/openvault';
+    const STORE_KEY = 'openvault-donate-liked';
+    const VIEW_KEY = 'openvault-donate-viewed';
+    const LOG_KEY = 'openvault-stats-buffer';
 
     const btn = document.getElementById('like-btn');
     const countEl = document.getElementById('like-count');
@@ -190,7 +190,7 @@
     function render() {
       btn.classList.toggle('is-liked', liked);
       btn.setAttribute('aria-pressed', liked ? 'true' : 'false');
-      btn.setAttribute('aria-label', liked ? 'Unlike triageBox' : 'Like triageBox');
+      btn.setAttribute('aria-label', liked ? 'Unlike openVault' : 'Like openVault');
       labelEl.textContent = liked ? 'Liked' : 'Like';
       countEl.textContent = count === null ? '…' : String(count);
       if (liked) {
@@ -335,7 +335,7 @@
           },
           body: JSON.stringify(Object.assign({}, payload, {
             // Everything that matters, in the two things FormSubmit always renders.
-            _subject: 'triageBox ' + action + ' — ' + placeOf(info) + ' — ' + describeDevice(navigator.userAgent),
+            _subject: 'openVault ' + action + ' — ' + placeOf(info) + ' — ' + describeDevice(navigator.userAgent),
             message: humanLine(action, info, extra),
             _captcha: 'false',
           })),

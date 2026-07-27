@@ -1,2 +1,2 @@
-# triagebox-site
-Public pages for the triageBox Chrome extension (privacy policy).
+# openvault-site
+Public pages for the openVault Chrome extension (privacy policy).
