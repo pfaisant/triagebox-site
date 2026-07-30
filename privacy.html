@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>openVault AI Gmail Checker — Privacy Policy</title>
+  <title>TriageBox AI Gmail Checker — Privacy Policy</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -38,18 +38,20 @@
     <a href="./terms.html">Terms</a> ·
     <a href="./donate.html">Donate</a>
   </p>
-  <h1>openVault AI Gmail Checker — Privacy Policy</h1>
-  <p class="meta">Effective date: 21 July 2026 · Contact: paulfaisant@gmail.com</p>
+  <h1>TriageBox AI Gmail Checker — Privacy Policy</h1>
+  <p class="meta">Effective date: 29 July 2026 · Contact: paulfaisant@gmail.com</p>
 
-  <p><strong>openVault AI Gmail Checker</strong> (short name: openVault) is a Chrome extension
+  <p><strong>TriageBox AI Gmail Checker</strong> (short name: TriageBox) is a Chrome extension
   that helps you triage your own Gmail inbox: unread badge, fast actions (archive / snooze /
   mark read / label), an optional Google Calendar agenda, and optional AI summaries of your
   email threads.</p>
 
-  <div class="lead"><b>The short version: openVault has no server. We collect nothing.</b>
-  All data stays in your browser; the extension talks directly from your machine to Google's
-  APIs (and, only if you configure it, to an AI provider using your own API key). Nothing is
-  ever sent to the developer.</div>
+  <div class="lead"><b>The short version: TriageBox has no product server, analytics or
+  advertising.</b> Working data is stored in your browser; your Todo list can also use
+  Chrome Sync so it appears in your other signed-in Chrome browsers. The extension
+  communicates directly with Google, an AI provider you configure, and—only when you enable
+  FeedAI—the feed/article sites you select. The developer receives information only when you
+  deliberately send a feedback report or email.</div>
 
   <h2>What the extension accesses, and why</h2>
   <table>
@@ -65,14 +67,34 @@
       <td>Directly between your browser and Google</td>
     </tr>
     <tr>
-      <td>Email text and (optionally) a PDF attachment of a thread you ask to summarize or rate</td>
+      <td>Email text and (optionally) a PDF attachment processed by an AI feature you use or enable</td>
       <td>Generate the AI summary, relevance score, digest, or answer you requested</td>
-      <td>Sent directly from your browser to the AI provider <b>you</b> configured with <b>your own API key</b> — Google Gemini API and/or xAI (Grok). Never sent anywhere without a user-initiated feature and a key you supplied</td>
+      <td>Sent directly from your browser to the AI provider <b>you</b> configured with <b>your own API key</b> — Google Gemini API and/or xAI (Grok). Background rating/summarising runs only when you enable those features</td>
     </tr>
     <tr>
-      <td>Settings, API keys, summaries cache, usage counters</td>
+      <td>Settings, API keys, summaries cache and usage counters</td>
       <td>Make the extension work and remember your preferences</td>
       <td>Stored only in <code>chrome.storage.local</code> on your device. Optional export produces a file on your machine</td>
+    </tr>
+    <tr>
+      <td>Todo text, completion state and an optional Gmail thread identifier</td>
+      <td>Keep your Todo list available across Chrome browsers without a TriageBox account or server</td>
+      <td>Written first to <code>chrome.storage.local</code>, then to <code>chrome.storage.sync</code>. Chrome associates it with your signed-in Chrome profile when Chrome Sync is enabled. Todos are partitioned by an opaque hash of the connected Gmail address; the address itself is not put in the sync key</td>
+    </tr>
+    <tr>
+      <td>Remote images embedded in email</td>
+      <td>Display an email as its sender designed it</td>
+      <td>Blocked by default. If you press “Load remote images”, or switch on <em>Load remote images automatically</em> in Settings → Gmail, your browser contacts the image host when a preview is displayed; that host can observe your IP address and the unique image URL. Nothing is fetched in the background either way &mdash; only for a preview you have open</td>
+    </tr>
+    <tr>
+      <td>FeedAI feed URLs, feed/article content and generated briefing</td>
+      <td>Build the optional news briefing after you enable FeedAI and add feeds</td>
+      <td>Your browser contacts the selected publishers directly. Content selected for analysis is sent to your configured AI provider. FeedAI is off by default</td>
+    </tr>
+    <tr>
+      <td>Feedback report text and diagnostics you choose to include</td>
+      <td>Let you report a problem or request help</td>
+      <td>Shown to you before sending, then sent through Gmail to the developer’s support address only after you confirm</td>
     </tr>
   </table>
 
@@ -81,7 +103,9 @@
     <li>No developer server, no telemetry, no analytics, no crash reporting.</li>
     <li>No selling, sharing, or transferring of user data to anyone.</li>
     <li>No use of data for advertising, profiling, or creditworthiness.</li>
-    <li>No reading of data unrelated to the extension's single purpose (inbox triage).</li>
+    <li>No background loading of remote email images or tracking pixels. They load only in a preview
+      you have open, and only after you press “Load remote images” or switch automatic loading on
+      yourself (off by default).</li>
   </ul>
 
   <h2>Authentication</h2>
@@ -91,14 +115,16 @@
   uninstalling the extension deletes all locally stored data.</p>
 
   <h2>Third parties</h2>
-  <p>When you use an AI feature, the content you chose to process is handled by the provider
+  <p>When you use or enable an AI feature, the relevant content is handled by the provider
   under its own terms: <a href="https://ai.google.dev/gemini-api/terms">Google Gemini API terms</a>
-  or <a href="https://x.ai/legal/terms-of-service">xAI terms</a>. openVault sends nothing to
-  these providers unless you added a key and triggered the feature.</p>
+  or <a href="https://x.ai/legal/terms-of-service">xAI terms</a>. TriageBox sends nothing to
+  these providers unless you added a key and used or enabled the feature. FeedAI also contacts
+  the feed and article publishers you selected. Those sites receive an ordinary request from
+  your browser and may apply their own privacy policies.</p>
 
   <h2>This website (donate page only)</h2>
   <p>The marketing / donate site at
-  <a href="https://openvault.pfa87.cc/">openvault.pfa87.cc</a>
+  <a href="https://triagebox.pfa87.cc/">triagebox.pfa87.cc</a>
   is separate from the extension. On the <a href="./donate.html">donate page</a> only, a
   minimal event log may be recorded so the developer can build aggregate statistics
   (for example unique supporters and rough geography):</p>
@@ -118,9 +144,63 @@
 
   <h2>Limited Use disclosure</h2>
 
-  <p>openVault's use and transfer of information received from Google APIs adheres to the
+  <p>triageBox's use and transfer of information received from Google APIs adheres to the
   <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API
-  Services User Data Policy</a>, including the Limited Use requirements.</p>
+  Services User Data Policy</a>, including the Limited Use requirements. In particular: data
+  obtained from Google APIs is used only to provide the features you invoke in the extension, is
+  never transferred to anyone except the AI provider whose key <em>you</em> configured (and only
+  for the request you triggered), is never sold, is never used for advertising or profiling, and
+  is never read by a human other than you.</p>
+
+  <h2>Who is responsible, and on what basis</h2>
+  <p>For the small amount of processing the developer actually performs — the donate-page event
+  log and the public like counter described above, plus any feedback email you choose to send —
+  the <strong>data controller</strong> is the publisher, Paul Faisant
+  (<a href="mailto:paulfaisant@gmail.com">paulfaisant@gmail.com</a>). The lawful basis is
+  <strong>legitimate interests</strong> (Article 6(1)(f) UK GDPR / GDPR): counting supporters
+  without double-counting a network, and understanding basic traffic to the project's own site.
+  You can object to it at any time using the contact address, and nothing about the extension
+  depends on it.</p>
+  <p>For everything the <em>extension</em> does with your mailbox, <strong>you</strong> are the one
+  who decides: it acts on your Google account with your OAuth consent, it keeps its working data
+  on your own device, and the developer is not a recipient of it.</p>
+
+  <h2>How long anything is kept</h2>
+  <ul>
+    <li><strong>On your device:</strong> settings, caches, summaries and todos stay in
+      <code>chrome.storage.local</code> until you clear them or uninstall the extension, which
+      deletes them. Todos you chose to sync also live in your own Chrome Sync account.</li>
+    <li><strong>Donate-page events:</strong> kept only as long as they are useful for those
+      statistics — in practice no longer than 24 months — and deleted sooner if you ask.</li>
+    <li><strong>Feedback you send:</strong> kept in the developer's mailbox while the issue is
+      open and for a reasonable period afterwards, so a follow-up reply still makes sense.</li>
+  </ul>
+
+  <h2>Your rights</h2>
+  <p>Where UK/EU data protection law applies, you have the right to ask for access to, correction
+  of, or erasure of personal data the developer holds about you, to object to or ask for a
+  restriction of the processing described above, and to receive a copy of it. Write to
+  <a href="mailto:paulfaisant@gmail.com">paulfaisant@gmail.com</a> — there is no form and no
+  account to close. If you are not satisfied with the answer, you can complain to the UK
+  Information Commissioner's Office (<a href="https://ico.org.uk/make-a-complaint/">ico.org.uk</a>)
+  or to your own national data protection authority.</p>
+  <p>Data the extension keeps on your device is not something the developer can retrieve, delete
+  or produce on request — it is yours, on your machine. Uninstalling the extension removes it, and
+  revoking access at
+  <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a> ends the
+  extension's access to your Google account immediately.</p>
+
+  <h2>Where data goes geographically</h2>
+  <p>The extension talks to Google and to the AI provider you configured; where those companies
+  process data is governed by their own terms, linked above. The two small website services used
+  by the donate page (a form/inbox service and a public counter) may process outside the UK and
+  EEA under their own safeguards. No mail content, and nothing from the extension, is sent to
+  either of them.</p>
+
+  <h2>Children</h2>
+  <p>TriageBox is a productivity tool for the holder of a Google account and is not directed at
+  children. If you are under the age at which you can consent to online services where you live,
+  please do not use it.</p>
 
   <h2>Changes</h2>
   <p>Changes to this policy will be published at this URL with an updated effective date.</p>

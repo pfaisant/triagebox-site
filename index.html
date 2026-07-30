@@ -3,10 +3,46 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>openVault AI Gmail Checker — AI-powered Gmail triage for Chrome</title>
-  <meta name="description" content="openVault AI Gmail Checker is a Chrome extension that helps you triage your own Gmail inbox: unread badge, fast archive/snooze/label actions, phishing alerts, Calendar agenda, and optional AI summaries. No developer server — data stays in your browser." />
-  <meta name="application-name" content="openVault AI Gmail Checker" />
-  <link rel="canonical" href="https://openvault.pfa87.cc/" />
+  <title>TriageBox AI Gmail Checker — AI-powered Gmail triage for Chrome</title>
+  <meta name="description" content="TriageBox AI Gmail Checker is a Chrome extension that helps you triage your own Gmail inbox: unread badge, fast archive/snooze/label actions, phishing alerts, Calendar agenda, a synced Todo list, and optional AI summaries. No developer server." />
+  <meta name="application-name" content="TriageBox AI Gmail Checker" />
+  <link rel="canonical" href="https://triagebox.pfa87.cc/" />
+  <link rel="icon" type="image/png" href="./logo-120.png" />
+  <meta name="theme-color" content="#7a1417" />
+
+  <!-- Link-preview card: on Reddit/HN/X/Discord/Slack this IS the ad — without it a
+       shared link renders as a bare URL. og:url/og:image stay ABSOLUTE on the canonical
+       host on purpose: the GitHub Pages fallback serves this same file, and previews
+       must still attribute to the real domain. -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="TriageBox" />
+  <meta property="og:url" content="https://triagebox.pfa87.cc/" />
+  <meta property="og:title" content="TriageBox AI Gmail Checker — AI-powered Gmail triage for Chrome" />
+  <meta property="og:description" content="Your inbox is a queue, not a feed. Score it, summarise it, then clear it — bulk sweeps by sender with an exact count before anything moves. No developer server; optional AI on your own key." />
+  <meta property="og:image" content="https://triagebox.pfa87.cc/og-card.jpg" />
+  <meta property="og:image:width" content="1280" />
+  <meta property="og:image:height" content="800" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- The one schema type that earns a software rich result. `name` mirrors this page's
+       H1 (which must match the Google Cloud OAuth branding while that review runs);
+       `alternateName` is the Chrome Web Store listing name. No aggregateRating on
+       purpose: the listing has no ratings yet, and inventing one is a manual-action
+       risk, not SEO. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "TriageBox AI Gmail Checker",
+    "alternateName": "TriageBox: AI Checker for Gmail",
+    "applicationCategory": "BrowserApplication",
+    "operatingSystem": "Chrome, Chromium, Edge",
+    "url": "https://triagebox.pfa87.cc/",
+    "downloadUrl": "https://chromewebstore.google.com/detail/triagebox-ai-checker-for/fdkbolcjccjkgadblcfnbnlibaiaellj",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "GBP" },
+    "author": { "@type": "Person", "name": "Paul Faisant", "email": "paulfaisant@gmail.com" }
+  }
+  </script>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -71,20 +107,29 @@
   </p>
 
   <div class="hero">
-    <img class="logo" src="./logo-120.png" width="88" height="88" alt="openVault AI Gmail Checker logo"
+    <img class="logo" src="./logo-120.png" width="88" height="88" alt="TriageBox AI Gmail Checker logo"
          onerror="this.style.display='none'" />
     <div>
       <!-- Exact OAuth consent app name — must match Google Cloud branding -->
       <p style="font-size:13px;color:#c9a0a0;margin-bottom:4px">Application name</p>
-      <h1>openVault AI Gmail Checker</h1>
+      <h1>TriageBox AI Gmail Checker</h1>
       <p class="tagline">A Chrome / Chromium browser extension that helps you triage your own Gmail inbox —
-        faster actions, smarter prioritisation, optional AI summaries. Your mail stays in your browser.</p>
+        faster actions, smarter prioritisation, a synced Todo list and optional AI summaries.
+        No TriageBox account or developer server.</p>
+      <!-- The page explained the product and offered nowhere to get it. Listed in the
+           store as "TriageBox: AI Checker for Gmail". -->
+      <p style="margin-top:14px">
+        <a href="https://chromewebstore.google.com/detail/triagebox-ai-checker-for/fdkbolcjccjkgadblcfnbnlibaiaellj"
+           style="display:inline-block;background:#e53935;color:#fff;font-weight:700;text-decoration:none;
+                  padding:10px 18px;border-radius:10px;box-shadow:0 4px 14px rgba(0,0,0,.35)">
+          Add to Chrome — it&rsquo;s free</a>
+      </p>
     </div>
   </div>
 
   <div class="lead">
     <b>Purpose of this application</b><br /><br />
-    The purpose of <strong>openVault AI Gmail Checker</strong> is to help the signed-in user
+    The purpose of <strong>TriageBox AI Gmail Checker</strong> is to help the signed-in user
     manage and prioritise their own Gmail inbox from the browser.
     The app is a productivity Chrome extension (toolbar badge + popup / side panel) that,
     with the user’s OAuth consent, accesses the user’s Gmail and optionally Google Calendar
@@ -92,7 +137,7 @@
     review possible phishing risk; see their calendar agenda; and optionally generate AI
     summaries using API keys the user supplies.
     <br /><br />
-    openVault AI Gmail Checker has no developer-operated backend. Processing runs in the
+    TriageBox AI Gmail Checker has no developer-operated backend. Processing runs in the
     user’s browser; data is not sent to the publisher. This homepage is the official product
     site for the application of the same name configured on the Google OAuth consent screen.
   </div>
@@ -134,18 +179,26 @@
     <li><a href="./donate.html">Support / donate</a> — optional, not required to use the app</li>
   </ul>
 
+  <h2>Independence and trademarks</h2>
+  <p>TriageBox AI Gmail Checker is an independent tool. It is <strong>not affiliated with,
+  sponsored by or endorsed by Google</strong>, and it is not a Google product. It works with a
+  Google account you already have, using Google&#39;s public APIs under their own terms, with your
+  OAuth consent. Gmail, Google Calendar, Google and Chrome are trademarks of Google LLC; xAI and
+  Grok are trademarks of X.AI Corp. Any other product name used in the extension or on this site
+  belongs to its owner and is used only to identify the product being referred to.</p>
+
   <h2>Developer contact</h2>
   <p>Publisher: Paul Faisant ·
   <a href="mailto:paulfaisant@gmail.com">paulfaisant@gmail.com</a></p>
-  <p>This site is the official homepage for <strong>openVault AI Gmail Checker</strong>,
+  <p>This site is the official homepage for <strong>TriageBox AI Gmail Checker</strong>,
   the same application name used on the Google OAuth consent screen and related store listings.</p>
 
   <div class="meta">
     <p><strong>OAuth / verification note for Google reviewers:</strong>
-    Homepage URL: <code>https://openvault.pfa87.cc/</code> ·
-    Privacy: <code>https://openvault.pfa87.cc/privacy.html</code> ·
-    Terms: <code>https://openvault.pfa87.cc/terms.html</code></p>
-    <p>Application name on this homepage: <strong>openVault AI Gmail Checker</strong>.</p>
+    Homepage URL: <code>https://triagebox.pfa87.cc/</code> ·
+    Privacy: <code>https://triagebox.pfa87.cc/privacy.html</code> ·
+    Terms: <code>https://triagebox.pfa87.cc/terms.html</code></p>
+    <p>Application name on this homepage: <strong>TriageBox AI Gmail Checker</strong>.</p>
   </div>
 </main>
 </body>

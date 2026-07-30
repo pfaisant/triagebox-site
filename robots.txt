@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://openvault.pfa87.cc/sitemap.xml
+Sitemap: https://triagebox.pfa87.cc/sitemap.xml

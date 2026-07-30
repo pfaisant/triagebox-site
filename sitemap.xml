@@ -1,22 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- lastmod = the date that page's CONTENT last changed (file mtimes in site/),
+       so search engines recrawl edits promptly. Update the entry when you edit the page. -->
   <url>
-    <loc>https://openvault.pfa87.cc/</loc>
+    <loc>https://triagebox.pfa87.cc/</loc>
+    <lastmod>2026-07-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://openvault.pfa87.cc/privacy.html</loc>
+    <loc>https://triagebox.pfa87.cc/privacy.html</loc>
+    <lastmod>2026-07-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://openvault.pfa87.cc/terms.html</loc>
+    <loc>https://triagebox.pfa87.cc/terms.html</loc>
+    <lastmod>2026-07-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://openvault.pfa87.cc/donate.html</loc>
+    <loc>https://triagebox.pfa87.cc/donate.html</loc>
+    <lastmod>2026-07-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
