@@ -8,7 +8,8 @@
   <meta name="application-name" content="TriageBox AI Gmail Checker" />
   <link rel="canonical" href="https://triagebox.pfa87.cc/" />
   <link rel="icon" type="image/png" href="./logo-120.png" />
-  <meta name="theme-color" content="#7a1417" />
+  <meta name="theme-color" content="#1f9d6f" />
+  <link rel="stylesheet" href="./site.css?v=20260805" />
 
   <!-- Link-preview card: on Reddit/HN/X/Discord/Slack this IS the ad — without it a
        shared link renders as a bare URL. og:url/og:image stay ABSOLUTE on the canonical
@@ -23,6 +24,7 @@
   <meta property="og:image:width" content="1280" />
   <meta property="og:image:height" content="800" />
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@pfaclawd87" />
 
   <!-- The one schema type that earns a software rich result. `name` mirrors this page's
        H1 (which must match the Google Cloud OAuth branding while that review runs);
@@ -40,166 +42,229 @@
     "url": "https://triagebox.pfa87.cc/",
     "downloadUrl": "https://chromewebstore.google.com/detail/triagebox-ai-checker-for/fdkbolcjccjkgadblcfnbnlibaiaellj",
     "offers": { "@type": "Offer", "price": "0", "priceCurrency": "GBP" },
-    "author": { "@type": "Person", "name": "Paul Faisant", "email": "paulfaisant@gmail.com" }
+    "author": { "@type": "Person", "name": "Paul Faisant", "email": "paulfaisant@gmail.com", "sameAs": ["https://x.com/pfaclawd87"] }
   }
   </script>
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background: radial-gradient(1200px 600px at 20% -10%, #3a1012 0%, #1a0809 50%, #0b0506 100%) #0b0506;
-      color: #f0e6e6; padding: 40px 20px 80px; min-height: 100vh;
-    }
-    main { max-width: 760px; margin: 0 auto; }
-    .nav { font-size: 14px; margin-bottom: 28px; color: #a89090; }
-    .nav a { color: #f5c2c2; margin-right: 14px; text-decoration: none; }
-    .nav a:hover { text-decoration: underline; }
-    .hero {
-      display: flex; gap: 20px; align-items: flex-start; flex-wrap: wrap;
-      margin-bottom: 28px;
-    }
-    .logo {
-      width: 88px; height: 88px; border-radius: 20px; flex-shrink: 0;
-      box-shadow: 0 8px 28px rgba(0,0,0,.45);
-      background: #7a1417;
-    }
-    h1 {
-      font-size: 28px; color: #fff8f8; letter-spacing: -0.02em;
-      line-height: 1.2; margin-bottom: 8px;
-    }
-    .tagline { color: #d4b8b8; font-size: 17px; max-width: 34em; }
-    .lead {
-      border: 1px solid #5a2024; border-left: 4px solid #e53935; background: #1f0c0e;
-      border-radius: 10px; padding: 14px 16px; margin: 22px 0; color: #fdecec;
-    }
-    h2 { font-size: 18px; color: #ffc9c9; margin: 28px 0 10px; }
-    p, li { color: #e8d4d4; margin-bottom: 10px; }
-    ul { padding-left: 22px; margin-bottom: 8px; }
-    a { color: #ffb4b4; }
-    .cards {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 12px; margin: 16px 0 8px;
-    }
-    .card {
-      background: #180a0c; border: 1px solid #4a1c20; border-radius: 12px;
-      padding: 14px 16px;
-    }
-    .card h3 { font-size: 14px; color: #ffd6d6; margin-bottom: 6px; }
-    .card p { font-size: 13.5px; color: #c9b0b0; margin: 0; }
-    .meta {
-      margin-top: 36px; padding-top: 18px; border-top: 1px solid #3a181c;
-      color: #9a7a7a; font-size: 13.5px;
-    }
-    .meta strong { color: #e8c4c4; }
-    code {
-      background: #2a1012; border: 1px solid #4a1c20; border-radius: 5px;
-      padding: 1px 6px; font-size: 13px; color: #ffc9c9;
-    }
-  </style>
+  <script src="./analytics.js?v=20260805" defer></script>
 </head>
 <body>
-<main>
-  <p class="nav">
-    <a href="./">Home</a>
-    <a href="./privacy.html">Privacy</a>
-    <a href="./terms.html">Terms</a>
-    <a href="./donate.html">Donate</a>
-  </p>
+<div class="shell">
+  <header class="topbar">
+    <a class="brand" href="./">
+      <img src="./logo-120.png" width="32" height="32" alt="" onerror="this.style.display='none'" />
+      <span>TriageBox</span>
+    </a>
+    <nav class="nav" aria-label="Site">
+      <a href="./" aria-current="page">Home</a>
+      <a href="./#changelog">Changelog</a>
+      <a href="./privacy.html">Privacy</a>
+      <a href="./terms.html">Terms</a>
+      <a href="./donate.html">Donate</a>
+      <a class="x-link" href="https://x.com/pfaclawd87" target="_blank" rel="noopener noreferrer" aria-label="TriageBox on X, @pfaclawd87">
+        <!-- Official X (Twitter) mark -->
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"/>
+        </svg>
+        <span>@pfaclawd87</span>
+      </a>
+      <a class="nav-cta" href="https://chromewebstore.google.com/detail/triagebox-ai-checker-for/fdkbolcjccjkgadblcfnbnlibaiaellj">Add to Chrome</a>
+    </nav>
+  </header>
 
-  <div class="hero">
-    <img class="logo" src="./logo-120.png" width="88" height="88" alt="TriageBox AI Gmail Checker logo"
-         onerror="this.style.display='none'" />
-    <div>
-      <!-- Exact OAuth consent app name — must match Google Cloud branding -->
-      <p style="font-size:13px;color:#c9a0a0;margin-bottom:4px">Application name</p>
-      <h1>TriageBox AI Gmail Checker</h1>
-      <p class="tagline">A Chrome / Chromium browser extension that helps you triage your own Gmail inbox —
-        faster actions, smarter prioritisation, a synced Todo list and optional AI summaries.
-        No TriageBox account or developer server.</p>
-      <!-- The page explained the product and offered nowhere to get it. Listed in the
-           store as "TriageBox: AI Checker for Gmail". -->
-      <p style="margin-top:14px">
-        <a href="https://chromewebstore.google.com/detail/triagebox-ai-checker-for/fdkbolcjccjkgadblcfnbnlibaiaellj"
-           style="display:inline-block;background:#e53935;color:#fff;font-weight:700;text-decoration:none;
-                  padding:10px 18px;border-radius:10px;box-shadow:0 4px 14px rgba(0,0,0,.35)">
-          Add to Chrome — it&rsquo;s free</a>
-      </p>
+  <main>
+    <section class="hero" aria-labelledby="product-name">
+      <div class="hero-copy">
+        <div class="hero-brand">
+          <img class="logo" src="./logo-120.png" width="72" height="72" alt=""
+               onerror="this.style.display='none'" />
+          <p class="eyebrow">Clear Gmail without living in Gmail</p>
+        </div>
+        <!-- Exact OAuth consent app name — must match Google Cloud branding -->
+        <h1 id="product-name">TriageBox AI Gmail Checker</h1>
+        <p class="tagline">Turn your inbox into a short, actionable queue. Archive, snooze, unsubscribe and reply from a focused Chrome popup — with optional AI summaries on your own key.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary"
+             href="https://chromewebstore.google.com/detail/triagebox-ai-checker-for/fdkbolcjccjkgadblcfnbnlibaiaellj">
+            Add to Chrome <span aria-hidden="true">→</span>
+          </a>
+          <a class="btn btn-ghost" href="#how-it-works">See how it works</a>
+        </div>
+        <ul class="trust-list" aria-label="Product highlights">
+          <li>Free to install</li>
+          <li>No TriageBox account</li>
+          <li>Data stays in your browser</li>
+        </ul>
+      </div>
+
+      <figure class="product-stage">
+        <div class="window-bar" aria-hidden="true">
+          <span></span><span></span><span></span>
+          <b>TriageBox</b>
+        </div>
+        <img src="./og-card.jpg" width="1280" height="800" alt="TriageBox inbox showing Gmail, Calendar and Todo tabs with an AI summary and one-click actions" />
+        <figcaption>One focused view for mail, calendar and tasks.</figcaption>
+      </figure>
+    </section>
+
+    <section class="outcomes" aria-label="What TriageBox helps you do">
+      <article class="outcome">
+        <span class="outcome-number">01</span>
+        <div><h2>See what matters</h2><p>Unread counts, search, sender sorting and optional relevance scores turn a noisy inbox into a queue.</p></div>
+      </article>
+      <article class="outcome">
+        <span class="outcome-number">02</span>
+        <div><h2>Act in one click</h2><p>Archive, snooze, label, unsubscribe, reply or remove a thread without opening another Gmail tab.</p></div>
+      </article>
+      <article class="outcome">
+        <span class="outcome-number">03</span>
+        <div><h2>Keep control</h2><p>AI is optional, keys stay on your device, and every Google permission is granted by you.</p></div>
+      </article>
+    </section>
+
+    <section class="lead" aria-labelledby="purpose-title">
+      <div class="lead-heading">
+        <span class="privacy-mark" aria-hidden="true">✓</span>
+        <div><p class="eyebrow">Private by design</p><h2 id="purpose-title">Your inbox does not pass through a TriageBox server</h2></div>
+      </div>
+      The purpose of <strong>TriageBox AI Gmail Checker</strong> is to help the signed-in user
+      manage and prioritise their own Gmail inbox from the browser.
+      The app is a productivity Chrome extension (toolbar badge + popup / side panel) that,
+      with the user&rsquo;s OAuth consent, accesses the user&rsquo;s Gmail and optionally Google Calendar
+      so they can: view unread mail; archive, snooze, label, trash, or mark threads read/unread;
+      review possible phishing risk; see their calendar agenda; and optionally generate AI
+      summaries using API keys the user supplies.
+      <br /><br />
+      TriageBox AI Gmail Checker has no developer-operated backend. Processing runs in the
+      user&rsquo;s browser; data is not sent to the publisher. This homepage is the official product
+      site for the application of the same name configured on the Google OAuth consent screen.
+    </section>
+
+    <div class="section-heading" id="how-it-works">
+      <p class="eyebrow">One extension, one workflow</p>
+      <h2>Move from noise to done</h2>
+      <p>Use the basic triage tools with no AI key, then add summaries only if they earn their place.</p>
     </div>
-  </div>
-
-  <div class="lead">
-    <b>Purpose of this application</b><br /><br />
-    The purpose of <strong>TriageBox AI Gmail Checker</strong> is to help the signed-in user
-    manage and prioritise their own Gmail inbox from the browser.
-    The app is a productivity Chrome extension (toolbar badge + popup / side panel) that,
-    with the user’s OAuth consent, accesses the user’s Gmail and optionally Google Calendar
-    so they can: view unread mail; archive, snooze, label, trash, or mark threads read/unread;
-    review possible phishing risk; see their calendar agenda; and optionally generate AI
-    summaries using API keys the user supplies.
-    <br /><br />
-    TriageBox AI Gmail Checker has no developer-operated backend. Processing runs in the
-    user’s browser; data is not sent to the publisher. This homepage is the official product
-    site for the application of the same name configured on the Google OAuth consent screen.
-  </div>
-
-  <h2>What the app does</h2>
-  <div class="cards">
-    <div class="card">
-      <h3>Gmail triage</h3>
-      <p>Unread badge, thread list, archive, snooze, labels, mark read/unread, spam, trash — on your account only.</p>
+    <div class="cards">
+      <div class="card">
+        <span class="card-icon" aria-hidden="true">↘</span>
+        <h3>Triage the queue</h3>
+        <p>Unread badge, thread list, archive, snooze, labels, mark read/unread, spam, trash — on your account only.</p>
+      </div>
+      <div class="card">
+        <span class="card-icon" aria-hidden="true">◇</span>
+        <h3>Check the signal</h3>
+        <p>Optional risk / phishing scoring on messages you choose to analyse, to help you spot scams faster.</p>
+      </div>
+      <div class="card">
+        <span class="card-icon" aria-hidden="true">□</span>
+        <h3>Plan the follow-up</h3>
+        <p>Optional agenda view and event actions using Google Calendar scopes you approve.</p>
+      </div>
+      <div class="card">
+        <span class="card-icon" aria-hidden="true">✦</span>
+        <h3>Summarise on demand</h3>
+        <p>Summaries and scores only when you supply a Gemini and/or xAI key and trigger a feature.</p>
+      </div>
     </div>
-    <div class="card">
-      <h3>Safety signals</h3>
-      <p>Optional risk / phishing scoring on messages you choose to analyse, to help you spot scams faster.</p>
+
+    <div class="section-heading" id="changelog">
+      <p class="eyebrow">Built in public</p>
+      <h2>Recently shipped</h2>
     </div>
-    <div class="card">
-      <h3>Calendar</h3>
-      <p>Optional agenda view and event actions using Google Calendar scopes you approve.</p>
+    <p style="margin-bottom:12px;color:var(--text-secondary);font-size:14px;max-width:42em">
+      Recent shipping from the product. Chrome Web Store listing is currently on
+      <strong style="color:var(--text-primary)">1.4.6</strong>; the in-extension build advances faster.
+      Full history lives in the extension under Docs → Changelog.
+    </p>
+    <ol class="changelog">
+      <li>
+        <div class="ver">1.23.31<span class="date">30 Jul 2026</span></div>
+        <div class="body"><strong style="color:var(--text-primary)">Export feeds only</strong> is in Settings → FeedAI News → Feeds (not only Backup &amp; Restore), so the page where you manage subscriptions can also export them.</div>
+      </li>
+      <li>
+        <div class="ver">1.23.30<span class="date">30 Jul 2026</span></div>
+        <div class="body"><strong style="color:var(--text-primary)">Feeds-only export</strong> for a clean hand-off to FeedAI News or another machine — subscriptions without mail or taste data.</div>
+      </li>
+      <li>
+        <div class="ver">1.23.29<span class="date">30 Jul 2026</span></div>
+        <div class="body"><strong style="color:var(--text-primary)">Empty Gmail groups hide</strong> after a sweep so zero-count rows no longer offer Delete over nothing.</div>
+      </li>
+      <li>
+        <div class="ver">1.23.28<span class="date">30 Jul 2026</span></div>
+        <div class="body"><strong style="color:var(--text-primary)">Filing as a row-end dropdown</strong> — clearer bulk actions on the right of each group.</div>
+      </li>
+      <li>
+        <div class="ver">1.23.27<span class="date">30 Jul 2026</span></div>
+        <div class="body"><strong style="color:var(--text-primary)">Bulk sweep defaults to unlabelled mail</strong>, matching how people clear inbox noise.</div>
+      </li>
+      <li>
+        <div class="ver">1.23.26<span class="date">30 Jul 2026</span></div>
+        <div class="body"><strong style="color:var(--text-primary)">Scans no longer starve clicks</strong> — quota waits keep the service worker alive so a pause cannot kill the job.</div>
+      </li>
+      <li>
+        <div class="ver">1.4.6<span class="date">Store · Jul 2026</span></div>
+        <div class="body"><strong style="color:var(--text-primary)">Chrome Web Store release</strong> — first public listing of TriageBox: AI Checker for Gmail.</div>
+      </li>
+    </ol>
+    <p class="changelog-note">Want the full engineering log? Open the extension → Docs → Changelog.</p>
+
+    <section class="final-cta" aria-labelledby="final-cta-title">
+      <div>
+        <p class="eyebrow">Your inbox, back under control</p>
+        <h2 id="final-cta-title">Start with the queue. Add AI only if you want it.</h2>
+        <p>Free to install. No TriageBox account and no developer-operated data server.</p>
+      </div>
+      <a class="btn btn-primary" href="https://chromewebstore.google.com/detail/triagebox-ai-checker-for/fdkbolcjccjkgadblcfnbnlibaiaellj">Add to Chrome <span aria-hidden="true">→</span></a>
+    </section>
+
+    <h2>Who it is for</h2>
+    <p>Individuals who want a focused inbox workbench for <b>their own</b> Google account.
+    It is not a bulk-mail tool, not a marketing platform, and not intended to access other people&rsquo;s mailboxes.</p>
+
+    <h2>How sign-in works</h2>
+    <p>Google sign-in uses OAuth via Chrome&rsquo;s identity APIs. You grant access on Google&rsquo;s consent screen.
+    You can revoke access at any time at
+    <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>.
+    Uninstalling the extension removes local data stored by the app.</p>
+
+    <h2>Privacy &amp; terms</h2>
+    <ul>
+      <li><a href="./privacy.html">Privacy Policy</a> — what data is accessed and where it goes</li>
+      <li><a href="./terms.html">Terms of Service</a> — use of the extension</li>
+      <li><a href="./donate.html">Support / donate</a> — optional, not required to use the app</li>
+    </ul>
+
+    <h2>Independence and trademarks</h2>
+    <p>TriageBox AI Gmail Checker is an independent tool. It is <strong>not affiliated with,
+    sponsored by or endorsed by Google</strong>, and it is not a Google product. It works with a
+    Google account you already have, using Google&rsquo;s public APIs under their own terms, with your
+    OAuth consent. Gmail, Google Calendar, Google and Chrome are trademarks of Google LLC; xAI and
+    Grok are trademarks of X.AI Corp. X is a trademark of X Corp. Any other product name used in the
+    extension or on this site belongs to its owner and is used only to identify the product being referred to.</p>
+
+    <h2>Developer contact</h2>
+    <p>Publisher: Paul Faisant ·
+    <a href="mailto:paulfaisant@gmail.com">paulfaisant@gmail.com</a></p>
+    <p>This site is the official homepage for <strong>TriageBox AI Gmail Checker</strong>,
+    the same application name used on the Google OAuth consent screen and related store listings.</p>
+
+    <div class="meta">
+      <p><strong>OAuth / verification note for Google reviewers:</strong>
+      Homepage URL: <code>https://triagebox.pfa87.cc/</code> ·
+      Privacy: <code>https://triagebox.pfa87.cc/privacy.html</code> ·
+      Terms: <code>https://triagebox.pfa87.cc/terms.html</code></p>
+      <p>Application name on this homepage: <strong>TriageBox AI Gmail Checker</strong>.</p>
+      <div class="footer-row">
+        <a class="x-link" href="https://x.com/pfaclawd87" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"/>
+          </svg>
+          @pfaclawd87 on X
+        </a>
+        <a href="https://news.pfa87.cc/" rel="noopener">FeedAI News</a>
+      </div>
     </div>
-    <div class="card">
-      <h3>Optional AI</h3>
-      <p>Summaries and scores only when you supply a Gemini and/or xAI key and trigger a feature.</p>
-    </div>
-  </div>
-
-  <h2>Who it is for</h2>
-  <p>Individuals who want a focused inbox workbench for <b>their own</b> Google account.
-  It is not a bulk-mail tool, not a marketing platform, and not intended to access other people’s mailboxes.</p>
-
-  <h2>How sign-in works</h2>
-  <p>Google sign-in uses OAuth via Chrome’s identity APIs. You grant access on Google’s consent screen.
-  You can revoke access at any time at
-  <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>.
-  Uninstalling the extension removes local data stored by the app.</p>
-
-  <h2>Privacy &amp; terms</h2>
-  <ul>
-    <li><a href="./privacy.html">Privacy Policy</a> — what data is accessed and where it goes</li>
-    <li><a href="./terms.html">Terms of Service</a> — use of the extension</li>
-    <li><a href="./donate.html">Support / donate</a> — optional, not required to use the app</li>
-  </ul>
-
-  <h2>Independence and trademarks</h2>
-  <p>TriageBox AI Gmail Checker is an independent tool. It is <strong>not affiliated with,
-  sponsored by or endorsed by Google</strong>, and it is not a Google product. It works with a
-  Google account you already have, using Google&#39;s public APIs under their own terms, with your
-  OAuth consent. Gmail, Google Calendar, Google and Chrome are trademarks of Google LLC; xAI and
-  Grok are trademarks of X.AI Corp. Any other product name used in the extension or on this site
-  belongs to its owner and is used only to identify the product being referred to.</p>
-
-  <h2>Developer contact</h2>
-  <p>Publisher: Paul Faisant ·
-  <a href="mailto:paulfaisant@gmail.com">paulfaisant@gmail.com</a></p>
-  <p>This site is the official homepage for <strong>TriageBox AI Gmail Checker</strong>,
-  the same application name used on the Google OAuth consent screen and related store listings.</p>
-
-  <div class="meta">
-    <p><strong>OAuth / verification note for Google reviewers:</strong>
-    Homepage URL: <code>https://triagebox.pfa87.cc/</code> ·
-    Privacy: <code>https://triagebox.pfa87.cc/privacy.html</code> ·
-    Terms: <code>https://triagebox.pfa87.cc/terms.html</code></p>
-    <p>Application name on this homepage: <strong>TriageBox AI Gmail Checker</strong>.</p>
-  </div>
-</main>
+  </main>
+</div>
 </body>
 </html>

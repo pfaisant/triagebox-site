@@ -4,6 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>TriageBox AI Gmail Checker — Privacy Policy</title>
+  <link rel="stylesheet" href="./site.css?v=20260805" />
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -29,6 +30,7 @@
     td { background: #0d1814; }
     code { background: #0b2018; border: 1px solid #1e3a2f; border-radius: 5px; padding: 1px 6px; font-size: 13px; color: #a7f3d0; }
   </style>
+  <script src="./analytics.js?v=20260805" defer></script>
 </head>
 <body>
 <main>
@@ -39,19 +41,20 @@
     <a href="./donate.html">Donate</a>
   </p>
   <h1>TriageBox AI Gmail Checker — Privacy Policy</h1>
-  <p class="meta">Effective date: 29 July 2026 · Contact: paulfaisant@gmail.com</p>
+  <p class="meta">Effective date: 5 August 2026 · Contact: paulfaisant@gmail.com</p>
 
   <p><strong>TriageBox AI Gmail Checker</strong> (short name: TriageBox) is a Chrome extension
   that helps you triage your own Gmail inbox: unread badge, fast actions (archive / snooze /
   mark read / label), an optional Google Calendar agenda, and optional AI summaries of your
   email threads.</p>
 
-  <div class="lead"><b>The short version: TriageBox has no product server, analytics or
+  <div class="lead"><b>The extension has no product server, telemetry, analytics or
   advertising.</b> Working data is stored in your browser; your Todo list can also use
   Chrome Sync so it appears in your other signed-in Chrome browsers. The extension
   communicates directly with Google, an AI provider you configure, and—only when you enable
   FeedAI—the feed/article sites you select. The developer receives information only when you
-  deliberately send a feedback report or email.</div>
+  deliberately send a feedback report or email. The separate public website uses consent-controlled
+  Google Analytics as described below; it never receives Gmail or extension data.</div>
 
   <h2>What the extension accesses, and why</h2>
   <table>
@@ -62,8 +65,8 @@
       <td>Directly between your browser and Google. A local cache is kept in <code>chrome.storage.local</code> on your device</td>
     </tr>
     <tr>
-      <td>Google Calendar events (<code>calendar</code> scope)</td>
-      <td>Show your agenda; create/delete events you ask for</td>
+      <td>Google Calendar (<code>calendar.calendarlist.readonly</code> + <code>calendar.events</code>)</td>
+      <td>List calendars for the agenda picker; show events; create/edit/delete events you ask for</td>
       <td>Directly between your browser and Google</td>
     </tr>
     <tr>
@@ -100,7 +103,7 @@
 
   <h2>What we do NOT do</h2>
   <ul>
-    <li>No developer server, no telemetry, no analytics, no crash reporting.</li>
+    <li>The extension has no developer server, telemetry, analytics, or crash reporting.</li>
     <li>No selling, sharing, or transferring of user data to anyone.</li>
     <li>No use of data for advertising, profiling, or creditworthiness.</li>
     <li>No background loading of remote email images or tracking pixels. They load only in a preview
@@ -122,10 +125,22 @@
   the feed and article publishers you selected. Those sites receive an ordinary request from
   your browser and may apply their own privacy policies.</p>
 
-  <h2>This website (donate page only)</h2>
-  <p>The marketing / donate site at
+  <h2 id="website-analytics">This website</h2>
+  <p>The public website at
   <a href="https://triagebox.pfa87.cc/">triagebox.pfa87.cc</a>
-  is separate from the extension. On the <a href="./donate.html">donate page</a> only, a
+  is separate from the extension. It uses Google Analytics 4 (measurement ID
+  <code>G-KVV7QW9D5E</code>) to measure page views and understand how visitors find and use the
+  site. Consent Mode defaults analytics storage to denied before Google's script loads. Until
+  you accept, Google receives cookieless measurement pings; if you accept, Google Analytics may
+  set identifiers such as <code>_ga</code>. Advertising storage, ad personalisation and ad user
+  data remain disabled. Your choice is stored in this browser's local storage and can be changed
+  using the <strong>Cookie settings</strong> button on any page.</p>
+  <p>Analytics may process the page URL and title, referrer, approximate location, device/browser
+  information and interaction timing. It does not receive Gmail messages, extension settings,
+  API keys or other extension data. Google processes analytics data under its
+  <a href="https://policies.google.com/privacy">Privacy Policy</a>. Analytics-cookie processing is
+  based on your consent; declining does not affect the website or extension.</p>
+  <p>Separately, on the <a href="./donate.html">donate page</a> only, a
   minimal event log may be recorded so the developer can build aggregate statistics
   (for example unique supporters and rough geography):</p>
   <ul>
@@ -138,7 +153,7 @@
       controlled by the developer. The public like total is a simple counter service
       (no message content).</li>
   </ul>
-  <p>This website logging does <strong>not</strong> apply to the Chrome extension, Gmail data,
+  <p>This website analytics and logging do <strong>not</strong> apply to the Chrome extension, Gmail data,
   or AI features. The extension still has no developer server and does not send your mail or
   settings to the developer.</p>
 
@@ -153,8 +168,12 @@
   is never read by a human other than you.</p>
 
   <h2>Who is responsible, and on what basis</h2>
-  <p>For the small amount of processing the developer actually performs — the donate-page event
-  log and the public like counter described above, plus any feedback email you choose to send —
+  <p>For website analytics, the lawful basis for storing or reading analytics identifiers is your
+  <strong>consent</strong> (Article 6(1)(a) UK GDPR / GDPR). You can withdraw it at any time through
+  <strong>Cookie settings</strong>; doing so disables analytics storage and removes accessible GA
+  cookies from this site.</p>
+  <p>For the other small amount of processing the developer performs — the donate-page event log
+  and public like counter described above, plus any feedback email you choose to send —
   the <strong>data controller</strong> is the publisher, Paul Faisant
   (<a href="mailto:paulfaisant@gmail.com">paulfaisant@gmail.com</a>). The lawful basis is
   <strong>legitimate interests</strong> (Article 6(1)(f) UK GDPR / GDPR): counting supporters
@@ -172,6 +191,8 @@
       deletes them. Todos you chose to sync also live in your own Chrome Sync account.</li>
     <li><strong>Donate-page events:</strong> kept only as long as they are useful for those
       statistics — in practice no longer than 24 months — and deleted sooner if you ask.</li>
+    <li><strong>Website analytics:</strong> retention is controlled in the Google Analytics
+      property. Your consent choice remains on your device until you change it or clear site data.</li>
     <li><strong>Feedback you send:</strong> kept in the developer's mailbox while the issue is
       open and for a reasonable period afterwards, so a follow-up reply still makes sense.</li>
   </ul>
@@ -192,10 +213,10 @@
 
   <h2>Where data goes geographically</h2>
   <p>The extension talks to Google and to the AI provider you configured; where those companies
-  process data is governed by their own terms, linked above. The two small website services used
-  by the donate page (a form/inbox service and a public counter) may process outside the UK and
-  EEA under their own safeguards. No mail content, and nothing from the extension, is sent to
-  either of them.</p>
+  process data is governed by their own terms, linked above. Google Analytics and the two small
+  website services used by the donate page (a form/inbox service and a public counter) may process
+  outside the UK and EEA under their own safeguards. No mail content, and nothing from the
+  extension, is sent to any of them.</p>
 
   <h2>Children</h2>
   <p>TriageBox is a productivity tool for the holder of a Google account and is not directed at
