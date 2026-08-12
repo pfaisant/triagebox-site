@@ -4,12 +4,12 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>TriageBox AI Gmail Checker — AI-powered Gmail triage for Chrome</title>
-  <meta name="description" content="TriageBox AI Gmail Checker is a Chrome extension that helps you triage your own Gmail inbox: unread badge, fast archive/snooze/label actions, phishing alerts, Calendar agenda, a synced Todo list, and optional AI summaries. No developer server." />
+  <meta name="description" content="Clear Gmail without living in Gmail. TriageBox turns your inbox into a short queue: one-click archive/snooze/label, bulk sweeps, unsubscribe, phishing alerts. No TriageBox server. AI optional." />
   <meta name="application-name" content="TriageBox AI Gmail Checker" />
   <link rel="canonical" href="https://triagebox.pfa87.cc/" />
   <link rel="icon" type="image/png" href="./logo-120.png" />
   <meta name="theme-color" content="#1f9d6f" />
-  <link rel="stylesheet" href="./site.css?v=20260805" />
+  <link rel="stylesheet" href="./site.css?v=20260812" />
 
   <!-- Link-preview card: on Reddit/HN/X/Discord/Slack this IS the ad — without it a
        shared link renders as a bare URL. og:url/og:image stay ABSOLUTE on the canonical
@@ -25,25 +25,93 @@
   <meta property="og:image:height" content="800" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@pfaclawd87" />
+  <meta name="twitter:title" content="TriageBox AI Gmail Checker — Clear Gmail without living in Gmail" />
+  <meta name="twitter:description" content="Popup triage, bulk sweeps with exact counts, unsubscribe, scam checks. No TriageBox server. AI optional on your key." />
+  <meta name="twitter:image" content="https://triagebox.pfa87.cc/og-card.jpg" />
 
   <!-- The one schema type that earns a software rich result. `name` mirrors this page's
        H1 (which must match the Google Cloud OAuth branding while that review runs);
        `alternateName` is the Chrome Web Store listing name. No aggregateRating on
        purpose: the listing has no ratings yet, and inventing one is a manual-action
        risk, not SEO. -->
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "TriageBox AI Gmail Checker",
+  "alternateName": "TriageBox: AI Checker for Gmail",
+  "applicationCategory": "BrowserApplication",
+  "operatingSystem": "Chrome, Chromium, Edge",
+  "url": "https://triagebox.pfa87.cc/",
+  "downloadUrl": "https://chromewebstore.google.com/detail/triagebox-ai-checker-for/fdkbolcjccjkgadblcfnbnlibaiaellj",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "GBP"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Paul Faisant",
+    "email": "paulfaisant@gmail.com",
+    "sameAs": [
+      "https://x.com/pfaclawd87"
+    ]
+  },
+  "softwareVersion": "1.23.48",
+  "description": "Clear Gmail without living in Gmail. TriageBox turns your inbox into a short queue: one-click archive/snooze/label, bulk sweeps, unsubscribe, phishing alerts. No TriageBox server. AI optional.",
+  "screenshot": "https://triagebox.pfa87.cc/og-card.jpg",
+  "sameAs": [
+    "https://chromewebstore.google.com/detail/triagebox-ai-checker-for/fdkbolcjccjkgadblcfnbnlibaiaellj",
+    "https://x.com/pfaclawd87"
+  ],
+  "featureList": [
+    "One-click Gmail triage from a Chrome popup",
+    "Bulk sweeps by sender with exact counts before any action",
+    "Per-sender unsubscribe",
+    "Phishing / scam checks without an API key",
+    "Optional AI summaries on your own Gemini or xAI key"
+  ]
+}
+  </script>
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "TriageBox AI Gmail Checker",
-    "alternateName": "TriageBox: AI Checker for Gmail",
-    "applicationCategory": "BrowserApplication",
-    "operatingSystem": "Chrome, Chromium, Edge",
-    "url": "https://triagebox.pfa87.cc/",
-    "downloadUrl": "https://chromewebstore.google.com/detail/triagebox-ai-checker-for/fdkbolcjccjkgadblcfnbnlibaiaellj",
-    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "GBP" },
-    "author": { "@type": "Person", "name": "Paul Faisant", "email": "paulfaisant@gmail.com", "sameAs": ["https://x.com/pfaclawd87"] }
-  }
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is TriageBox free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. TriageBox is free to install on the Chrome Web Store. There is no subscription and no TriageBox account. Optional support never unlocks features."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does my mail go through a TriageBox server?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. TriageBox has no developer-operated backend. Processing runs in your browser; Gmail data is not sent to the publisher."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need an AI key?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Badge, popup actions, sweeps and unsubscribe work with no key. Summaries and AI scores are optional if you supply a Gemini and/or xAI key."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does TriageBox replace Checker Plus for Gmail?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not as a notifier. Checker Plus remains stronger for desktop notifications. TriageBox is built to clear the pile — scores, sweeps, unsubscribe and scam checks. Many people use both."
+      }
+    }
+  ]
+}
   </script>
   <script src="./analytics.js?v=20260805" defer></script>
 </head>
@@ -56,7 +124,7 @@
     </a>
     <nav class="nav" aria-label="Site">
       <a href="./" aria-current="page">Home</a>
-      <a href="./#changelog">Changelog</a>
+      <a href="./changelog.html">Changelog</a>
       <a href="./privacy.html">Privacy</a>
       <a href="./terms.html">Terms</a>
       <a href="./donate.html">Donate</a>
@@ -74,9 +142,9 @@
   <main>
     <section class="hero" aria-labelledby="product-name">
       <div class="hero-copy">
+        <!-- No logo here: the topbar brand 20px above already shows it, and the pair read
+             as a mistake. The eyebrow alone marks the hero. -->
         <div class="hero-brand">
-          <img class="logo" src="./logo-120.png" width="72" height="72" alt=""
-               onerror="this.style.display='none'" />
           <p class="eyebrow">Clear Gmail without living in Gmail</p>
         </div>
         <!-- Exact OAuth consent app name — must match Google Cloud branding -->
@@ -89,8 +157,11 @@
           </a>
           <a class="btn btn-ghost" href="#how-it-works">See how it works</a>
         </div>
+        <p class="hero-micro">Free on the Chrome Web Store · no account · data stays in your browser</p>
+        <p class="hero-store-link"><a href="https://chromewebstore.google.com/detail/triagebox-ai-checker-for/fdkbolcjccjkgadblcfnbnlibaiaellj">Chrome Web Store · v1.23.48</a></p>
         <ul class="trust-list" aria-label="Product highlights">
           <li>Free to install</li>
+          <li>No subscription</li>
           <li>No TriageBox account</li>
           <li>Data stays in your browser</li>
         </ul>
@@ -163,7 +234,9 @@
       <div class="card">
         <span class="card-icon" aria-hidden="true">✦</span>
         <h3>Summarise on demand</h3>
-        <p>Summaries and scores only when you supply a Gemini and/or xAI key and trigger a feature.</p>
+        <p>Summaries and scores only when you supply a Gemini and/or xAI key and trigger a feature.
+        A key is not a subscription — a Gemini key is created in a minute in Google AI Studio on an
+        ordinary Google account, with no billing attached.</p>
       </div>
     </div>
 
@@ -213,6 +286,32 @@
       <a class="btn btn-primary" href="https://chromewebstore.google.com/detail/triagebox-ai-checker-for/fdkbolcjccjkgadblcfnbnlibaiaellj">Add to Chrome <span aria-hidden="true">→</span></a>
     </section>
 
+
+    <section class="faq" id="faq" aria-labelledby="faq-title">
+      <div class="section-heading">
+        <p class="eyebrow">Quick answers</p>
+        <h2 id="faq-title">FAQ</h2>
+      </div>
+      <div class="faq-list">
+        <details>
+          <summary>Is it free?</summary>
+          <p>Yes. Free to install on the Chrome Web Store — no subscription and no TriageBox account. Optional support never unlocks features.</p>
+        </details>
+        <details>
+          <summary>Does mail go through a TriageBox server?</summary>
+          <p>No. There is no developer-operated backend. Processing runs in your browser; your Gmail data is not sent to the publisher.</p>
+        </details>
+        <details>
+          <summary>Do I need an AI key?</summary>
+          <p>No. Triage, sweeps, unsubscribe and the no-key scam checks work without one. Summaries and AI scores are optional if you add a Gemini and/or xAI key.</p>
+        </details>
+        <details>
+          <summary>Will it replace Checker Plus for Gmail?</summary>
+          <p>Not as a notifier — Checker Plus remains stronger there. TriageBox is built to clear the pile. <a href="./checker-plus-alternative.html">Honest comparison</a>.</p>
+        </details>
+      </div>
+    </section>
+
     <h2>Who it is for</h2>
     <p>Individuals who want a focused inbox workbench for <b>their own</b> Google account.
     It is not a bulk-mail tool, not a marketing platform, and not intended to access other people&rsquo;s mailboxes.</p>
@@ -228,6 +327,7 @@
       <li><a href="./privacy.html">Privacy Policy</a> — what data is accessed and where it goes</li>
       <li><a href="./terms.html">Terms of Service</a> — use of the extension</li>
       <li><a href="./donate.html">Support / donate</a> — optional, not required to use the app</li>
+      <li><a href="./checker-plus-alternative.html">TriageBox vs Checker Plus for Gmail</a> — an honest comparison, losses included</li>
     </ul>
 
     <h2>Independence and trademarks</h2>

@@ -534,3 +534,42 @@ code {
   height: 15px;
   fill: currentColor;
 }
+
+/* Hero CTA microcopy (Marketing launch SEO) */
+.hero-micro {
+  margin: 10px 0 4px;
+  color: var(--text-secondary);
+  font-size: 13px;
+  line-height: 1.45;
+}
+.hero-store-link {
+  margin: 0 0 14px;
+  font-size: 13px;
+}
+.hero-store-link a {
+  color: var(--text-secondary);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.hero-store-link a:hover { color: var(--text-primary); }
+
+/* Homepage FAQ */
+.faq { margin: 48px 0 24px; }
+.faq-list { max-width: 42em; display: grid; gap: 10px; }
+.faq-list details {
+  border: 1px solid var(--border, rgba(0,0,0,.08));
+  border-radius: 12px;
+  padding: 12px 16px;
+  background: var(--card, rgba(255,255,255,.5));
+}
+.faq-list summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+.faq-list details p {
+  margin: 10px 0 2px;
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.55;
+}
