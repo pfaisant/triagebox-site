@@ -1,11 +1,11 @@
-/* Google Analytics 4 for the public TriageBox website only.
+/* Google Analytics 4 (G-P5G7YVWE93) for the public TriageBox website only.
    Consent Mode v2 defaults to denied before gtag.js is requested. The site sends
    cookieless measurement pings until the visitor accepts; advertising signals
    remain denied in every state. This file is not included in the extension. */
 (function () {
   'use strict';
 
-  var ID = 'G-KVV7QW9D5E';
+  var ID = 'G-P5G7YVWE93';
   var KEY = 'triagebox-analytics-consent';
 
   window.dataLayer = window.dataLayer || [];
