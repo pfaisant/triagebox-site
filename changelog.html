@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>TriageBox changelog — Chrome Web Store v1.23.48</title>
-  <meta name="description" content="What shipped in TriageBox AI Gmail Checker. Chrome Web Store is on v1.23.48 (updated 9 Aug 2026). Full engineering history also lives in the extension under Docs → Changelog." />
+  <title>TriageBox changelog</title>
+  <meta name="description" content="What shipped in TriageBox AI Gmail Checker. Add to Chrome installs the Chrome Web Store build. Full engineering history also lives in the extension under Docs → Changelog." />
   <link rel="canonical" href="https://triagebox.pfa87.cc/changelog.html" />
   <link rel="icon" type="image/png" href="./logo-120.png" />
   <meta name="theme-color" content="#1f9d6f" />
@@ -12,13 +12,13 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="TriageBox" />
   <meta property="og:url" content="https://triagebox.pfa87.cc/changelog.html" />
-  <meta property="og:title" content="TriageBox changelog — Chrome Web Store v1.23.48" />
-  <meta property="og:description" content="Recent shipping for TriageBox AI Gmail Checker. Store package v1.23.48." />
+  <meta property="og:title" content="TriageBox changelog" />
+  <meta property="og:description" content="Recent shipping for TriageBox AI Gmail Checker. Add to Chrome installs the store listing." />
   <meta property="og:image" content="https://triagebox.pfa87.cc/og-card.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@pfaclawd87" />
-  <meta name="twitter:title" content="TriageBox changelog — Chrome Web Store v1.23.48" />
-  <meta name="twitter:description" content="Recent shipping for TriageBox. Store package v1.23.48 (9 Aug 2026)." />
+  <meta name="twitter:title" content="TriageBox changelog" />
+  <meta name="twitter:description" content="Recent shipping for TriageBox. Add to Chrome installs the store listing." />
   <meta name="twitter:image" content="https://triagebox.pfa87.cc/og-card.jpg" />
   <script src="./analytics.js?v=20260827-shared2" defer></script>
 </head>
@@ -43,7 +43,7 @@
       <div class="hero-copy">
         <p class="eyebrow">Built in public</p>
         <h1 id="chg-title">Changelog</h1>
-        <p class="tagline">Chrome Web Store is on <strong>v1.23.48</strong> (updated 9 Aug 2026). In-extension build is <strong>1.24.0</strong>. Highlights below; the full engineering log is in the extension under Docs → Changelog.</p>
+        <p class="tagline">Add to Chrome installs the <a href="https://chromewebstore.google.com/detail/triagebox-ai-checker-for/fdkbolcjccjkgadblcfnbnlibaiaellj">Chrome Web Store</a> build. Items after 1.26.0 below are in-extension until they ship to the store. The full engineering log is in the extension under Docs → Changelog.</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="https://chromewebstore.google.com/detail/triagebox-ai-checker-for/fdkbolcjccjkgadblcfnbnlibaiaellj">Add to Chrome <span aria-hidden="true">→</span></a>
           <a class="btn btn-ghost" href="./">Back to home</a>
@@ -51,6 +51,22 @@
       </div>
     </section>
     <ol class="changelog">
+      <li>
+        <div class="ver">1.27.3<span class="date">29 Aug 2026</span></div>
+        <div class="body">Unticked “use free Gemini” now applies when OpenRouter is pinned; footer shows the full model names; OpenRouter timeouts are 20s.</div>
+      </li>
+      <li>
+        <div class="ver">1.27.2<span class="date">29 Aug 2026</span></div>
+        <div class="body">OpenRouter models are a checklist (GLM 5.3 Flash first, then GPT-5.6 Luna). Toggle to use free Gemini first (default) or skip it and start at GLM.</div>
+      </li>
+      <li>
+        <div class="ver">1.27.1<span class="date">29 Aug 2026</span></div>
+        <div class="body">OpenRouter Auto starts at OpenRouter (GLM flash), not Gemini first. Cards say OpenRouter · model, not google/gemini-…</div>
+      </li>
+      <li>
+        <div class="ver">1.27.0<span class="date">29 Aug 2026</span></div>
+        <div class="body">OpenRouter is a real bring-your-own-key provider. A key pasted into “Bring your own models” is moved to its own field on load so summaries work without another Save.</div>
+      </li>
       <li>
         <div class="ver">1.26.0<span class="date">22 Aug 2026</span></div>
         <div class="body">Newest first keeps time order after scoring; Keep unread and Copy all content on the card menu; Recently removed tray redesigned; Grok desks write fuller bodies and analysis.</div>

@@ -29,27 +29,22 @@
   <meta name="twitter:description" content="Popup triage, bulk sweeps with exact counts, unsubscribe, scam checks. No TriageBox server. AI optional on your key." />
   <meta name="twitter:image" content="https://triagebox.pfa87.cc/og-card.jpg" />
 
-  <!-- The one schema type that earns a software rich result. `name` mirrors this page's
-       H1 (which must match the Google Cloud OAuth branding while that review runs);
-       `alternateName` is the Chrome Web Store listing name. No aggregateRating on
-       purpose: the listing has no ratings yet, and inventing one is a manual-action
-       risk, not SEO. -->
+  <!-- WebSite, not SoftwareApplication. Google requires review or aggregateRating on
+       SoftwareApplication; this listing has no genuine on-site ratings, and inventing
+       them is a Search Console / manual-action risk. Software rich results will not
+       show without a real rating anyway. name still mirrors the H1 / OAuth branding;
+       alternateName is the Chrome Web Store listing. Restore SoftwareApplication only
+       when visible first-party reviews exist on this page. -->
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
+  "@type": "WebSite",
   "name": "TriageBox AI Gmail Checker",
   "alternateName": "TriageBox: AI Checker for Gmail",
-  "applicationCategory": "BrowserApplication",
-  "operatingSystem": "Chrome, Chromium, Edge",
   "url": "https://triagebox.pfa87.cc/",
-  "downloadUrl": "https://chromewebstore.google.com/detail/triagebox-ai-checker-for/fdkbolcjccjkgadblcfnbnlibaiaellj",
-  "offers": {
-    "@type": "Offer",
-    "price": "0",
-    "priceCurrency": "GBP"
-  },
-  "author": {
+  "description": "Clear Gmail without living in Gmail. TriageBox turns your inbox into a short queue: one-click archive/snooze/label, bulk sweeps, unsubscribe, phishing alerts. No TriageBox server. AI optional.",
+  "image": "https://triagebox.pfa87.cc/og-card.jpg",
+  "publisher": {
     "@type": "Person",
     "name": "Paul Faisant",
     "email": "paulfaisant@gmail.com",
@@ -57,19 +52,9 @@
       "https://x.com/pfaclawd87"
     ]
   },
-  "softwareVersion": "1.23.48",
-  "description": "Clear Gmail without living in Gmail. TriageBox turns your inbox into a short queue: one-click archive/snooze/label, bulk sweeps, unsubscribe, phishing alerts. No TriageBox server. AI optional.",
-  "screenshot": "https://triagebox.pfa87.cc/og-card.jpg",
   "sameAs": [
     "https://chromewebstore.google.com/detail/triagebox-ai-checker-for/fdkbolcjccjkgadblcfnbnlibaiaellj",
     "https://x.com/pfaclawd87"
-  ],
-  "featureList": [
-    "One-click Gmail triage from a Chrome popup",
-    "Bulk sweeps by sender with exact counts before any action",
-    "Per-sender unsubscribe",
-    "Phishing / scam checks without an API key",
-    "Optional AI summaries on your own Gemini or xAI key"
   ]
 }
   </script>
@@ -83,7 +68,7 @@
       "name": "Is TriageBox free?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. TriageBox is free to install on the Chrome Web Store. There is no subscription and no TriageBox account. Optional support never unlocks features."
+        "text": "Yes. TriageBox is free to install on the Chrome Web Store. There is no subscription and no TriageBox account. Optional support never unlocks features. It is a digital download: nothing is shipped, and there is nothing to return or refund."
       }
     },
     {
@@ -107,7 +92,7 @@
       "name": "Does TriageBox replace Checker Plus for Gmail?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Not as a notifier. Checker Plus remains stronger for desktop notifications. TriageBox is built to clear the pile — scores, sweeps, unsubscribe and scam checks. Many people use both."
+        "text": "TriageBox notifies on arrival with Archive and Mark read on the notice. Checker Plus remains stronger for voice and per-account richness. TriageBox is built to clear the pile — scores, sweeps, unsubscribe and scam checks. Many people use both."
       }
     }
   ]
@@ -149,7 +134,7 @@
         </div>
         <!-- Exact OAuth consent app name — must match Google Cloud branding -->
         <h1 id="product-name">TriageBox AI Gmail Checker</h1>
-        <p class="tagline">Turn your inbox into a short, actionable queue. Archive, snooze, unsubscribe and reply from a focused Chrome popup — with optional AI summaries on your own key.</p>
+        <p class="tagline">Turn your inbox into a short queue. Archive, snooze and unsubscribe from a Chrome popup — then sweep a sender with an exact count before anything moves. AI is optional, on your own key.</p>
         <div class="hero-actions">
           <a class="btn btn-primary"
              href="https://chromewebstore.google.com/detail/triagebox-ai-checker-for/fdkbolcjccjkgadblcfnbnlibaiaellj">
@@ -158,7 +143,7 @@
           <a class="btn btn-ghost" href="#how-it-works">See how it works</a>
         </div>
         <p class="hero-micro">Free on the Chrome Web Store · no account · data stays in your browser</p>
-        <p class="hero-store-link"><a href="https://chromewebstore.google.com/detail/triagebox-ai-checker-for/fdkbolcjccjkgadblcfnbnlibaiaellj">Chrome Web Store · v1.23.48</a></p>
+        <p class="hero-store-link"><a href="https://chromewebstore.google.com/detail/triagebox-ai-checker-for/fdkbolcjccjkgadblcfnbnlibaiaellj">Chrome Web Store listing</a></p>
         <ul class="trust-list" aria-label="Product highlights">
           <li>Free to install</li>
           <li>No subscription</li>
@@ -180,11 +165,11 @@
     <section class="outcomes" aria-label="What TriageBox helps you do">
       <article class="outcome">
         <span class="outcome-number">01</span>
-        <div><h2>See what matters</h2><p>Unread counts, search, sender sorting and optional relevance scores turn a noisy inbox into a queue.</p></div>
+        <div><h2>See what matters</h2><p>Newest mail stays on top after scoring. Peek a thread without clearing Unread. Optional relevance scores turn a noisy inbox into a queue.</p></div>
       </article>
       <article class="outcome">
         <span class="outcome-number">02</span>
-        <div><h2>Act in one click</h2><p>Archive, snooze, label, unsubscribe, reply or remove a thread without opening another Gmail tab.</p></div>
+        <div><h2>Act in one click</h2><p>Archive, snooze, label, unsubscribe or reply without opening Gmail — or sweep a whole sender with the exact count in front of you first.</p></div>
       </article>
       <article class="outcome">
         <span class="outcome-number">03</span>
@@ -219,7 +204,7 @@
       <div class="card">
         <span class="card-icon" aria-hidden="true">↘</span>
         <h3>Triage the queue</h3>
-        <p>Unread badge, thread list, archive, snooze, labels, mark read/unread, spam, trash — on your account only.</p>
+        <p>Unread badge, newest-first list, archive, snooze, keep unread, copy the thread, spam, trash — on your account only.</p>
       </div>
       <div class="card">
         <span class="card-icon" aria-hidden="true">◇</span>
@@ -240,57 +225,6 @@
       </div>
     </div>
 
-    <div class="section-heading" id="changelog">
-      <p class="eyebrow">Built in public</p>
-      <h2>Recently shipped</h2>
-    </div>
-    <p style="margin-bottom:12px;color:var(--text-secondary);font-size:14px;max-width:42em">
-      Recent shipping from the product. Chrome Web Store is on
-      <strong style="color:var(--text-primary)">1.23.48</strong>
-      (updated 9 Aug 2026); the in-extension build is
-      <strong style="color:var(--text-primary)">1.26.0</strong>.
-      Full history lives in the extension under Docs → Changelog.
-    </p>
-    <ol class="changelog">
-      <li>
-        <div class="ver">1.26.0<span class="date">22 Aug 2026</span></div>
-        <div class="body"><strong style="color:var(--text-primary)">Newest first, keep unread, copy the thread</strong> — scored mail stays in Gmail time order; peek without clearing Unread; copy the full thread; Recently removed is a titled restore tray.</div>
-      </li>
-      <li>
-        <div class="ver">1.25.0<span class="date">22 Aug 2026</span></div>
-        <div class="body"><strong style="color:var(--text-primary)">FeedAI desks, canonical URLs, iran landing</strong> — Portfolio Grok twin; rail keeps the chosen feed; feed+category URLs; iran.pfa87.cc; news navigation stays on the selected provider.</div>
-      </li>
-      <li>
-        <div class="ver">1.24.0<span class="date">13 Aug 2026</span></div>
-        <div class="body"><strong style="color:var(--text-primary)">Notifications, resumable sweeps, categories, keyboard</strong> — desktop notices with Archive / Mark read and quiet hours; bulk scans resume after a stop; subject-family grouping; named card categories; e / # / s / u in the popup list.</div>
-      </li>
-      <li>
-        <div class="ver">1.23.48<span class="date">Store · 9 Aug 2026</span></div>
-        <div class="body"><strong style="color:var(--text-primary)">Chrome Web Store package</strong> — live listing updated to 1.23.48.</div>
-      </li>
-      <li>
-        <div class="ver">1.23.47<span class="date">6 Aug 2026</span></div>
-        <div class="body"><strong style="color:var(--text-primary)">AI phishing score grounded in the sender</strong> — From line plus Gmail’s SPF/DKIM/DMARC verdict, so a verified sender is not accused of impersonating itself.</div>
-      </li>
-      <li>
-        <div class="ver">1.23.34<span class="date">31 Jul 2026</span></div>
-        <div class="body"><strong style="color:var(--text-primary)">Phishing shield v2</strong> — SPF/DKIM/DMARC, reply-path and attachment signals from headers Gmail already sends; no API key required for the deterministic half.</div>
-      </li>
-      <li>
-        <div class="ver">1.23.31<span class="date">30 Jul 2026</span></div>
-        <div class="body"><strong style="color:var(--text-primary)">Export feeds only</strong> is in Settings → FeedAI News → Feeds (not only Backup &amp; Restore).</div>
-      </li>
-      <li>
-        <div class="ver">1.23.26<span class="date">30 Jul 2026</span></div>
-        <div class="body"><strong style="color:var(--text-primary)">Scans no longer starve clicks</strong> — quota waits keep the service worker alive so a pause cannot kill the job.</div>
-      </li>
-      <li>
-        <div class="ver">1.4.6<span class="date">Store · Jul 2026</span></div>
-        <div class="body"><strong style="color:var(--text-primary)">First Chrome Web Store release</strong> — initial public listing of TriageBox: AI Checker for Gmail.</div>
-      </li>
-    </ol>
-    <p class="changelog-note">Want the full engineering log? Open the extension → Docs → Changelog.</p>
-
     <section class="final-cta" aria-labelledby="final-cta-title">
       <div>
         <p class="eyebrow">Your inbox, back under control</p>
@@ -299,6 +233,31 @@
       </div>
       <a class="btn btn-primary" href="https://chromewebstore.google.com/detail/triagebox-ai-checker-for/fdkbolcjccjkgadblcfnbnlibaiaellj">Add to Chrome <span aria-hidden="true">→</span></a>
     </section>
+
+    <div class="section-heading" id="changelog">
+      <p class="eyebrow">Built in public</p>
+      <h2>What you get from Add to Chrome</h2>
+    </div>
+    <p style="margin-bottom:12px;color:var(--text-secondary);font-size:14px;max-width:42em">
+      Product highlights behind the Chrome Web Store listing — not the in-extension
+      engineering log. Later AI-provider notes live in the extension under Docs → Changelog,
+      and on the <a href="./changelog.html">public changelog</a>.
+    </p>
+    <ol class="changelog">
+      <li>
+        <div class="ver">1.26.0<span class="date">22 Aug 2026</span></div>
+        <div class="body"><strong style="color:var(--text-primary)">Newest first, keep unread, copy the thread</strong> — scored mail stays in Gmail time order; peek without clearing Unread; copy the full thread; Recently removed is a titled restore tray.</div>
+      </li>
+      <li>
+        <div class="ver">1.24.0<span class="date">13 Aug 2026</span></div>
+        <div class="body"><strong style="color:var(--text-primary)">Notifications, resumable sweeps, keyboard</strong> — desktop notices with Archive / Mark read and quiet hours; bulk scans resume after a stop; e / # / s / u in the popup list.</div>
+      </li>
+      <li>
+        <div class="ver">1.23.47<span class="date">6 Aug 2026</span></div>
+        <div class="body"><strong style="color:var(--text-primary)">Scam checks with no API key</strong> — Gmail’s SPF/DKIM/DMARC verdict plus reply-path and attachment signals, so a verified sender is not accused of impersonating itself.</div>
+      </li>
+    </ol>
+    <p class="changelog-note">Want the full engineering log? Open the extension → Docs → Changelog, or see the <a href="./changelog.html">public changelog</a>.</p>
 
 
     <section class="faq" id="faq" aria-labelledby="faq-title">
@@ -309,7 +268,7 @@
       <div class="faq-list">
         <details>
           <summary>Is it free?</summary>
-          <p>Yes. Free to install on the Chrome Web Store — no subscription and no TriageBox account. Optional support never unlocks features.</p>
+          <p>Yes. Free to install on the Chrome Web Store — no subscription and no TriageBox account. Optional support never unlocks features. Digital download only: nothing is shipped, and there is nothing to return or refund.</p>
         </details>
         <details>
           <summary>Does mail go through a TriageBox server?</summary>
@@ -321,7 +280,7 @@
         </details>
         <details>
           <summary>Will it replace Checker Plus for Gmail?</summary>
-          <p>Not as a notifier — Checker Plus remains stronger there. TriageBox is built to clear the pile. <a href="./checker-plus-alternative.html">Honest comparison</a>.</p>
+          <p>TriageBox notifies on arrival with Archive and Mark read on the notice. Checker Plus remains stronger for voice. TriageBox is built to clear the pile. <a href="./checker-plus-alternative.html">Honest comparison</a>.</p>
         </details>
       </div>
     </section>
