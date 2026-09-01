@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gmail phishing checker without an API key — TriageBox Chrome extension 1.26.2</title>
+  <meta name="description" content="Check Gmail for phishing without an API key. TriageBox 1.26.2 shows Gmail’s own SPF/DKIM/DMARC, a reply path that leaves the sender, and attachment type on the card. One signal is a fact; two is a warning. Chrome extension, no TriageBox server." />
+  <link rel="canonical" href="https://triagebox.pfa87.cc/gmail-phishing-checker.html" />
+  <link rel="icon" type="image/png" href="./logo-120.png" />
+  <meta name="theme-color" content="#1f9d6f" />
+  <link rel="stylesheet" href="./site.css?v=20260806" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="TriageBox" />
+  <meta property="og:url" content="https://triagebox.pfa87.cc/gmail-phishing-checker.html" />
+  <meta property="og:title" content="Gmail phishing checker without an API key — TriageBox Chrome extension 1.26.2" />
+  <meta property="og:description" content="Gmail’s sender check, the real reply address, and attachment type — on the card, with no API key. One signal is a fact; two is a warning. Store 1.26.2. No TriageBox server." />
+  <meta property="og:image" content="https://triagebox.pfa87.cc/og-card.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@pfaclawd87" />
+  <meta name="twitter:title" content="Gmail phishing checker without an API key — TriageBox 1.26.2" />
+  <meta name="twitter:description" content="SPF/DKIM/DMARC, reply path, attachments. No API key. One is a fact; two is a warning. Chrome extension. No TriageBox server." />
+  <meta name="twitter:image" content="https://triagebox.pfa87.cc/og-card.jpg" />
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Gmail phishing checker without an API key — TriageBox Chrome extension 1.26.2",
+  "url": "https://triagebox.pfa87.cc/gmail-phishing-checker.html",
+  "description": "Check Gmail for phishing without an API key. Gmail’s own SPF/DKIM/DMARC, reply path, and attachment type on the card. One signal is a fact; two is a warning. Chrome Web Store 1.26.2. No TriageBox server.",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "TriageBox AI Gmail Checker",
+    "url": "https://triagebox.pfa87.cc/"
+  }
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://triagebox.pfa87.cc/"},
+    {"@type": "ListItem", "position": 2, "name": "Gmail phishing checker", "item": "https://triagebox.pfa87.cc/gmail-phishing-checker.html"}
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I check if a Gmail email is phishing without an API key?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Gmail already stamps every message with its own SPF, DKIM and DMARC result (Show original → Authentication-Results). TriageBox 1.26.2 is a Chrome extension that puts that verdict on the popup card, plus whether a reply would leave the sender’s organisation, and whether an attachment is a program or hides its type behind a second extension. Nothing is sent to an AI. No API key. This is not a banner inside gmail.com — it runs on cards in the TriageBox popup and workbench."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does TriageBox detect every phishing email?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. It is not a security company and it publishes no detection rate. One signal is reported as a fact, because each happens to legitimate mail: forwarded messages fail DMARC, support desks answer from another domain, accountants send macro spreadsheets. Two at once is what raises a warning. You can clear a sender with Not phishing; that address is never flagged again. Gmail’s own spam filter and Report phishing remain the mailbox’s first line."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is this the same as bulk unsubscribe or deleting old emails?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Unsubscribe stops future mail from a sender. Deleting old emails clears mail already in the mailbox by age or category. This page is only the no-key scam checks on the card you are looking at. Different jobs, different pages."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need an AI key for the scam checks?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Sender verification, reply-path and attachment typing read headers Gmail already sent. They work the minute you sign in. Optional AI (your Gemini or xAI key) adds thread summaries, 0–100 scores, and payment-fraud scoring — a change of bank details or an unfamiliar IBAN. A routine invoice to the usual account is not treated as a risk. A key is not a subscription."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does my mail go through a TriageBox server?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. There is no developer-operated backend. Processing runs in your browser; Gmail data is not sent to the publisher. Optional AI requests go from your browser to the provider whose key you added."
+      }
+    }
+  ]
+}
+  </script>
+  <script src="./analytics.js?v=20260827-shared2" defer></script>
+
+  <style>
+    .vs-table { width: 100%; border-collapse: collapse; margin: 8px 0 14px; font-size: 14px; }
+    .vs-table th, .vs-table td { text-align: left; padding: 9px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
+    .vs-table th { color: var(--text-muted); font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; }
+    .vs-table td:first-child { color: var(--text-secondary); }
+    .vs-win { color: var(--emerald-soft); font-weight: 700; }
+    .vs-loss { color: var(--text-muted); }
+    .vs-note { font-size: 13px; color: var(--text-muted); max-width: 46em; }
+    .vs-prose { max-width: 46em; color: var(--text-secondary); margin: 0 0 18px; }
+    .vs-prose strong { color: var(--text-primary); }
+    .steps { list-style: none; padding: 0; margin: 8px 0 48px; counter-reset: step; max-width: 46em; }
+    .steps li {
+      position: relative;
+      padding: 16px 18px 16px 64px;
+      margin: 0 0 10px;
+      background: var(--surface-1);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      color: var(--text-secondary);
+    }
+    .steps li::before {
+      counter-increment: step;
+      content: counter(step, decimal-leading-zero);
+      position: absolute;
+      left: 18px; top: 18px;
+      font: 600 12px/1 var(--mono);
+      color: var(--emerald-soft);
+    }
+    .steps li strong { color: var(--text-primary); }
+  </style>
+</head>
+<body>
+<div class="shell">
+  <header class="topbar">
+    <a class="brand" href="./">
+      <img src="./logo-120.png" width="32" height="32" alt="" onerror="this.style.display='none'" />
+      <span>TriageBox</span>
+    </a>
+    <nav class="nav" aria-label="Site">
+      <a href="./">Home</a>
+      <a href="./changelog.html">Changelog</a>
+      <a href="./checker-plus-alternative.html">vs Checker Plus</a>
+      <a href="./bulk-unsubscribe-gmail.html">Bulk unsubscribe</a>
+      <a href="./delete-old-emails-gmail.html">Delete old mail</a>
+      <a href="./gmail-phishing-checker.html" aria-current="page">Phishing check</a>
+      <a href="./privacy.html">Privacy</a>
+      <a href="./terms.html">Terms</a>
+      <a href="./donate.html">Donate</a>
+      <a class="nav-cta" href="https://chromewebstore.google.com/detail/triagebox-ai-checker-for/fdkbolcjccjkgadblcfnbnlibaiaellj">Add to Chrome</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="phish-title">
+      <div class="hero-copy">
+        <div class="hero-brand">
+          <p class="eyebrow">Chrome Web Store 1.26.2 · Gmail, in your browser</p>
+        </div>
+        <h1 id="phish-title">Gmail phishing checker — no API key, Gmail’s own sender checks</h1>
+        <p class="tagline">TriageBox reads what Gmail already stamped on the message:
+        <strong>SPF, DKIM and DMARC</strong>, the address a reply would really reach, and whether
+        an attachment is a program or hides behind a second extension. One of these is a fact.
+        Two at once is a warning. No AI. No API key. No TriageBox server.</p>
+        <p class="tagline">This is not a security-company product, and it is not a banner inside
+        gmail.com. It runs on cards in the popup. It is also not
+        <a href="./bulk-unsubscribe-gmail.html">bulk unsubscribe</a> or
+        <a href="./delete-old-emails-gmail.html">deleting old emails</a>.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="https://chromewebstore.google.com/detail/triagebox-ai-checker-for/fdkbolcjccjkgadblcfnbnlibaiaellj">Add to Chrome <span aria-hidden="true">→</span></a>
+          <a class="btn btn-ghost" href="#how-it-works">See the steps</a>
+        </div>
+        <p class="hero-micro">Free on the Chrome Web Store · no account · desktop Chrome only</p>
+      </div>
+      <figure class="product-stage">
+        <div class="window-bar" aria-hidden="true">
+          <span></span><span></span><span></span>
+          <b>TriageBox</b>
+        </div>
+        <img src="./og-card.jpg" width="1280" height="800" alt="TriageBox Gmail queue with unread scores, one-click archive and snooze, and an AI summary on the open thread" />
+        <figcaption>Scam checks on the card you are looking at, with nothing configured.</figcaption>
+      </figure>
+    </section>
+
+    <section class="lead" aria-labelledby="gmail-native-phish">
+      <div class="lead-heading">
+        <span class="privacy-mark" aria-hidden="true">≠</span>
+        <div>
+          <p class="eyebrow">Gmail already knows</p>
+          <h2 id="gmail-native-phish">Use Show original if you can read headers. Use TriageBox if you want the sentence on the card.</h2>
+        </div>
+      </div>
+      <p class="vs-prose">Gmail on the web already filters spam and lets you Report phishing.
+      <strong>Show original</strong> already shows Authentication-Results. Those are the
+      source of truth. TriageBox does not replace them. It translates the same Gmail verdict,
+      plus the reply path and the attachment’s real type, into a line on the unread card so
+      you do not have to open the raw message for every suspicious invoice.</p>
+    </section>
+
+    <table class="vs-table">
+      <thead>
+        <tr>
+          <th>Job</th>
+          <th>Gmail on the web</th>
+          <th>TriageBox 1.26.2</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Sender verification (SPF / DKIM / DMARC)</td>
+          <td>Show original → Authentication-Results. Gmail’s servers stamp it; the sender cannot write it.</td>
+          <td class="vs-win">Same Gmail verdict, as a sentence on the card. A DMARC fail is a caution, not an automatic accusation.</td>
+        </tr>
+        <tr>
+          <td>Where a reply actually goes</td>
+          <td>Buried in headers. Every mail app answers Reply-To, not From.</td>
+          <td class="vs-win">Named before you reply when that address is a different organisation — the shape of invoice fraud.</td>
+        </tr>
+        <tr>
+          <td>Attachment type</td>
+          <td>The filename you see. <code>Invoice.pdf.exe</code> still looks like a PDF until you look.</td>
+          <td class="vs-win">Judged by what it is. Nothing is downloaded. A program, or a second extension, is said in plain words.</td>
+        </tr>
+        <tr>
+          <td>Brand name vs sending domain</td>
+          <td>You notice, or you don’t.</td>
+          <td class="vs-win">Display name claiming a bank or large brand on an unrelated domain is a severe signal. Subjects that merely mention a brand are ignored.</td>
+        </tr>
+        <tr>
+          <td>When a warning fires</td>
+          <td>Spam folder, or you report it.</td>
+          <td class="vs-win">One signal is a fact. Two at once is the red banner. “Not phishing” clears that sender for good.</td>
+        </tr>
+        <tr>
+          <td>API key / backend</td>
+          <td class="vs-win">None</td>
+          <td class="vs-win">None for these checks. Optional AI (your key) is summaries, scores, and payment-fraud scoring only.</td>
+        </tr>
+        <tr>
+          <td>Inside gmail.com</td>
+          <td class="vs-win">Native spam + Report phishing</td>
+          <td class="vs-loss">0 / 10 — banners are on TriageBox cards, not a Gmail overlay</td>
+        </tr>
+        <tr>
+          <td>On your phone</td>
+          <td class="vs-win">Gmail app</td>
+          <td class="vs-loss">0 / 10 — desktop Chrome only</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="vs-note">TriageBox is not affiliated with Google. Gmail, Google and Chrome are
+    trademarks of Google LLC. These checks are heuristics on headers Gmail already sent.
+    They do not guarantee detection, they do not score “96% accuracy”, and they do not
+    replace Gmail’s spam filter. A warning you can answer is the design: a false accusation
+    with no reply teaches you to ignore the banner, including the time it is right.</p>
+
+    <div class="section-heading" id="how-it-works">
+      <p class="eyebrow">Store 1.26.2 · no API key</p>
+      <h2>How the no-key scam checks actually run</h2>
+      <p>Add to Chrome installs this product, not the in-extension nightly log. These are the
+      steps on a signed-in Gmail account you are authorised to use.</p>
+    </div>
+    <ol class="steps">
+      <li><strong>Install and connect Gmail.</strong> Desktop Chrome or another Chromium browser.
+      Google OAuth is still unverified, so the first run shows Google’s warning screen. No
+      TriageBox account. No API key.</li>
+      <li><strong>Open the popup queue.</strong> Newest mail stays on top. Peek a thread without
+      clearing Unread. Each card is built locally; the scam checks run at that moment from
+      headers Gmail already returned.</li>
+      <li><strong>Read the line, not a score.</strong> One off thing is a caution — worth reading
+      twice, not an accusation. Two at once raises “Possible phishing” and suppresses the
+      clickable CTA. Sign-in codes you did not request are labelled as codes, separately.</li>
+      <li><strong>Answer a false alarm.</strong> “Not phishing” trusts that sender; their mail is
+      never flagged again. Undo in Options → Senders. Optional AI (a Gemini or xAI key you add)
+      can then score payment fraud — a change of bank details, an unfamiliar IBAN — if you want
+      it. A routine invoice paid to the usual account is not treated as a risk.</li>
+    </ol>
+
+    <div class="cards">
+      <div class="card">
+        <span class="card-icon" aria-hidden="true">☑</span>
+        <h3>Gmail’s verdict, not ours</h3>
+        <p>SPF, DKIM and DMARC are read from Google’s Authentication-Results line. A forged pass the sender wrote is ignored.</p>
+      </div>
+      <div class="card">
+        <span class="card-icon" aria-hidden="true">↩</span>
+        <h3>The reply is the fraud</h3>
+        <p>From can be genuine. If answering goes to a personal mailbox at another organisation, the card names that address.</p>
+      </div>
+      <div class="card">
+        <span class="card-icon" aria-hidden="true">📎</span>
+        <h3>The name is the signal</h3>
+        <p>A program attached to an email, or <code>Invoice.pdf.exe</code>. Nothing is downloaded to check this.</p>
+      </div>
+      <div class="card">
+        <span class="card-icon" aria-hidden="true">⎋</span>
+        <h3>Unsubscribe is a different page</h3>
+        <p>Stopping future mail is <a href="./bulk-unsubscribe-gmail.html">bulk unsubscribe Gmail</a>. Age cleanup is <a href="./delete-old-emails-gmail.html">delete old emails</a>. This page does not move mail.</p>
+      </div>
+    </div>
+
+    <section class="final-cta" aria-labelledby="phish-mid-cta">
+      <div>
+        <p class="eyebrow">Headers you already have, in a sentence</p>
+        <h2 id="phish-mid-cta">See the fact on the card. Warn only when two agree.</h2>
+        <p>Chrome Web Store 1.26.2. No TriageBox account. Data stays in your browser. AI is optional.</p>
+      </div>
+      <a class="btn btn-primary" href="https://chromewebstore.google.com/detail/triagebox-ai-checker-for/fdkbolcjccjkgadblcfnbnlibaiaellj">Add to Chrome <span aria-hidden="true">→</span></a>
+    </section>
+
+    <div class="section-heading">
+      <p class="eyebrow">Limits, stated</p>
+      <h2>What this page does not claim</h2>
+    </div>
+    <ul class="vs-prose">
+      <li>It does not detect every scam. There is no published accuracy number, and none will be invented.</li>
+      <li>It is not a security company, a SOC, or an overlay inside gmail.com. Use Gmail’s Report phishing there.</li>
+      <li>It does not replace Gmail’s spam filter, Show original, or Safe Browsing.</li>
+      <li>It does not need — and does not use — an API key for these checks. Payment-fraud scoring is optional AI on your key.</li>
+      <li>It does not guess from link labels. That check was removed after it accused legitimate mail. Structural URL checks (username@, punycode, bare IP) exist on the summarise path; they are not the no-key card banner.</li>
+      <li>It does not unsubscribe senders or delete old mail. Those are <a href="./bulk-unsubscribe-gmail.html">bulk unsubscribe Gmail</a> and <a href="./delete-old-emails-gmail.html">delete old emails in Gmail</a>.</li>
+      <li>It does not run on your phone. Gmail’s own spam tools are what you have there.</li>
+      <li>It does not send mail through a TriageBox server. Optional AI goes from your browser to the key you added.</li>
+      <li>It is not for anyone else’s mailbox.</li>
+    </ul>
+
+    <section class="faq" id="faq" aria-labelledby="phish-faq-title">
+      <div class="section-heading">
+        <p class="eyebrow">Quick answers</p>
+        <h2 id="phish-faq-title">Gmail phishing checker</h2>
+      </div>
+      <div class="faq-list">
+        <details open>
+          <summary>How do I check if a Gmail email is phishing without an API key?</summary>
+          <p>Gmail already stamps every message with its own SPF, DKIM and DMARC result (Show original → Authentication-Results). TriageBox 1.26.2 is a Chrome extension that puts that verdict on the popup card, plus whether a reply would leave the sender’s organisation, and whether an attachment is a program or hides its type behind a second extension. Nothing is sent to an AI. No API key. This is not a banner inside gmail.com — it runs on cards in the TriageBox popup and workbench.</p>
+        </details>
+        <details>
+          <summary>Does TriageBox detect every phishing email?</summary>
+          <p>No. It is not a security company and it publishes no detection rate. One signal is reported as a fact, because each happens to legitimate mail: forwarded messages fail DMARC, support desks answer from another domain, accountants send macro spreadsheets. Two at once is what raises a warning. You can clear a sender with Not phishing; that address is never flagged again. Gmail’s own spam filter and Report phishing remain the mailbox’s first line.</p>
+        </details>
+        <details>
+          <summary>Is this the same as bulk unsubscribe or deleting old emails?</summary>
+          <p>No. Unsubscribe stops future mail from a sender. Deleting old emails clears mail already in the mailbox by age or category. This page is only the no-key scam checks on the card you are looking at. Different jobs, different pages. Use <a href="./bulk-unsubscribe-gmail.html">bulk unsubscribe Gmail</a> or <a href="./delete-old-emails-gmail.html">delete old emails in Gmail</a> for those.</p>
+        </details>
+        <details>
+          <summary>Do I need an AI key for the scam checks?</summary>
+          <p>No. Sender verification, reply-path and attachment typing read headers Gmail already sent. They work the minute you sign in. Optional AI (your Gemini or xAI key) adds thread summaries, 0–100 scores, and payment-fraud scoring — a change of bank details or an unfamiliar IBAN. A routine invoice to the usual account is not treated as a risk. A key is not a subscription.</p>
+        </details>
+        <details>
+          <summary>Does my mail go through a TriageBox server?</summary>
+          <p>No. There is no developer-operated backend. Processing runs in your browser; Gmail data is not sent to the publisher. Optional AI requests go from your browser to the provider whose key you added.</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="final-cta" aria-labelledby="phish-cta-title">
+      <div>
+        <p class="eyebrow">Desktop Chrome · Gmail you already have</p>
+        <h2 id="phish-cta-title">No key. Gmail’s check. A warning only when two signals agree.</h2>
+        <p>Free to install. No subscription. No TriageBox account.</p>
+      </div>
+      <a class="btn btn-primary" href="https://chromewebstore.google.com/detail/triagebox-ai-checker-for/fdkbolcjccjkgadblcfnbnlibaiaellj">Add TriageBox to Chrome <span aria-hidden="true">→</span></a>
+    </section>
+
+    <div class="meta">
+      <p><strong>Trademarks and independence.</strong> TriageBox is not affiliated with, sponsored
+      by or endorsed by Google, and it is not a Google product. Gmail, Google and Chrome are
+      trademarks of Google LLC; xAI and Grok are trademarks of X.AI Corp. Scam checks read
+      headers on your own mailbox in your browser. This page carries no affiliate links,
+      no paid placement, and no invented ratings.</p>
+      <p><a href="./">← TriageBox home</a> · <a href="./bulk-unsubscribe-gmail.html">Bulk unsubscribe</a> · <a href="./delete-old-emails-gmail.html">Delete old emails</a> · <a href="./checker-plus-alternative.html">vs Checker Plus</a> · <a href="./changelog.html">Changelog</a> · <a href="./privacy.html">Privacy</a></p>
+    </div>
+  </main>
+</div>
+</body>
+</html>
