@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Delete old emails in Gmail — TriageBox Chrome extension 1.26.2</title>
+  <meta name="description" content="Delete old emails in Gmail by age or category with a live count before anything moves. TriageBox 1.26.2. Archive is the default; delete is red. Chrome extension, no TriageBox server." />
+  <link rel="canonical" href="https://triagebox.pfa87.cc/delete-old-emails-gmail.html" />
+  <link rel="icon" type="image/png" href="./logo-120.png" />
+  <meta name="theme-color" content="#1f9d6f" />
+  <link rel="stylesheet" href="./site.css?v=20260806" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="TriageBox" />
+  <meta property="og:url" content="https://triagebox.pfa87.cc/delete-old-emails-gmail.html" />
+  <meta property="og:title" content="Delete old emails in Gmail — TriageBox Chrome extension 1.26.2" />
+  <meta property="og:description" content="Clear old Gmail by age or category. Every bulk action re-counts live — “412 to archive, 23 starred kept” — before anything moves. Store 1.26.2. No TriageBox server." />
+  <meta property="og:image" content="https://triagebox.pfa87.cc/og-card.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@pfaclawd87" />
+  <meta name="twitter:title" content="Delete old emails in Gmail — TriageBox 1.26.2" />
+  <meta name="twitter:description" content="Age and category groups, live count, starred kept. Archive is the default. Delete is red. Chrome extension. No TriageBox server." />
+  <meta name="twitter:image" content="https://triagebox.pfa87.cc/og-card.jpg" />
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Delete old emails in Gmail — TriageBox Chrome extension 1.26.2",
+  "url": "https://triagebox.pfa87.cc/delete-old-emails-gmail.html",
+  "description": "Delete old emails in Gmail by age or category with a live count before anything moves. Chrome Web Store 1.26.2. Archive is the default; delete is red. No TriageBox server.",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "TriageBox AI Gmail Checker",
+    "url": "https://triagebox.pfa87.cc/"
+  }
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://triagebox.pfa87.cc/"},
+    {"@type": "ListItem", "position": 2, "name": "Delete old emails in Gmail", "item": "https://triagebox.pfa87.cc/delete-old-emails-gmail.html"}
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I delete old emails in Gmail?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Gmail on the web can already do this: search older_than:1y (or older_than:6m), tick the page, click “Select all conversations that match this search”, then Trash. TriageBox 1.26.2 is a Chrome extension that puts the same age bands on a Bulk sweep page — Older than 1 year, 6 months or 3 months — fetches an exact count without a metadata scan, and shows “412 to archive, 23 starred kept” before anything moves. Archive is the default; delete is red, behind a second confirmation; past 200 threads you type DELETE."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does TriageBox delete everything older than a year in one click?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. There is no wipe-the-mailbox button. You pick a group (an age band, Promotions, a sender, a domain, or mail larger than 5 MB), see a live recount, then confirm. You can narrow any group further with older_than (48 hours, 7 days, 30 days, 3 months, 6 months, 1 year) and unread/already-read. Starred and Gmail-important mail can be excluded."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is this the same as bulk unsubscribe?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Unsubscribe asks a sender to stop future mail. Deleting old emails clears mail that is already in the mailbox. They are different jobs and different pages. Use bulk unsubscribe Gmail to stop a list per exact sender; use this page when the problem is age, Promotions, or storage."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need an AI key to delete or archive old Gmail?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Badge, popup actions, bulk sweeps, unsubscribe and the no-key scam checks work with nothing configured. Summaries and 0–100 scores are optional if you add a Gemini and/or xAI key. A key is not a subscription."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does my mail go through a TriageBox server?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. There is no developer-operated backend. Processing runs in your browser; Gmail data is not sent to the publisher. Optional AI requests go from your browser to the provider whose key you added."
+      }
+    }
+  ]
+}
+  </script>
+  <script src="./analytics.js?v=20260827-shared2" defer></script>
+
+  <style>
+    .vs-table { width: 100%; border-collapse: collapse; margin: 8px 0 14px; font-size: 14px; }
+    .vs-table th, .vs-table td { text-align: left; padding: 9px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
+    .vs-table th { color: var(--text-muted); font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; }
+    .vs-table td:first-child { color: var(--text-secondary); }
+    .vs-win { color: var(--emerald-soft); font-weight: 700; }
+    .vs-loss { color: var(--text-muted); }
+    .vs-note { font-size: 13px; color: var(--text-muted); max-width: 46em; }
+    .vs-prose { max-width: 46em; color: var(--text-secondary); margin: 0 0 18px; }
+    .vs-prose strong { color: var(--text-primary); }
+    .steps { list-style: none; padding: 0; margin: 8px 0 48px; counter-reset: step; max-width: 46em; }
+    .steps li {
+      position: relative;
+      padding: 16px 18px 16px 64px;
+      margin: 0 0 10px;
+      background: var(--surface-1);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      color: var(--text-secondary);
+    }
+    .steps li::before {
+      counter-increment: step;
+      content: counter(step, decimal-leading-zero);
+      position: absolute;
+      left: 18px; top: 18px;
+      font: 600 12px/1 var(--mono);
+      color: var(--emerald-soft);
+    }
+    .steps li strong { color: var(--text-primary); }
+  </style>
+</head>
+<body>
+<div class="shell">
+  <header class="topbar">
+    <a class="brand" href="./">
+      <img src="./logo-120.png" width="32" height="32" alt="" onerror="this.style.display='none'" />
+      <span>TriageBox</span>
+    </a>
+    <nav class="nav" aria-label="Site">
+      <a href="./">Home</a>
+      <a href="./changelog.html">Changelog</a>
+      <a href="./checker-plus-alternative.html">vs Checker Plus</a>
+      <a href="./bulk-unsubscribe-gmail.html">Bulk unsubscribe</a>
+      <a href="./delete-old-emails-gmail.html" aria-current="page">Delete old mail</a>
+      <a href="./privacy.html">Privacy</a>
+      <a href="./terms.html">Terms</a>
+      <a href="./donate.html">Donate</a>
+      <a class="nav-cta" href="https://chromewebstore.google.com/detail/triagebox-ai-checker-for/fdkbolcjccjkgadblcfnbnlibaiaellj">Add to Chrome</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="old-title">
+      <div class="hero-copy">
+        <div class="hero-brand">
+          <p class="eyebrow">Chrome Web Store 1.26.2 · Gmail, in your browser</p>
+        </div>
+        <h1 id="old-title">Delete old emails in Gmail — with the exact count in front of you</h1>
+        <p class="tagline">TriageBox Bulk sweep puts Gmail’s age bands on a page: <strong>Older than 1 year,
+        6 months or 3 months</strong>, Promotions, or larger than 5&nbsp;MB. Each group fetches an exact
+        count without a metadata scan. Confirm “412 to archive, 23 starred kept” before anything
+        moves. No AI key. No TriageBox server.</p>
+        <p class="tagline">This is not a wipe-the-mailbox button, and it is not
+        <a href="./bulk-unsubscribe-gmail.html">bulk unsubscribe</a>. Unsubscribe stops future mail.
+        This page is for mail that is already there.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="https://chromewebstore.google.com/detail/triagebox-ai-checker-for/fdkbolcjccjkgadblcfnbnlibaiaellj">Add to Chrome <span aria-hidden="true">→</span></a>
+          <a class="btn btn-ghost" href="#how-it-works">See the steps</a>
+        </div>
+        <p class="hero-micro">Free on the Chrome Web Store · no account · desktop Chrome only</p>
+      </div>
+      <figure class="product-stage">
+        <div class="window-bar" aria-hidden="true">
+          <span></span><span></span><span></span>
+          <b>TriageBox</b>
+        </div>
+        <img src="./og-card.jpg" width="1280" height="800" alt="TriageBox Gmail queue with unread scores, one-click archive and snooze, and an AI summary on the open thread" />
+        <figcaption>Old mail as groups you can count, then archive or delete.</figcaption>
+      </figure>
+    </section>
+
+    <section class="lead" aria-labelledby="gmail-native-old">
+      <div class="lead-heading">
+        <span class="privacy-mark" aria-hidden="true">≠</span>
+        <div>
+          <p class="eyebrow">Gmail already bulk-deletes</p>
+          <h2 id="gmail-native-old">Use Gmail if you know the operators. Use TriageBox if you want the count first.</h2>
+        </div>
+      </div>
+      Gmail on the web can delete tens of thousands of messages in one operation. Search
+      <code>older_than:1y</code> (or <code>category:promotions older_than:6m</code>), tick the page,
+      click <strong>Select all conversations that match this search</strong>, then Trash.
+      That works. What it does not show is a live recount with starred kept, and the obvious
+      bulk verb is delete. TriageBox 1.26.2 is built for the people who find that sequence
+      easy to over-select — Gmail-only, in your browser, after Google OAuth. First-time install
+      still shows Google’s unverified-app screen.
+    </section>
+
+    <div class="section-heading">
+      <p class="eyebrow">Same mailbox, different job</p>
+      <h2>Gmail search vs TriageBox 1.26.2</h2>
+      <p>Facts from Gmail’s published search operators and from the live Chrome Web Store listing
+      for TriageBox 1.26.2 (29 Aug 2026). No invented ratings.</p>
+    </div>
+
+    <table class="vs-table">
+      <thead>
+        <tr><th>What you need</th><th>Gmail</th><th>TriageBox 1.26.2</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Mail older than a year / 6 months / 3 months</td>
+          <td><code>older_than:1y</code> (or <code>6m</code> / <code>3m</code>) in the search box</td>
+          <td class="vs-win">Quick groups: Older than 1 year, 6 months, 3 months. Exact count, no operators, no metadata scan</td>
+        </tr>
+        <tr>
+          <td>Exact count before a bulk change</td>
+          <td>Gmail shows how many conversations you selected. Large ops use “Select all conversations that match this search”.</td>
+          <td class="vs-win">Every bulk action re-counts live: “412 to archive, 23 starred kept”</td>
+        </tr>
+        <tr>
+          <td>Keep starred / Gmail-important</td>
+          <td>Easy to include them in a search. You have to add <code>-is:starred</code> yourself.</td>
+          <td class="vs-win">Starred and Gmail-important can be excluded per action, or by a standing switch</td>
+        </tr>
+        <tr>
+          <td>Archive vs delete</td>
+          <td>The bulk control is Trash. Archived mail is a different click.</td>
+          <td class="vs-win">Archive is the default (stays in All Mail). Delete is red, second confirmation; past 200 threads you type DELETE</td>
+        </tr>
+        <tr>
+          <td>One sender, only the old mail</td>
+          <td>Two operators: <code>from:</code> plus <code>older_than:</code></td>
+          <td class="vs-win">Sender or domain group, then age refine on the query (48 hours → 1 year). The confirm text names the filter.</td>
+        </tr>
+        <tr>
+          <td>On your phone</td>
+          <td class="vs-win">Gmail app (page-sized batches; full select-all is a desktop feature)</td>
+          <td class="vs-loss">0 / 10 — desktop Chrome only</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="vs-note">TriageBox is not affiliated with Google. Gmail, Google and Chrome are
+    trademarks of Google LLC. A scan counts up to 20,000 messages by default (the rail can raise
+    it); a displayed 20,000 means at least 20,000 — the action still resolves its own exact
+    number before anything moves. Counts are what Gmail confirmed it changed, never what was requested.</p>
+
+    <div class="section-heading" id="how-it-works">
+      <p class="eyebrow">Store 1.26.2 · no API key</p>
+      <h2>How deleting old Gmail actually runs</h2>
+      <p>Add to Chrome installs this product, not the in-extension nightly log. These are the
+      steps on a signed-in Gmail account you are authorised to use.</p>
+    </div>
+    <ol class="steps">
+      <li><strong>Install and connect Gmail.</strong> Desktop Chrome or another Chromium browser.
+      Google OAuth is still unverified, so the first run shows Google’s warning screen. No
+      TriageBox account.</li>
+      <li><strong>Open Bulk sweep.</strong> Quick groups need no scan: Older than 1 year, 6 months
+      or 3 months; Promotions / Social / Updates / Forums; already-read; larger than 5&nbsp;MB.
+      Each row fetches its exact count on demand.</li>
+      <li><strong>Confirm the live number.</strong> Archive, file or delete a group only after a
+      recount. Starred and Gmail-important can be excluded. Delete is red, behind a second
+      confirmation; past 200 threads you type DELETE. You can narrow any group with an age
+      refine (48 hours, 7 days, 30 days, 3 months, 6 months, 1 year) or unread / already-read —
+      the confirm dialog names the filter.</li>
+      <li><strong>Undo if you were wrong.</strong> Recently removed is a restore tray. Archived
+      mail stays in All Mail. Deleted mail sits in Gmail’s Trash for 30 days. A sender scan
+      (for grouping by domain) reads up to 20,000 messages by default and can resume after a stop.</li>
+    </ol>
+
+    <div class="cards">
+      <div class="card">
+        <span class="card-icon" aria-hidden="true">↘</span>
+        <h3>Age bands, no operators</h3>
+        <p>Older than 1 year, 6 months or 3 months. Same <code>older_than:</code> Gmail already understands, without typing it.</p>
+      </div>
+      <div class="card">
+        <span class="card-icon" aria-hidden="true">◇</span>
+        <h3>Archive is the default</h3>
+        <p>Cleared mail stays searchable in All Mail. Delete is the red path, with a typed DELETE past 200 threads.</p>
+      </div>
+      <div class="card">
+        <span class="card-icon" aria-hidden="true">★</span>
+        <h3>Starred stays unless you say so</h3>
+        <p>The confirm line names how many starred are kept. Gmail-important is a separate switch — Gmail may assign it automatically.</p>
+      </div>
+      <div class="card">
+        <span class="card-icon" aria-hidden="true">⎋</span>
+        <h3>Unsubscribe is a different page</h3>
+        <p>Stopping future mail is <a href="./bulk-unsubscribe-gmail.html">bulk unsubscribe Gmail</a>. This page does not send List-Unsubscribe.</p>
+      </div>
+    </div>
+
+    <section class="final-cta" aria-labelledby="old-mid-cta">
+      <div>
+        <p class="eyebrow">Your inbox, back under control</p>
+        <h2 id="old-mid-cta">Pick the old pile. See the number. Then archive or delete.</h2>
+        <p>Chrome Web Store 1.26.2. No TriageBox account. Data stays in your browser. AI is optional.</p>
+      </div>
+      <a class="btn btn-primary" href="https://chromewebstore.google.com/detail/triagebox-ai-checker-for/fdkbolcjccjkgadblcfnbnlibaiaellj">Add to Chrome <span aria-hidden="true">→</span></a>
+    </section>
+
+    <div class="section-heading">
+      <p class="eyebrow">Limits, stated</p>
+      <h2>What this page does not claim</h2>
+    </div>
+    <ul class="vs-prose">
+      <li>It does not wipe the mailbox in one click. You pick a group and confirm an exact count.</li>
+      <li>It does not replace Gmail’s <code>older_than:</code> search. That already works, for free, with no extension.</li>
+      <li>It does not unsubscribe senders. That is <a href="./bulk-unsubscribe-gmail.html">bulk unsubscribe Gmail</a>.</li>
+      <li>It does not run on your phone. Gmail’s own search is what you have there.</li>
+      <li>It does not send mail through a TriageBox server. Optional AI goes from your browser to the key you added.</li>
+      <li>It is not a bulk-mail / marketing tool, and it is not for anyone else’s mailbox.</li>
+    </ul>
+
+    <section class="faq" id="faq" aria-labelledby="old-faq-title">
+      <div class="section-heading">
+        <p class="eyebrow">Quick answers</p>
+        <h2 id="old-faq-title">Delete old emails in Gmail</h2>
+      </div>
+      <div class="faq-list">
+        <details open>
+          <summary>How do I delete old emails in Gmail?</summary>
+          <p>Gmail on the web can already do this: search <code>older_than:1y</code> (or <code>older_than:6m</code>), tick the page, click “Select all conversations that match this search”, then Trash. TriageBox 1.26.2 is a Chrome extension that puts the same age bands on a Bulk sweep page — Older than 1 year, 6 months or 3 months — fetches an exact count without a metadata scan, and shows “412 to archive, 23 starred kept” before anything moves. Archive is the default; delete is red, behind a second confirmation; past 200 threads you type DELETE.</p>
+        </details>
+        <details>
+          <summary>Does TriageBox delete everything older than a year in one click?</summary>
+          <p>No. There is no wipe-the-mailbox button. You pick a group (an age band, Promotions, a sender, a domain, or mail larger than 5 MB), see a live recount, then confirm. You can narrow any group further with older_than (48 hours, 7 days, 30 days, 3 months, 6 months, 1 year) and unread/already-read. Starred and Gmail-important mail can be excluded.</p>
+        </details>
+        <details>
+          <summary>Is this the same as bulk unsubscribe?</summary>
+          <p>No. Unsubscribe asks a sender to stop future mail. Deleting old emails clears mail that is already in the mailbox. They are different jobs and different pages. Use <a href="./bulk-unsubscribe-gmail.html">bulk unsubscribe Gmail</a> to stop a list per exact sender; use this page when the problem is age, Promotions, or storage.</p>
+        </details>
+        <details>
+          <summary>Do I need an AI key to delete or archive old Gmail?</summary>
+          <p>No. Badge, popup actions, bulk sweeps, unsubscribe and the no-key scam checks work with nothing configured. Summaries and 0–100 scores are optional if you add a Gemini and/or xAI key. A key is not a subscription.</p>
+        </details>
+        <details>
+          <summary>Does my mail go through a TriageBox server?</summary>
+          <p>No. There is no developer-operated backend. Processing runs in your browser; Gmail data is not sent to the publisher. Optional AI requests go from your browser to the provider whose key you added.</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="final-cta" aria-labelledby="old-cta-title">
+      <div>
+        <p class="eyebrow">Desktop Chrome · Gmail you already have</p>
+        <h2 id="old-cta-title">See the number. Then move the old pile.</h2>
+        <p>Free to install. No subscription. No TriageBox account.</p>
+      </div>
+      <a class="btn btn-primary" href="https://chromewebstore.google.com/detail/triagebox-ai-checker-for/fdkbolcjccjkgadblcfnbnlibaiaellj">Add TriageBox to Chrome <span aria-hidden="true">→</span></a>
+    </section>
+
+    <div class="meta">
+      <p><strong>Trademarks and independence.</strong> TriageBox is not affiliated with, sponsored
+      by or endorsed by Google, and it is not a Google product. Gmail, Google and Chrome are
+      trademarks of Google LLC; xAI and Grok are trademarks of X.AI Corp. Bulk actions act on
+      your own mailbox after you confirm an exact count. This page carries no affiliate links,
+      no paid placement, and no invented ratings.</p>
+      <p><a href="./">← TriageBox home</a> · <a href="./bulk-unsubscribe-gmail.html">Bulk unsubscribe</a> · <a href="./checker-plus-alternative.html">vs Checker Plus</a> · <a href="./changelog.html">Changelog</a> · <a href="./privacy.html">Privacy</a></p>
+    </div>
+  </main>
+</div>
+</body>
+</html>
