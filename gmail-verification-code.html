@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Copy Gmail verification code — TriageBox Chrome extension 1.57</title>
+  <meta name="description" content="Copy a Gmail sign-in code from the TriageBox popup. Chrome Web Store 1.57 shows the code on the card with a Copy code button when the subject already contains exactly one. No SMS intercept. No TriageBox server." />
+  <link rel="canonical" href="https://triagebox.pfa87.cc/gmail-verification-code.html" />
+  <link rel="icon" type="image/png" href="./logo-120.png" />
+  <meta name="theme-color" content="#1f9d6f" />
+  <link rel="stylesheet" href="./site.css?v=20260806" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="TriageBox" />
+  <meta property="og:url" content="https://triagebox.pfa87.cc/gmail-verification-code.html" />
+  <meta property="og:title" content="Copy Gmail verification code — TriageBox Chrome extension 1.57" />
+  <meta property="og:description" content="The sign-in code on the card, Copy code on the button. Spaces and dashes stripped. No API key when the code is already in the subject. Store 1.57. Not an SMS reader." />
+  <meta property="og:image" content="https://triagebox.pfa87.cc/og-card.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@pfaclawd87" />
+  <meta name="twitter:title" content="Copy Gmail verification code — TriageBox 1.57" />
+  <meta name="twitter:description" content="Copy the code from the popup card. No key when it is already in the subject. Not SMS. No TriageBox server." />
+  <meta name="twitter:image" content="https://triagebox.pfa87.cc/og-card.jpg" />
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Copy Gmail verification code — TriageBox Chrome extension 1.57",
+  "url": "https://triagebox.pfa87.cc/gmail-verification-code.html",
+  "description": "Copy a Gmail sign-in or verification code from the TriageBox popup card. Chrome Web Store 1.57. No TriageBox server.",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "TriageBox AI Gmail Checker",
+    "url": "https://triagebox.pfa87.cc/"
+  }
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://triagebox.pfa87.cc/"},
+    {"@type": "ListItem", "position": 2, "name": "Gmail verification code", "item": "https://triagebox.pfa87.cc/gmail-verification-code.html"}
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I copy a Gmail verification code without opening the email?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "TriageBox 1.57 is a Chrome extension. When a message in your own Gmail is a sign-in or verification code and the subject already contains exactly one code, the card shows that code large, with a Copy code button. Copy strips spaces and dashes. This does not read SMS, and it does not type the code into another site for you."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does copying the code need an AI key?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No, when the code is already in the subject and there is exactly one candidate: a single 4 to 8 digit number that is not a year, or one mixed letter-and-digit token. If the subject only says a code exists, TriageBox waits until that message is read and the same characters are found in the body. It will not invent a code it did not find. A wrong clipboard guess is worse than no button, so several numbers in the subject means no Copy code from the subject."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is this the Gmail phishing checker?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. The phishing checker reads Gmail’s SPF, DKIM and DMARC plus reply path and attachments on the card you are looking at. This page is only the copy-the-code chore. A code you did not request is still a reason not to enter it, and to change that account’s password. Different job, different page."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does my mail go through a TriageBox server?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. There is no developer-operated backend. Processing runs in your browser; Gmail data is not sent to the publisher. The code is copied to your clipboard on this computer."
+      }
+    }
+  ]
+}
+  </script>
+  <script src="./analytics.js?v=20260827-shared2" defer></script>
+
+  <style>
+    .vs-table { width: 100%; border-collapse: collapse; margin: 8px 0 14px; font-size: 14px; }
+    .vs-table th, .vs-table td { text-align: left; padding: 9px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
+    .vs-table th { color: var(--text-muted); font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; }
+    .vs-table td:first-child { color: var(--text-secondary); }
+    .vs-win { color: var(--emerald-soft); font-weight: 700; }
+    .vs-loss { color: var(--text-muted); }
+    .vs-note { font-size: 13px; color: var(--text-muted); max-width: 46em; }
+    .vs-prose { max-width: 46em; color: var(--text-secondary); margin: 0 0 18px; }
+    .vs-prose strong { color: var(--text-primary); }
+    .steps { list-style: none; padding: 0; margin: 8px 0 48px; counter-reset: step; max-width: 46em; }
+    .steps li {
+      position: relative;
+      padding: 16px 18px 16px 64px;
+      margin: 0 0 10px;
+      background: var(--surface-1);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      color: var(--text-secondary);
+    }
+    .steps li::before {
+      counter-increment: step;
+      content: counter(step, decimal-leading-zero);
+      position: absolute;
+      left: 18px; top: 18px;
+      font: 600 12px/1 var(--mono);
+      color: var(--emerald-soft);
+    }
+    .steps li strong { color: var(--text-primary); }
+  </style>
+</head>
+<body>
+<div class="shell">
+  <header class="topbar">
+    <a class="brand" href="./">
+      <img src="./logo-120.png" width="32" height="32" alt="" onerror="this.style.display='none'" />
+      <span>TriageBox</span>
+    </a>
+    <nav class="nav" aria-label="Site">
+      <a href="./">Home</a>
+      <a href="./changelog.html">Changelog</a>
+      <a href="./checker-plus-alternative.html">vs Checker Plus</a>
+      <a href="./bulk-unsubscribe-gmail.html">Bulk unsubscribe</a>
+      <a href="./delete-old-emails-gmail.html">Delete old mail</a>
+      <a href="./gmail-phishing-checker.html">Phishing check</a>
+      <a href="./gmail-waiting-for-reply.html">Waiting for reply</a>
+      <a href="./gmail-verification-code.html" aria-current="page">Sign-in code</a>
+      <a href="./privacy.html">Privacy</a>
+      <a href="./terms.html">Terms</a>
+      <a href="./donate.html">Donate</a>
+      <a class="nav-cta" href="https://chromewebstore.google.com/detail/triagebox-ai-checker-for/fdkbolcjccjkgadblcfnbnlibaiaellj">Add to Chrome</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="code-title">
+      <div class="hero-copy">
+        <div class="hero-brand">
+          <p class="eyebrow">Chrome Web Store 1.57 · Gmail, in your browser</p>
+        </div>
+        <h1 id="code-title">Copy a Gmail verification code from the card</h1>
+        <p class="tagline">When the subject already contains <strong>exactly one</strong> sign-in code,
+        TriageBox 1.57 puts that code on the card and a <strong>Copy code</strong> button next to it.
+        Spaces and dashes come off. No AI key for that path. No TriageBox server.</p>
+        <p class="tagline">This is not an SMS reader, and it is not
+        <a href="./gmail-phishing-checker.html">a phishing checker</a>,
+        <a href="./gmail-waiting-for-reply.html">waiting for reply</a>,
+        <a href="./bulk-unsubscribe-gmail.html">bulk unsubscribe</a>, or
+        <a href="./delete-old-emails-gmail.html">deleting old emails</a>.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="https://chromewebstore.google.com/detail/triagebox-ai-checker-for/fdkbolcjccjkgadblcfnbnlibaiaellj">Add to Chrome <span aria-hidden="true">→</span></a>
+          <a class="btn btn-ghost" href="#how-it-works">See the steps</a>
+        </div>
+        <p class="hero-micro">Free on the Chrome Web Store · no account · desktop Chrome only</p>
+      </div>
+      <figure class="product-stage">
+        <div class="window-bar" aria-hidden="true">
+          <span></span><span></span><span></span>
+          <b>TriageBox</b>
+        </div>
+        <img src="./og-card.jpg" width="1280" height="800" alt="TriageBox Gmail popup queue. Verification codes that are already in the subject appear on the card with a Copy code button." />
+        <figcaption>The code on the card. Copy, then paste it yourself.</figcaption>
+      </figure>
+    </section>
+
+    <section class="lead" aria-labelledby="gmail-native-code">
+      <div class="lead-heading">
+        <span class="privacy-mark" aria-hidden="true">≠</span>
+        <div>
+          <p class="eyebrow">Gmail already shows the mail</p>
+          <h2 id="gmail-native-code">Open the message if you want the thread. Use TriageBox if the digits are the whole job.</h2>
+        </div>
+      </div>
+      <p class="vs-prose">Gmail will open the email. That is enough, and it is free. TriageBox 1.57
+      is for the narrower chore: the subject already says the code, and you want it on the
+      clipboard without opening Gmail. The card replaces that subject line with the code
+      itself. A sign-in code is treated as a chore, not as spam. First-time install still
+      shows Google’s unverified-app screen.</p>
+    </section>
+
+    <div class="section-heading">
+      <p class="eyebrow">Same mailbox, different job</p>
+      <h2>Opening Gmail vs TriageBox 1.57 Copy code</h2>
+      <p>Facts from the live Chrome Web Store listing for TriageBox 1.57 and from how the
+      popup actually copies a code. No invented ratings.</p>
+    </div>
+
+    <table class="vs-table">
+      <thead>
+        <tr><th>What you need</th><th>Gmail</th><th>TriageBox 1.57</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>The digits, on the clipboard</td>
+          <td>Open the thread, select the code, copy</td>
+          <td class="vs-win">Copy code on the card. Spaces and dashes stripped, so a field that rejects “123 456” still gets the characters.</td>
+        </tr>
+        <tr>
+          <td>When the button appears</td>
+          <td class="vs-win">Always, once you have opened the mail</td>
+          <td>Immediately if the subject has exactly one code. If the subject only names a code, the digits wait until that message is read and the same characters are found in the body.</td>
+        </tr>
+        <tr>
+          <td>Several numbers in the subject</td>
+          <td class="vs-win">You can see which one is the code</td>
+          <td class="vs-loss">No Copy code from the subject. Guessing the wrong token is worse than no button.</td>
+        </tr>
+        <tr>
+          <td>SMS or authenticator codes</td>
+          <td class="vs-loss">Not in Gmail</td>
+          <td class="vs-loss">Not read. This is Gmail only.</td>
+        </tr>
+        <tr>
+          <td>A code you did not request</td>
+          <td>The mail is still just mail</td>
+          <td>Don’t enter it. The card’s note is to change that account’s password. This page is not a phishing verdict — that is <a href="./gmail-phishing-checker.html">the phishing checker</a>.</td>
+        </tr>
+        <tr>
+          <td>On your phone</td>
+          <td class="vs-win">Gmail app</td>
+          <td class="vs-loss">Desktop Chrome only</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="vs-note">TriageBox is not affiliated with Google. Gmail, Google and Chrome are
+    trademarks of Google LLC. Copy code does not submit the code, does not bypass 2FA, and
+    does not run on Sent mail you wrote to someone else.</p>
+
+    <div class="section-heading" id="how-it-works">
+      <p class="eyebrow">Store 1.57 · no API key when the subject already has the code</p>
+      <h2>How Copy code actually runs</h2>
+      <p>Add to Chrome installs this product. These are the steps on a signed-in Gmail
+      account you are authorised to use.</p>
+    </div>
+    <ol class="steps">
+      <li><strong>Install and connect Gmail.</strong> Desktop Chrome or another Chromium browser.
+      Google OAuth is still unverified, so the first run shows Google’s warning screen. No
+      TriageBox account.</li>
+      <li><strong>Leave the code email in the queue.</strong> TriageBox looks at the subject
+      for wording like verification code, sign-in code, one-time code, OTP, and the common
+      French, Spanish, German, and Italian equivalents.</li>
+      <li><strong>One candidate, or nothing.</strong> A single 4–8 digit number that is not a
+      year, or one mixed letter-and-digit token. Two numbers means no button from the subject.</li>
+      <li><strong>Copy code.</strong> The clipboard gets the characters only. Paste it yourself
+      into the site that asked. If you did not request the code, do not enter it.</li>
+    </ol>
+
+    <div class="cards">
+      <div class="card">
+        <span class="card-icon" aria-hidden="true">#</span>
+        <h3>The code is the subject line</h3>
+        <p>The row shows the code large, not a subject that only says a code exists. Gmail’s own subject stays on hover.</p>
+      </div>
+      <div class="card">
+        <span class="card-icon" aria-hidden="true">⎘</span>
+        <h3>Copy, don’t guess</h3>
+        <p>Exactly one candidate from the subject, or the same characters later found in the body. Never a made-up code.</p>
+      </div>
+      <div class="card">
+        <span class="card-icon" aria-hidden="true">⊘</span>
+        <h3>Not SMS, not a password manager</h3>
+        <p>Your Gmail, this computer, the clipboard. Nothing is typed into the other site for you.</p>
+      </div>
+      <div class="card">
+        <span class="card-icon" aria-hidden="true">⎋</span>
+        <h3>Phishing is a different page</h3>
+        <p>Sender checks live on <a href="./gmail-phishing-checker.html">Gmail phishing checker</a>. This page does not call a verification email spam.</p>
+      </div>
+    </div>
+
+    <section class="final-cta" aria-labelledby="code-mid-cta">
+      <div>
+        <p class="eyebrow">The digits, then you paste them</p>
+        <h2 id="code-mid-cta">Copy the code. Don’t open Gmail for a subject that already has it.</h2>
+        <p>Chrome Web Store 1.57. No TriageBox account. Data stays in your browser.</p>
+      </div>
+      <a class="btn btn-primary" href="https://chromewebstore.google.com/detail/triagebox-ai-checker-for/fdkbolcjccjkgadblcfnbnlibaiaellj">Add to Chrome <span aria-hidden="true">→</span></a>
+    </section>
+
+    <div class="section-heading">
+      <p class="eyebrow">Limits, stated</p>
+      <h2>What this page does not claim</h2>
+    </div>
+    <ul class="vs-prose">
+      <li>It does not read SMS, WhatsApp, or an authenticator app.</li>
+      <li>It does not type the code into the site that asked, and it does not bypass 2FA.</li>
+      <li>It does not invent a code. Several numbers in the subject means no Copy code from the subject.</li>
+      <li>It does not copy a code from Sent mail you wrote. That code is someone else’s.</li>
+      <li>It does not appear instantly when the code is only in the body. That waits until the message is read and the same characters are found there.</li>
+      <li>It does not decide the mail is safe. A code you did not request should not be entered. Sender checks are <a href="./gmail-phishing-checker.html">Gmail phishing checker</a>.</li>
+      <li>It does not list unanswered sent mail. That is <a href="./gmail-waiting-for-reply.html">Gmail waiting for reply</a>.</li>
+      <li>It does not unsubscribe senders. That is <a href="./bulk-unsubscribe-gmail.html">bulk unsubscribe Gmail</a>.</li>
+      <li>It does not delete old mail. That is <a href="./delete-old-emails-gmail.html">delete old emails in Gmail</a>.</li>
+      <li>It does not run on your phone.</li>
+      <li>It does not send the code through a TriageBox server.</li>
+      <li>It is not for anyone else’s mailbox.</li>
+    </ul>
+
+    <section class="faq" id="faq" aria-labelledby="code-faq-title">
+      <div class="section-heading">
+        <p class="eyebrow">Quick answers</p>
+        <h2 id="code-faq-title">Gmail verification code</h2>
+      </div>
+      <div class="faq-list">
+        <details open>
+          <summary>How do I copy a Gmail verification code without opening the email?</summary>
+          <p>TriageBox 1.57 is a Chrome extension. When a message in your own Gmail is a sign-in or verification code and the subject already contains exactly one code, the card shows that code large, with a Copy code button. Copy strips spaces and dashes. This does not read SMS, and it does not type the code into another site for you.</p>
+        </details>
+        <details>
+          <summary>Does copying the code need an AI key?</summary>
+          <p>No, when the code is already in the subject and there is exactly one candidate: a single 4 to 8 digit number that is not a year, or one mixed letter-and-digit token. If the subject only says a code exists, TriageBox waits until that message is read and the same characters are found in the body. It will not invent a code it did not find. A wrong clipboard guess is worse than no button, so several numbers in the subject means no Copy code from the subject.</p>
+        </details>
+        <details>
+          <summary>Is this the Gmail phishing checker?</summary>
+          <p>No. The phishing checker reads Gmail’s SPF, DKIM and DMARC plus reply path and attachments on the card you are looking at. This page is only the copy-the-code chore. A code you did not request is still a reason not to enter it, and to change that account’s password. Use <a href="./gmail-phishing-checker.html">Gmail phishing checker</a> for that job, <a href="./gmail-waiting-for-reply.html">Gmail waiting for reply</a> for unanswered sent mail, <a href="./bulk-unsubscribe-gmail.html">bulk unsubscribe Gmail</a> to stop lists, and <a href="./delete-old-emails-gmail.html">delete old emails in Gmail</a> to clear by age.</p>
+        </details>
+        <details>
+          <summary>Does my mail go through a TriageBox server?</summary>
+          <p>No. There is no developer-operated backend. Processing runs in your browser; Gmail data is not sent to the publisher. The code is copied to your clipboard on this computer.</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="final-cta" aria-labelledby="code-cta-title">
+      <div>
+        <p class="eyebrow">Desktop Chrome · Gmail you already have</p>
+        <h2 id="code-cta-title">The code on the card. You paste it.</h2>
+        <p>Free to install. No subscription. No TriageBox account.</p>
+      </div>
+      <a class="btn btn-primary" href="https://chromewebstore.google.com/detail/triagebox-ai-checker-for/fdkbolcjccjkgadblcfnbnlibaiaellj">Add TriageBox to Chrome <span aria-hidden="true">→</span></a>
+    </section>
+
+    <div class="meta">
+      <p><strong>Trademarks and independence.</strong> TriageBox is not affiliated with, sponsored
+      by or endorsed by Google, and it is not a Google product. Gmail, Google and Chrome are
+      trademarks of Google LLC. Copy code reads a sign-in code from mail already in your
+      mailbox, in your browser. This page carries no affiliate links, no paid placement,
+      and no invented ratings.</p>
+      <p><a href="./">← TriageBox home</a> · <a href="./gmail-phishing-checker.html">Phishing check</a> · <a href="./gmail-waiting-for-reply.html">Waiting for reply</a> · <a href="./bulk-unsubscribe-gmail.html">Bulk unsubscribe</a> · <a href="./delete-old-emails-gmail.html">Delete old emails</a> · <a href="./checker-plus-alternative.html">vs Checker Plus</a> · <a href="./changelog.html">Changelog</a> · <a href="./privacy.html">Privacy</a></p>
+    </div>
+  </main>
+</div>
+</body>
+</html>
