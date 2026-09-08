@@ -4,7 +4,7 @@
        so search engines recrawl edits promptly. Update the entry when you edit the page. -->
   <url>
     <loc>https://triagebox.pfa87.cc/</loc>
-    <lastmod>2026-09-01</lastmod>
+    <lastmod>2026-09-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -41,6 +41,12 @@
   <url>
     <loc>https://triagebox.pfa87.cc/gmail-waiting-for-reply.html</loc>
     <lastmod>2026-09-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://triagebox.pfa87.cc/gmail-verification-code.html</loc>
+    <lastmod>2026-09-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
