@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Snooze Gmail until the sender replies — TriageBox Chrome extension 1.57</title>
+  <meta name="description" content="Snooze a Gmail thread until someone answers. TriageBox 1.57 wakes it when a reply lands, or after 7 days. Chrome extension, no TriageBox server. Not Gmail’s time-only snooze." />
+  <link rel="canonical" href="https://triagebox.pfa87.cc/gmail-snooze-until-reply.html" />
+  <link rel="icon" type="image/png" href="./logo-120.png" />
+  <meta name="theme-color" content="#1f9d6f" />
+  <link rel="stylesheet" href="./site.css?v=20260806" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="TriageBox" />
+  <meta property="og:url" content="https://triagebox.pfa87.cc/gmail-snooze-until-reply.html" />
+  <meta property="og:title" content="Snooze Gmail until the sender replies — TriageBox Chrome extension 1.57" />
+  <meta property="og:description" content="Hide a thread until someone answers — or for 7 days, whichever comes first. Store 1.57. Not waiting-for-reply. No TriageBox server." />
+  <meta property="og:image" content="https://triagebox.pfa87.cc/og-card.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@pfaclawd87" />
+  <meta name="twitter:title" content="Snooze Gmail until the sender replies — TriageBox 1.57" />
+  <meta name="twitter:description" content="Wakes on answer · 7d max. Time snooze still available. Desktop Chrome." />
+  <meta name="twitter:image" content="https://triagebox.pfa87.cc/og-card.jpg" />
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Snooze Gmail until the sender replies — TriageBox Chrome extension 1.57",
+  "url": "https://triagebox.pfa87.cc/gmail-snooze-until-reply.html",
+  "description": "Snooze a Gmail thread until someone answers, or for 7 days. Chrome Web Store 1.57. No TriageBox server.",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "TriageBox AI Gmail Checker",
+    "url": "https://triagebox.pfa87.cc/"
+  }
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://triagebox.pfa87.cc/"},
+    {"@type": "ListItem", "position": 2, "name": "Snooze until reply", "item": "https://triagebox.pfa87.cc/gmail-snooze-until-reply.html"}
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can I snooze a Gmail email until the sender replies?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Gmail’s own snooze is time-based only — tonight, tomorrow, next week. TriageBox 1.57 is a Chrome extension with Until sender replies on the snooze menu: the thread leaves the queue until someone answers, or for 7 days at most. No API key. This is not the Waiting tab, which lists sent mail nobody answered."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Who counts as a reply?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Any new message on that thread wakes it. The backstop is seven days if nobody writes. The snoozed list shows when sender replies on the card. Feed or news items cannot use this option — only real Gmail threads."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is this the same as waiting for reply?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Waiting for reply is a list of sent threads where you wrote last and nobody answered for 2+ days. Snooze until reply hides an inbound thread you are done with for now, and brings it back when someone answers. Different job, different page."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does my mail go through a TriageBox server?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. There is no developer-operated backend. Processing runs in your browser; Gmail data is not sent to the publisher."
+      }
+    }
+  ]
+}
+  </script>
+  <script src="./analytics.js?v=20260827-shared2" defer></script>
+  <style>
+    .vs-table { width: 100%; border-collapse: collapse; margin: 8px 0 14px; font-size: 14px; }
+    .vs-table th, .vs-table td { text-align: left; padding: 9px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
+    .vs-table th { color: var(--text-muted); font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; }
+    .vs-table td:first-child { color: var(--text-secondary); }
+    .vs-win { color: var(--emerald-soft); font-weight: 700; }
+    .vs-loss { color: var(--text-muted); }
+    .vs-note { font-size: 13px; color: var(--text-muted); max-width: 46em; }
+    .vs-prose { max-width: 46em; color: var(--text-secondary); margin: 0 0 18px; }
+    .vs-prose strong { color: var(--text-primary); }
+    .steps { list-style: none; padding: 0; margin: 8px 0 48px; counter-reset: step; max-width: 46em; }
+    .steps li { position: relative; padding: 16px 18px 16px 64px; margin: 0 0 10px; background: var(--surface-1); border: 1px solid var(--border); border-radius: var(--radius); color: var(--text-secondary); }
+    .steps li::before { counter-increment: step; content: counter(step, decimal-leading-zero); position: absolute; left: 18px; top: 18px; font: 600 12px/1 var(--mono); color: var(--emerald-soft); }
+    .steps li strong { color: var(--text-primary); }
+  </style>
+</head>
+<body>
+<div class="shell">
+  <header class="topbar">
+    <a class="brand" href="./">
+      <img src="./logo-120.png" width="32" height="32" alt="" onerror="this.style.display='none'" />
+      <span>TriageBox</span>
+    </a>
+    <nav class="nav" aria-label="Site">
+      <a href="./">Home</a>
+      <a href="./changelog.html">Changelog</a>
+      <a href="./checker-plus-alternative.html">vs Checker Plus</a>
+      <a href="./bulk-unsubscribe-gmail.html">Bulk unsubscribe</a>
+      <a href="./delete-old-emails-gmail.html">Delete old mail</a>
+      <a href="./gmail-phishing-checker.html">Phishing check</a>
+      <a href="./gmail-waiting-for-reply.html">Waiting for reply</a>
+      <a href="./gmail-verification-code.html">Sign-in code</a>
+      <a href="./gmail-pdf-summary.html">PDF summary</a>
+      <a href="./gmail-snooze-until-reply.html" aria-current="page">Snooze until reply</a>
+      <a href="./privacy.html">Privacy</a>
+      <a href="./terms.html">Terms</a>
+      <a href="./donate.html">Donate</a>
+      <a class="nav-cta" href="https://chromewebstore.google.com/detail/triagebox-ai-checker-for/fdkbolcjccjkgadblcfnbnlibaiaellj">Add to Chrome</a>
+    </nav>
+  </header>
+  <main>
+    <section class="hero" aria-labelledby="snooze-title">
+      <div class="hero-copy">
+        <div class="hero-brand">
+          <p class="eyebrow">Chrome Web Store 1.57 · Gmail, in your browser</p>
+        </div>
+        <h1 id="snooze-title">Snooze Gmail until the sender replies</h1>
+        <p class="tagline">TriageBox’s snooze menu includes <strong>Until sender replies</strong>:
+        the thread leaves the queue until someone answers, or for <strong>7 days</strong> at most.
+        No AI key. No TriageBox server.</p>
+        <p class="tagline">This is not Gmail’s clock-only snooze, and it is not
+        <a href="./gmail-waiting-for-reply.html">waiting for reply</a> (sent mail nobody answered),
+        <a href="./bulk-unsubscribe-gmail.html">bulk unsubscribe</a>, or
+        <a href="./delete-old-emails-gmail.html">deleting old emails</a>.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="https://chromewebstore.google.com/detail/triagebox-ai-checker-for/fdkbolcjccjkgadblcfnbnlibaiaellj">Add to Chrome <span aria-hidden="true">→</span></a>
+          <a class="btn btn-ghost" href="#how-it-works">See the steps</a>
+        </div>
+        <p class="hero-micro">Free on the Chrome Web Store · no account · desktop Chrome only</p>
+      </div>
+      <figure class="product-stage">
+        <div class="window-bar" aria-hidden="true"><span></span><span></span><span></span><b>TriageBox</b></div>
+        <img src="./og-card.jpg" width="1280" height="800" alt="TriageBox Gmail popup with snooze. Until sender replies wakes the thread when someone answers, or after 7 days." />
+        <figcaption>Hide it until they answer. Time snooze is still there.</figcaption>
+      </figure>
+    </section>
+    <section class="lead" aria-labelledby="gmail-native-snooze">
+      <div class="lead-heading">
+        <span class="privacy-mark" aria-hidden="true">≠</span>
+        <div>
+          <p class="eyebrow">Gmail already snoozes by time</p>
+          <h2 id="gmail-native-snooze">Use Gmail if a clock is enough. Use TriageBox if the reply is the wake.</h2>
+        </div>
+      </div>
+      <p class="vs-prose">Gmail’s snooze (tonight, tomorrow, next week, pick a date) brings mail back on a
+      schedule. It does not watch the thread. TriageBox 1.57 adds that second job on the same
+      snooze control: wake when someone answers, with a seven-day backstop. First-time install
+      still shows Google’s unverified-app screen.</p>
+    </section>
+    <div class="section-heading">
+      <p class="eyebrow">Same mailbox, different job</p>
+      <h2>Gmail time snooze vs TriageBox 1.57 Until sender replies</h2>
+      <p>Facts from Gmail’s published snooze and from the live Chrome Web Store listing for
+      TriageBox 1.57. No invented ratings.</p>
+    </div>
+    <table class="vs-table">
+      <thead>
+        <tr><th>What you need</th><th>Gmail</th><th>TriageBox 1.57</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Come back at a clock time</td>
+          <td class="vs-win">Tonight, tomorrow, next week, pick a date</td>
+          <td class="vs-win">Same idea: 1h, 3h, this evening, tomorrow, next week, custom time</td>
+        </tr>
+        <tr>
+          <td>Come back when they answer</td>
+          <td class="vs-loss">Not offered</td>
+          <td class="vs-win">Until sender replies — wakes on any new message on the thread, 7 days max</td>
+        </tr>
+        <tr>
+          <td>A list of what you sent that got no reply</td>
+          <td>Nudges (heuristic)</td>
+          <td>That is <a href="./gmail-waiting-for-reply.html">Waiting for reply</a> — a different tab, not this snooze option</td>
+        </tr>
+        <tr>
+          <td>Where it lives</td>
+          <td class="vs-win">Inside gmail.com and the apps</td>
+          <td>Snooze menu on the TriageBox card. Snoozed list shows when sender replies</td>
+        </tr>
+        <tr>
+          <td>On your phone</td>
+          <td class="vs-win">Gmail app</td>
+          <td class="vs-loss">Desktop Chrome only</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="vs-note">TriageBox is not affiliated with Google. Gmail, Google and Chrome are
+    trademarks of Google LLC. Until sender replies is not open-tracking. It does not nudge
+    the other person. Feed items cannot use it.</p>
+    <div class="section-heading" id="how-it-works">
+      <p class="eyebrow">Store 1.57 · no API key</p>
+      <h2>How Until sender replies actually runs</h2>
+    </div>
+    <ol class="steps">
+      <li><strong>Install and connect Gmail.</strong> Desktop Chrome. No TriageBox account.</li>
+      <li><strong>Open Snooze on a real thread.</strong> Time presets are still there. Under them:
+      Until sender replies — “wakes on answer · 7d max”.</li>
+      <li><strong>It leaves the queue.</strong> The card’s time slot reads when sender replies
+      while it is snoozed. Any new message on that thread wakes it; otherwise the seven-day
+      backstop does.</li>
+      <li><strong>Or pick a clock instead.</strong> This option does not replace time snooze.
+      Use Waiting for reply when the job is a list of your unanswered sent mail.</li>
+    </ol>
+    <div class="cards">
+      <div class="card">
+        <span class="card-icon" aria-hidden="true">⤷</span>
+        <h3>The reply is the alarm</h3>
+        <p>Not a date you guessed. Someone writing on the thread is what brings it back.</p>
+      </div>
+      <div class="card">
+        <span class="card-icon" aria-hidden="true">7</span>
+        <h3>Seven-day backstop</h3>
+        <p>If nobody answers, it still returns. It is not parked forever.</p>
+      </div>
+      <div class="card">
+        <span class="card-icon" aria-hidden="true">⊘</span>
+        <h3>Not Waiting for reply</h3>
+        <p>Waiting lists what you sent. This hides what you received until they write.</p>
+      </div>
+      <div class="card">
+        <span class="card-icon" aria-hidden="true">⎋</span>
+        <h3>Time snooze stays</h3>
+        <p>Tonight and tomorrow still exist on the same menu. This is one extra line.</p>
+      </div>
+    </div>
+    <section class="final-cta" aria-labelledby="snooze-mid-cta">
+      <div>
+        <p class="eyebrow">Done with it until they answer</p>
+        <h2 id="snooze-mid-cta">Hide the thread. Wake on the reply. Or in seven days.</h2>
+        <p>Chrome Web Store 1.57. No TriageBox account. Data stays in your browser.</p>
+      </div>
+      <a class="btn btn-primary" href="https://chromewebstore.google.com/detail/triagebox-ai-checker-for/fdkbolcjccjkgadblcfnbnlibaiaellj">Add to Chrome <span aria-hidden="true">→</span></a>
+    </section>
+    <div class="section-heading">
+      <p class="eyebrow">Limits, stated</p>
+      <h2>What this page does not claim</h2>
+    </div>
+    <ul class="vs-prose">
+      <li>It does not replace Gmail’s time snooze. Those presets are still on the menu.</li>
+      <li>It does not wait forever. Seven days is the backstop if nobody answers.</li>
+      <li>It does not only wake on the original From. Any new message on the thread wakes it.</li>
+      <li>It does not list unanswered sent mail. That is <a href="./gmail-waiting-for-reply.html">Gmail waiting for reply</a>.</li>
+      <li>It does not nudge the other person or track opens.</li>
+      <li>It does not work on news or feed cards — only real Gmail threads.</li>
+      <li>It does not unsubscribe or delete mail. Those are <a href="./bulk-unsubscribe-gmail.html">bulk unsubscribe</a> and <a href="./delete-old-emails-gmail.html">delete old emails</a>.</li>
+      <li>It does not run on your phone. Gmail’s own time snooze is what you have there.</li>
+      <li>It does not send mail through a TriageBox server.</li>
+      <li>It is not for anyone else’s mailbox.</li>
+    </ul>
+    <section class="faq" id="faq" aria-labelledby="snooze-faq-title">
+      <div class="section-heading">
+        <p class="eyebrow">Quick answers</p>
+        <h2 id="snooze-faq-title">Snooze until the sender replies</h2>
+      </div>
+      <div class="faq-list">
+        <details open>
+          <summary>Can I snooze a Gmail email until the sender replies?</summary>
+          <p>Gmail’s own snooze is time-based only — tonight, tomorrow, next week. TriageBox 1.57 is a Chrome extension with Until sender replies on the snooze menu: the thread leaves the queue until someone answers, or for 7 days at most. No API key. This is not the Waiting tab, which lists sent mail nobody answered.</p>
+        </details>
+        <details>
+          <summary>Who counts as a reply?</summary>
+          <p>Any new message on that thread wakes it. The backstop is seven days if nobody writes. The snoozed list shows when sender replies on the card. Feed or news items cannot use this option — only real Gmail threads.</p>
+        </details>
+        <details>
+          <summary>Is this the same as waiting for reply?</summary>
+          <p>No. Waiting for reply is a list of sent threads where you wrote last and nobody answered for 2+ days. Snooze until reply hides an inbound thread you are done with for now, and brings it back when someone answers. Use <a href="./gmail-waiting-for-reply.html">Gmail waiting for reply</a> for the outbound list.</p>
+        </details>
+        <details>
+          <summary>Does my mail go through a TriageBox server?</summary>
+          <p>No. There is no developer-operated backend. Processing runs in your browser; Gmail data is not sent to the publisher.</p>
+        </details>
+      </div>
+    </section>
+    <section class="final-cta" aria-labelledby="snooze-cta-title">
+      <div>
+        <p class="eyebrow">Desktop Chrome · Gmail you already have</p>
+        <h2 id="snooze-cta-title">Snooze for the reply. Not only for the clock.</h2>
+        <p>Free to install. No subscription. No TriageBox account.</p>
+      </div>
+      <a class="btn btn-primary" href="https://chromewebstore.google.com/detail/triagebox-ai-checker-for/fdkbolcjccjkgadblcfnbnlibaiaellj">Add TriageBox to Chrome <span aria-hidden="true">→</span></a>
+    </section>
+    <div class="meta">
+      <p><strong>Trademarks and independence.</strong> TriageBox is not affiliated with, sponsored
+      by or endorsed by Google, and it is not a Google product. Gmail, Google and Chrome are
+      trademarks of Google LLC. This page carries no affiliate links, no paid placement,
+      and no invented ratings.</p>
+      <p><a href="./">← TriageBox home</a> · <a href="./gmail-waiting-for-reply.html">Waiting for reply</a> · <a href="./gmail-verification-code.html">Sign-in code</a> · <a href="./gmail-pdf-summary.html">PDF summary</a> · <a href="./bulk-unsubscribe-gmail.html">Bulk unsubscribe</a> · <a href="./privacy.html">Privacy</a></p>
+    </div>
+  </main>
+</div>
+</body>
+</html>
