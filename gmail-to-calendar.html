@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Create a Google Calendar event from a Gmail email — TriageBox 1.57</title>
+  <meta name="description" content="Add a Gmail email to Google Calendar from the TriageBox popup. Store 1.57: .ics invites parse locally; dated summaries get Add to calendar with your AI key. Amend and Remove stay on the card. No TriageBox server." />
+  <link rel="canonical" href="https://triagebox.pfa87.cc/gmail-to-calendar.html" />
+  <link rel="icon" type="image/png" href="./logo-120.png" />
+  <meta name="theme-color" content="#1f9d6f" />
+  <link rel="stylesheet" href="./site.css?v=20260806" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="TriageBox" />
+  <meta property="og:url" content="https://triagebox.pfa87.cc/gmail-to-calendar.html" />
+  <meta property="og:title" content="Create a Google Calendar event from a Gmail email — TriageBox 1.57" />
+  <meta property="og:description" content=".ics invites parse on the card. Dated summaries get one-click Add to calendar with your key. Store 1.57. Not a second Calendar app." />
+  <meta property="og:image" content="https://triagebox.pfa87.cc/og-card.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@pfaclawd87" />
+  <meta name="twitter:title" content="Gmail to Google Calendar — TriageBox 1.57" />
+  <meta name="twitter:description" content=".ics local. Summary → calendar with your key. Amend and Remove on the card." />
+  <meta name="twitter:image" content="https://triagebox.pfa87.cc/og-card.jpg" />
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Create a Google Calendar event from a Gmail email — TriageBox 1.57",
+  "url": "https://triagebox.pfa87.cc/gmail-to-calendar.html",
+  "description": "Add a Gmail message to Google Calendar from the TriageBox popup. Chrome Web Store 1.57. No TriageBox server.",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "TriageBox AI Gmail Checker",
+    "url": "https://triagebox.pfa87.cc/"
+  }
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://triagebox.pfa87.cc/"},
+    {"@type": "ListItem", "position": 2, "name": "Gmail to Calendar", "item": "https://triagebox.pfa87.cc/gmail-to-calendar.html"}
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I create a Google Calendar event from a Gmail email?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Gmail can open an .ics invite or you can copy times into Calendar by hand. TriageBox 1.57 is a Chrome extension with two paths on the card: an .ics attachment gets a local Add to calendar chip (exact times, no AI). If the thread summary looks like a dated event and there is no .ics, Add to calendar extracts one event with your AI key and creates it on your primary calendar in one click. Amend and Remove stay on the card. The model can be wrong."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need an AI key?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not for a real .ics invite — that parses in your browser. For a plain email that only describes a meeting, yes: summarize first with your Gemini, xAI, or OpenRouter key, then use Add to calendar. Calendar OAuth is also required for create, amend, and remove."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is this the same as snooze or waiting for reply?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Snooze hides a thread until a time or a reply. Waiting for reply lists sent mail nobody answered. This page only puts an event on Google Calendar. Different jobs, different pages."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does my mail go through a TriageBox server?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. There is no developer-operated backend. .ics parsing stays in your browser. Optional AI goes from your browser to the provider whose key you added. Calendar writes go to Google Calendar under your OAuth."
+      }
+    }
+  ]
+}
+  </script>
+  <script src="./analytics.js?v=20260827-shared2" defer></script>
+  <style>
+    .vs-table { width: 100%; border-collapse: collapse; margin: 8px 0 14px; font-size: 14px; }
+    .vs-table th, .vs-table td { text-align: left; padding: 9px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
+    .vs-table th { color: var(--text-muted); font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; }
+    .vs-table td:first-child { color: var(--text-secondary); }
+    .vs-win { color: var(--emerald-soft); font-weight: 700; }
+    .vs-loss { color: var(--text-muted); }
+    .vs-note { font-size: 13px; color: var(--text-muted); max-width: 46em; }
+    .vs-prose { max-width: 46em; color: var(--text-secondary); margin: 0 0 18px; }
+    .vs-prose strong { color: var(--text-primary); }
+    .steps { list-style: none; padding: 0; margin: 8px 0 48px; counter-reset: step; max-width: 46em; }
+    .steps li { position: relative; padding: 16px 18px 16px 64px; margin: 0 0 10px; background: var(--surface-1); border: 1px solid var(--border); border-radius: var(--radius); color: var(--text-secondary); }
+    .steps li::before { counter-increment: step; content: counter(step, decimal-leading-zero); position: absolute; left: 18px; top: 18px; font: 600 12px/1 var(--mono); color: var(--emerald-soft); }
+    .steps li strong { color: var(--text-primary); }
+  </style>
+</head>
+<body>
+<div class="shell">
+  <header class="topbar">
+    <a class="brand" href="./">
+      <img src="./logo-120.png" width="32" height="32" alt="" onerror="this.style.display='none'" />
+      <span>TriageBox</span>
+    </a>
+    <nav class="nav" aria-label="Site">
+      <a href="./">Home</a>
+      <a href="./changelog.html">Changelog</a>
+      <a href="./checker-plus-alternative.html">vs Checker Plus</a>
+      <a href="./bulk-unsubscribe-gmail.html">Bulk unsubscribe</a>
+      <a href="./delete-old-emails-gmail.html">Delete old mail</a>
+      <a href="./gmail-phishing-checker.html">Phishing check</a>
+      <a href="./gmail-waiting-for-reply.html">Waiting for reply</a>
+      <a href="./gmail-verification-code.html">Sign-in code</a>
+      <a href="./gmail-pdf-summary.html">PDF summary</a>
+      <a href="./gmail-snooze-until-reply.html">Snooze until reply</a>
+      <a href="./gmail-to-calendar.html" aria-current="page">Gmail to Calendar</a>
+      <a href="./privacy.html">Privacy</a>
+      <a href="./terms.html">Terms</a>
+      <a href="./donate.html">Donate</a>
+      <a class="nav-cta" href="https://chromewebstore.google.com/detail/triagebox-ai-checker-for/fdkbolcjccjkgadblcfnbnlibaiaellj">Add to Chrome</a>
+    </nav>
+  </header>
+  <main>
+    <section class="hero" aria-labelledby="cal-title">
+      <div class="hero-copy">
+        <div class="hero-brand">
+          <p class="eyebrow">Chrome Web Store 1.57 · Gmail + Calendar you already have</p>
+        </div>
+        <h1 id="cal-title">Create a Google Calendar event from a Gmail email</h1>
+        <p class="tagline">TriageBox 1.57 puts the event on your <strong>primary calendar</strong> from the card.
+        A real <strong>.ics</strong> invite parses locally. A dated summary gets
+        <strong>Add to calendar</strong> with your AI key — one click, then Amend or Remove.</p>
+        <p class="tagline">This is not
+        <a href="./gmail-snooze-until-reply.html">snooze until reply</a>,
+        <a href="./gmail-waiting-for-reply.html">waiting for reply</a>, or
+        <a href="./gmail-pdf-summary.html">summarizing a PDF</a>.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="https://chromewebstore.google.com/detail/triagebox-ai-checker-for/fdkbolcjccjkgadblcfnbnlibaiaellj">Add to Chrome <span aria-hidden="true">→</span></a>
+          <a class="btn btn-ghost" href="#how-it-works">See the steps</a>
+        </div>
+        <p class="hero-micro">Free to install · Calendar OAuth when you connect it · desktop Chrome only</p>
+      </div>
+      <figure class="product-stage">
+        <div class="window-bar" aria-hidden="true"><span></span><span></span><span></span><b>TriageBox</b></div>
+        <img src="./og-card.jpg" width="1280" height="800" alt="TriageBox Gmail popup. Add to calendar on a summary creates the event on Google Calendar with Amend and Remove on the card." />
+        <figcaption>The meeting leaves the inbox and lands on the calendar you already use.</figcaption>
+      </figure>
+    </section>
+    <section class="lead" aria-labelledby="gmail-native-cal">
+      <div class="lead-heading">
+        <span class="privacy-mark" aria-hidden="true">≠</span>
+        <div>
+          <p class="eyebrow">Gmail already opens invites</p>
+          <h2 id="gmail-native-cal">Open the .ics in Gmail if that is enough. Use TriageBox if the date is only in the prose.</h2>
+        </div>
+      </div>
+      <p class="vs-prose">Gmail will show an invite and let you add it. That is free and correct for a proper
+      calendar attachment. TriageBox 1.57 is for the other mail: a lunch time buried in the
+      body, or an .ics you want handled on the same card as triage. First-time install still
+      shows Google’s unverified-app screen.</p>
+    </section>
+    <div class="section-heading">
+      <p class="eyebrow">Same mailbox, different job</p>
+      <h2>Gmail invites vs TriageBox 1.57</h2>
+      <p>Facts from how Gmail handles invites and from the live Chrome Web Store listing for
+      TriageBox 1.57. No invented ratings.</p>
+    </div>
+    <table class="vs-table">
+      <thead>
+        <tr><th>What you need</th><th>Gmail</th><th>TriageBox 1.57</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>A real .ics invite</td>
+          <td class="vs-win">Open / add from the message</td>
+          <td class="vs-win">Add to calendar chip on the card — local parse, exact times, no AI</td>
+        </tr>
+        <tr>
+          <td>A meeting only described in the email</td>
+          <td>Copy into Calendar yourself</td>
+          <td class="vs-win">Summarize, then Add to calendar — one event extracted, created on primary. Needs your AI key. The model can be wrong.</td>
+        </tr>
+        <tr>
+          <td>Fix or undo after add</td>
+          <td class="vs-win">Edit in Google Calendar</td>
+          <td class="vs-win">Amend (title, day, time, place) and Remove on the card; Remove deletes on Google Calendar</td>
+        </tr>
+        <tr>
+          <td>Both paths on one card</td>
+          <td>—</td>
+          <td>If an .ics is present, the local chip wins. The AI button is not offered beside it.</td>
+        </tr>
+        <tr>
+          <td>On your phone</td>
+          <td class="vs-win">Gmail / Calendar apps</td>
+          <td class="vs-loss">Desktop Chrome only</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="vs-note">TriageBox is not affiliated with Google. Gmail, Google Calendar, Google and Chrome
+    are trademarks of Google LLC. Creates go to your primary calendar. Birthdays and other
+    special event types Google refuses to delete get Hide in the Calendar tab, not a doomed
+    Delete.</p>
+    <div class="section-heading" id="how-it-works">
+      <p class="eyebrow">Store 1.57 · .ics free of AI · prose needs your key</p>
+      <h2>How Gmail → Calendar actually runs</h2>
+    </div>
+    <ol class="steps">
+      <li><strong>Install and connect Gmail.</strong> Connect Calendar when you want creates.
+      No TriageBox account.</li>
+      <li><strong>.ics path.</strong> If the message carries a calendar invite, use Add to
+      calendar on the card. Times come from the file, not the model.</li>
+      <li><strong>Prose path.</strong> Summarize with your Gemini, xAI, or OpenRouter key.
+      When the summary looks like a dated event and there is no .ics, Add to calendar extracts
+      one event and creates it — no confirm step in between.</li>
+      <li><strong>Amend or Remove.</strong> The card keeps the event you just added. Clearing a
+      wrong AI field erases it. Remove deletes it on Google Calendar and offers Add again.</li>
+    </ol>
+    <div class="cards">
+      <div class="card">
+        <span class="card-icon" aria-hidden="true">📅</span>
+        <h3>One event, not a second inbox</h3>
+        <p>The single most important event from that summary. Not a dump of every date in the thread.</p>
+      </div>
+      <div class="card">
+        <span class="card-icon" aria-hidden="true">📎</span>
+        <h3>.ics stays honest</h3>
+        <p>Invites parse locally. The AI button is withheld when the better chip is already there.</p>
+      </div>
+      <div class="card">
+        <span class="card-icon" aria-hidden="true">✎</span>
+        <h3>Amend on the card</h3>
+        <p>Title, day, time, place — patched in place. You are not sent to calendar.google.com to fix a typo.</p>
+      </div>
+      <div class="card">
+        <span class="card-icon" aria-hidden="true">⎋</span>
+        <h3>Snooze is a different page</h3>
+        <p>Hiding a thread until they answer is <a href="./gmail-snooze-until-reply.html">snooze until reply</a>. This page only writes Calendar.</p>
+      </div>
+    </div>
+    <section class="final-cta" aria-labelledby="cal-mid-cta">
+      <div>
+        <p class="eyebrow">The meeting leaves the queue</p>
+        <h2 id="cal-mid-cta">Add it once. Amend on the card. Or remove it from Google Calendar.</h2>
+        <p>Chrome Web Store 1.57. Your calendar. Optional AI on your key.</p>
+      </div>
+      <a class="btn btn-primary" href="https://chromewebstore.google.com/detail/triagebox-ai-checker-for/fdkbolcjccjkgadblcfnbnlibaiaellj">Add to Chrome <span aria-hidden="true">→</span></a>
+    </section>
+    <div class="section-heading">
+      <p class="eyebrow">Limits, stated</p>
+      <h2>What this page does not claim</h2>
+    </div>
+    <ul class="vs-prose">
+      <li>It does not invent times. An .ics is exact. A prose extraction can be wrong — check Amend.</li>
+      <li>It does not add every date in the email. One event from the summary.</li>
+      <li>It does not run the AI path without your key, or without Calendar connected.</li>
+      <li>It does not offer AI Add to calendar beside a real .ics — the local chip is enough.</li>
+      <li>It does not create on a secondary calendar. Creates go to primary.</li>
+      <li>It does not replace the Calendar tab agenda (Today / Upcoming for the next 30 days).</li>
+      <li>It does not snooze mail or list unanswered sent threads. Those are <a href="./gmail-snooze-until-reply.html">snooze until reply</a> and <a href="./gmail-waiting-for-reply.html">waiting for reply</a>.</li>
+      <li>It does not summarize PDFs. That is <a href="./gmail-pdf-summary.html">Gmail PDF summary</a>.</li>
+      <li>It does not run on your phone.</li>
+      <li>It does not send mail through a TriageBox server.</li>
+      <li>It is not for anyone else’s mailbox.</li>
+    </ul>
+    <section class="faq" id="faq" aria-labelledby="cal-faq-title">
+      <div class="section-heading">
+        <p class="eyebrow">Quick answers</p>
+        <h2 id="cal-faq-title">Gmail to Google Calendar</h2>
+      </div>
+      <div class="faq-list">
+        <details open>
+          <summary>How do I create a Google Calendar event from a Gmail email?</summary>
+          <p>Gmail can open an .ics invite or you can copy times into Calendar by hand. TriageBox 1.57 is a Chrome extension with two paths on the card: an .ics attachment gets a local Add to calendar chip (exact times, no AI). If the thread summary looks like a dated event and there is no .ics, Add to calendar extracts one event with your AI key and creates it on your primary calendar in one click. Amend and Remove stay on the card. The model can be wrong.</p>
+        </details>
+        <details>
+          <summary>Do I need an AI key?</summary>
+          <p>Not for a real .ics invite — that parses in your browser. For a plain email that only describes a meeting, yes: summarize first with your Gemini, xAI, or OpenRouter key, then use Add to calendar. Calendar OAuth is also required for create, amend, and remove.</p>
+        </details>
+        <details>
+          <summary>Is this the same as snooze or waiting for reply?</summary>
+          <p>No. Snooze hides a thread until a time or a reply. Waiting for reply lists sent mail nobody answered. This page only puts an event on Google Calendar. See <a href="./gmail-snooze-until-reply.html">snooze until reply</a> and <a href="./gmail-waiting-for-reply.html">waiting for reply</a> for those jobs.</p>
+        </details>
+        <details>
+          <summary>Does my mail go through a TriageBox server?</summary>
+          <p>No. There is no developer-operated backend. .ics parsing stays in your browser. Optional AI goes from your browser to the provider whose key you added. Calendar writes go to Google Calendar under your OAuth.</p>
+        </details>
+      </div>
+    </section>
+    <section class="final-cta" aria-labelledby="cal-cta-title">
+      <div>
+        <p class="eyebrow">Desktop Chrome · calendars you already use</p>
+        <h2 id="cal-cta-title">From the card to primary. Then amend if the model missed.</h2>
+        <p>Free to install. No TriageBox account.</p>
+      </div>
+      <a class="btn btn-primary" href="https://chromewebstore.google.com/detail/triagebox-ai-checker-for/fdkbolcjccjkgadblcfnbnlibaiaellj">Add TriageBox to Chrome <span aria-hidden="true">→</span></a>
+    </section>
+    <div class="meta">
+      <p><strong>Trademarks and independence.</strong> TriageBox is not affiliated with, sponsored
+      by or endorsed by Google, and it is not a Google product. Gmail, Google Calendar, Google
+      and Chrome are trademarks of Google LLC. This page carries no affiliate links, no paid
+      placement, and no invented ratings.</p>
+      <p><a href="./">← TriageBox home</a> · <a href="./gmail-snooze-until-reply.html">Snooze until reply</a> · <a href="./gmail-waiting-for-reply.html">Waiting for reply</a> · <a href="./gmail-pdf-summary.html">PDF summary</a> · <a href="./privacy.html">Privacy</a></p>
+    </div>
+  </main>
+</div>
+</body>
+</html>
