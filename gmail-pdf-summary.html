@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Summarize a PDF attached to Gmail — TriageBox Chrome extension 1.57</title>
-  <meta name="description" content="Summarize a PDF attached to a Gmail message from the TriageBox popup. Chrome Web Store 1.57 reads the attachment itself into a summary on the card. Needs your own AI key. No TriageBox server." />
+  <title>Summarize a PDF attached to Gmail — TriageBox Chrome extension</title>
+  <meta name="description" content="Summarize a PDF attached to a Gmail message from the TriageBox popup. Desktop Chrome extension reads the attachment itself into a summary on the card. Needs your own AI key. No TriageBox mailbox server." />
   <link rel="canonical" href="https://triagebox.pfa87.cc/gmail-pdf-summary.html" />
   <link rel="icon" type="image/png" href="./logo-120.png" />
   <meta name="theme-color" content="#1f9d6f" />
@@ -13,21 +13,21 @@
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="TriageBox" />
   <meta property="og:url" content="https://triagebox.pfa87.cc/gmail-pdf-summary.html" />
-  <meta property="og:title" content="Summarize a PDF attached to Gmail — TriageBox Chrome extension 1.57" />
-  <meta property="og:description" content="The attached PDF, summarized on the card. Dates, amounts, what it asks of you. Store 1.57. Your own AI key. Not a scan of every page by magic." />
+  <meta property="og:title" content="Summarize a PDF attached to Gmail — TriageBox Chrome extension" />
+  <meta property="og:description" content="The attached PDF, summarized on the card. Dates, amounts, what it asks of you. Desktop Chrome. Your own AI key. Not a scan of every page by magic." />
   <meta property="og:image" content="https://triagebox.pfa87.cc/og-card.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@pfaclawd87" />
-  <meta name="twitter:title" content="Summarize a PDF attached to Gmail — TriageBox 1.57" />
+  <meta name="twitter:title" content="Summarize a PDF attached to Gmail — TriageBox" />
   <meta name="twitter:description" content="PDF summary on the Gmail card. Your key. Cached per attachment. Not a phone app." />
   <meta name="twitter:image" content="https://triagebox.pfa87.cc/og-card.jpg" />
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  "name": "Summarize a PDF attached to Gmail — TriageBox Chrome extension 1.57",
+  "name": "Summarize a PDF attached to Gmail — TriageBox Chrome extension",
   "url": "https://triagebox.pfa87.cc/gmail-pdf-summary.html",
-  "description": "Summarize a PDF attached to Gmail from the TriageBox popup. Chrome Web Store 1.57. Your own AI key. No TriageBox server.",
+  "description": "Summarize a PDF attached to Gmail from the TriageBox popup. Desktop Chrome extension. Your own AI key. No TriageBox mailbox server.",
   "isPartOf": {
     "@type": "WebSite",
     "name": "TriageBox AI Gmail Checker",
@@ -55,7 +55,7 @@
       "name": "How do I summarize a PDF attached to a Gmail message?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "TriageBox 1.57 is a Chrome extension. Open the attachment preview on the card, or the menu, and choose Summarize PDF. It reads that attached document and puts a summary on the card — dates, amounts, what it asks of you — without you opening the file in another app. This needs an AI key you add yourself (Gemini, xAI, or OpenRouter). It is not a no-key feature."
+        "text": "TriageBox is a Chrome extension. Open the attachment preview on the card, or the menu, and choose Summarize PDF. It reads that attached document and puts a summary on the card — dates, amounts, what it asks of you — without you opening the file in another app. This needs an AI key you add yourself (Gemini, xAI, or OpenRouter). It is not a no-key feature."
       }
     },
     {
@@ -79,7 +79,7 @@
       "name": "Does my mail go through a TriageBox server?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. There is no developer-operated backend. The PDF goes from your browser to the provider whose key you added. Gmail data is not sent to the publisher."
+        "text": "No. There is no TriageBox mailbox backend. The separate public support service counts anonymous likes; it receives no Gmail content. The PDF goes from your browser to the provider whose key you added. Gmail data is not sent to the publisher."
       }
     }
   ]
@@ -121,6 +121,7 @@
       <a href="./gmail-pdf-summary.html" aria-current="page">PDF summary</a>
       <a href="./gmail-snooze-until-reply.html">Snooze until reply</a>
       <a href="./gmail-to-calendar.html">Gmail to Calendar</a>
+      <a href="./gmail-spam-review.html">Spam review</a>
       <a href="./privacy.html">Privacy</a>
       <a href="./terms.html">Terms</a>
       <a href="./donate.html">Donate</a>
@@ -128,15 +129,16 @@
     </nav>
   </header>
   <main>
+    <p class="changelog-note">Guide reviewed 10 September 2026 against local release <strong>1.65.0</strong>, pending manual publication. The store may offer an earlier build; <a href="./changelog.html">check release availability</a>.</p>
     <section class="hero" aria-labelledby="pdf-title">
       <div class="hero-copy">
         <div class="hero-brand">
-          <p class="eyebrow">Chrome Web Store 1.57 · needs your AI key</p>
+          <p class="eyebrow">Desktop Chrome extension · needs your AI key</p>
         </div>
         <h1 id="pdf-title">Summarize a PDF attached to Gmail, on the card</h1>
-        <p class="tagline">TriageBox 1.57 reads the <strong>attached PDF</strong> — not only the subject —
+        <p class="tagline">TriageBox reads the <strong>attached PDF</strong> — not only the subject —
         and puts the summary on the card. Dates, amounts, what it asks of you.
-        <strong>Your own key</strong> (Gemini, xAI, or OpenRouter). No TriageBox server.</p>
+        <strong>Your own key</strong> (Gemini, xAI, or OpenRouter). No TriageBox mailbox server.</p>
         <p class="tagline">This is not a thread summary, and it is not
         <a href="./gmail-verification-code.html">copying a sign-in code</a>,
         <a href="./gmail-phishing-checker.html">a phishing checker</a>,
@@ -163,20 +165,19 @@
         </div>
       </div>
       <p class="vs-prose">Gmail will download or preview the attachment. That is the real document, and it
-      is free. TriageBox 1.57 is the narrower job: the file is already on the message, and you
+      is free. TriageBox is the narrower job: the file is already on the message, and you
       want a short read of it on the card without a second app. The button is on the attachment
-      preview and in the menu as “Summarize PDF · name”. First-time install still shows Google’s
-      unverified-app screen.</p>
+      preview and in the menu as “Summarize PDF · name”. Review Google's sign-in and permission prompts before connecting.</p>
     </section>
     <div class="section-heading">
       <p class="eyebrow">Same mailbox, different job</p>
-      <h2>Opening the PDF vs TriageBox 1.57</h2>
-      <p>Facts from the live Chrome Web Store listing for TriageBox 1.57 and from how the
+      <h2>Opening the PDF vs TriageBox</h2>
+      <p>Facts from the current extension documentation for TriageBox and from how the
       popup summarizes an attachment. No invented ratings.</p>
     </div>
     <table class="vs-table">
       <thead>
-        <tr><th>What you need</th><th>Gmail</th><th>TriageBox 1.57</th></tr>
+        <tr><th>What you need</th><th>Gmail</th><th>TriageBox</th></tr>
       </thead>
       <tbody>
         <tr>
@@ -215,7 +216,7 @@
     trademarks of Google LLC. The summary is assistive. A scan that is only a picture of a
     page can come back thin. Cached per attachment; Regenerate reads it again.</p>
     <div class="section-heading" id="how-it-works">
-      <p class="eyebrow">Store 1.57 · your key, not a TriageBox account</p>
+      <p class="eyebrow">Desktop Chrome · your key, not a TriageBox account</p>
       <h2>How Summarize PDF actually runs</h2>
     </div>
     <ol class="steps">
@@ -254,7 +255,7 @@
       <div>
         <p class="eyebrow">The point of the PDF, on the card</p>
         <h2 id="pdf-mid-cta">Read the document without leaving the queue.</h2>
-        <p>Chrome Web Store 1.57. Your key. Data stays in your browser, then goes to the provider you chose.</p>
+        <p>Desktop Chrome extension. Your key. Data stays in your browser, then goes to the provider you chose.</p>
       </div>
       <a class="btn btn-primary" href="https://chromewebstore.google.com/detail/triagebox-ai-checker-for/fdkbolcjccjkgadblcfnbnlibaiaellj">Add to Chrome <span aria-hidden="true">→</span></a>
     </section>
@@ -284,7 +285,7 @@
       <div class="faq-list">
         <details open>
           <summary>How do I summarize a PDF attached to a Gmail message?</summary>
-          <p>TriageBox 1.57 is a Chrome extension. Open the attachment preview on the card, or the menu, and choose Summarize PDF. It reads that attached document and puts a summary on the card — dates, amounts, what it asks of you — without you opening the file in another app. This needs an AI key you add yourself (Gemini, xAI, or OpenRouter). It is not a no-key feature.</p>
+          <p>TriageBox is a Chrome extension. Open the attachment preview on the card, or the menu, and choose Summarize PDF. It reads that attached document and puts a summary on the card — dates, amounts, what it asks of you — without you opening the file in another app. This needs an AI key you add yourself (Gemini, xAI, or OpenRouter). It is not a no-key feature.</p>
         </details>
         <details>
           <summary>Does the summary read the PDF, or only the email subject?</summary>
@@ -296,7 +297,7 @@
         </details>
         <details>
           <summary>Does my mail go through a TriageBox server?</summary>
-          <p>No. There is no developer-operated backend. The PDF goes from your browser to the provider whose key you added. Gmail data is not sent to the publisher.</p>
+          <p>No. There is no TriageBox mailbox backend. The separate public support service counts anonymous likes; it receives no Gmail content. The PDF goes from your browser to the provider whose key you added. Gmail data is not sent to the publisher.</p>
         </details>
       </div>
     </section>
