@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Bulk unsubscribe Gmail — TriageBox Chrome extension 1.57</title>
-  <meta name="description" content="Bulk unsubscribe Gmail per exact sender, then sweep the leftover pile. TriageBox 1.57 shows a live count before anything moves. Chrome extension, no TriageBox server." />
+  <title>Bulk unsubscribe Gmail — TriageBox Chrome extension</title>
+  <meta name="description" content="Bulk unsubscribe Gmail per exact sender, then sweep the leftover pile. TriageBox shows a live count before anything moves. Chrome extension, no TriageBox mailbox server." />
   <link rel="canonical" href="https://triagebox.pfa87.cc/bulk-unsubscribe-gmail.html" />
   <link rel="icon" type="image/png" href="./logo-120.png" />
   <meta name="theme-color" content="#1f9d6f" />
@@ -13,21 +13,21 @@
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="TriageBox" />
   <meta property="og:url" content="https://triagebox.pfa87.cc/bulk-unsubscribe-gmail.html" />
-  <meta property="og:title" content="Bulk unsubscribe Gmail — TriageBox Chrome extension 1.57" />
-  <meta property="og:description" content="Unsubscribe Gmail per exact sender so statements survive, then sweep the leftover pile with an exact count. Store 1.57. No TriageBox server." />
+  <meta property="og:title" content="Bulk unsubscribe Gmail — TriageBox Chrome extension" />
+  <meta property="og:description" content="Unsubscribe Gmail per exact sender so statements survive, then sweep the leftover pile with an exact count. Desktop Chrome. No TriageBox mailbox server." />
   <meta property="og:image" content="https://triagebox.pfa87.cc/og-card.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@pfaclawd87" />
-  <meta name="twitter:title" content="Bulk unsubscribe Gmail — TriageBox 1.57" />
-  <meta name="twitter:description" content="Per-exact-sender unsubscribe, then an exact-count sweep of the leftover pile. Chrome extension. No TriageBox server." />
+  <meta name="twitter:title" content="Bulk unsubscribe Gmail — TriageBox" />
+  <meta name="twitter:description" content="Per-exact-sender unsubscribe, then an exact-count sweep of the leftover pile. Chrome extension. No TriageBox mailbox server." />
   <meta name="twitter:image" content="https://triagebox.pfa87.cc/og-card.jpg" />
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  "name": "Bulk unsubscribe Gmail — TriageBox Chrome extension 1.57",
+  "name": "Bulk unsubscribe Gmail — TriageBox Chrome extension",
   "url": "https://triagebox.pfa87.cc/bulk-unsubscribe-gmail.html",
-  "description": "Unsubscribe Gmail per exact sender so statements survive, then sweep the leftover pile with an exact count. Chrome Web Store 1.57. No TriageBox server.",
+  "description": "Unsubscribe Gmail per exact sender so statements survive, then sweep the leftover pile with an exact count. Desktop Chrome extension. No TriageBox mailbox server.",
   "isPartOf": {
     "@type": "WebSite",
     "name": "TriageBox AI Gmail Checker",
@@ -55,7 +55,7 @@
       "name": "Can I bulk unsubscribe from Gmail?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Gmail's own Manage subscriptions view (rolling out on web and mobile) unsubscribes one sender at a time. TriageBox 1.57 is a Chrome extension that unsubscribes per exact sender — List-Unsubscribe / one-click POST, including from spam review — then lets you sweep that sender's leftover mail with a live count before anything moves. Whether the sender honours the request is outside TriageBox; success is not machine-verifiable."
+        "text": "Gmail's own Manage subscriptions view (rolling out on web and mobile) unsubscribes one sender at a time. TriageBox is a Chrome extension that unsubscribes per exact sender — List-Unsubscribe / one-click POST, including from spam review — then lets you sweep that sender's leftover mail with a live count before anything moves. Whether the sender honours the request is outside TriageBox; success is not machine-verifiable."
       }
     },
     {
@@ -79,7 +79,7 @@
       "name": "Do I need an AI key to unsubscribe or sweep Gmail?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. Badge, popup actions, bulk sweeps, unsubscribe and the no-key scam checks work with nothing configured. Summaries and 0–100 scores are optional if you add a Gemini and/or xAI key. A key is not a subscription."
+        "text": "No. Badge, popup actions, bulk sweeps, unsubscribe and the no-key scam checks work after you connect Gmail, without an AI key. Summaries and 0–100 scores are optional if you add a Gemini, Grok or OpenRouter key. Provider limits and optional AI charges apply."
       }
     },
     {
@@ -87,7 +87,7 @@
       "name": "Does my mail go through a TriageBox server?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. There is no developer-operated backend. Processing runs in your browser; Gmail data is not sent to the publisher. Optional AI requests go from your browser to the provider whose key you added."
+        "text": "No. There is no TriageBox mailbox backend. The separate public support service counts anonymous likes; it receives no Gmail content. Processing runs in your browser; Gmail data is not sent to the publisher. Optional AI requests go from your browser to the provider whose key you added."
       }
     }
   ]
@@ -145,6 +145,7 @@
       <a href="./gmail-pdf-summary.html">PDF summary</a>
       <a href="./gmail-snooze-until-reply.html">Snooze until reply</a>
       <a href="./gmail-to-calendar.html">Gmail to Calendar</a>
+      <a href="./gmail-spam-review.html">Spam review</a>
       <a href="./privacy.html">Privacy</a>
       <a href="./terms.html">Terms</a>
       <a href="./donate.html">Donate</a>
@@ -153,16 +154,17 @@
   </header>
 
   <main>
+    <p class="changelog-note">Guide reviewed 10 September 2026 against local release <strong>1.65.0</strong>, pending manual publication. The store may offer an earlier build; <a href="./changelog.html">check release availability</a>.</p>
     <section class="hero" aria-labelledby="unsub-title">
       <div class="hero-copy">
         <div class="hero-brand">
-          <p class="eyebrow">Chrome Web Store 1.57 · Gmail, in your browser</p>
+          <p class="eyebrow">Desktop Chrome extension · Gmail, in your browser</p>
         </div>
         <h1 id="unsub-title">Bulk unsubscribe Gmail — then sweep what's left, with the count in front of you</h1>
         <p class="tagline">TriageBox unsubscribes <strong>per exact sender</strong>, so a company's
         statements can survive while its marketing stops. Then Bulk sweep groups the leftover
         pile and shows a live count — “412 to archive, 23 starred kept” — before anything moves.
-        No AI key. No TriageBox server.</p>
+        No AI key. No TriageBox mailbox server.</p>
         <p class="tagline">This is not an “unsubscribe all 400 lists” button, and it is not Gmail's
         Manage subscriptions view. It is the Chrome extension for people whose problem is the
         <strong>pile</strong>: stop the next mail, then clear what already arrived.</p>
@@ -194,20 +196,20 @@
       frequent promotional senders and unsubscribes one at a time. The Unsubscribe link on a
       message header does the same job. Both are fine. They do not show an exact live count
       and then archive or delete that sender's leftover mail as one confirmed sweep.
-      TriageBox 1.57 is built for that second job — Gmail-only, in your browser, after Google
-      OAuth. First-time install still shows Google's unverified-app screen.
+      TriageBox is built for that second job — Gmail-only, in your browser, after Google
+      OAuth. Review Google's sign-in and permission prompts before connecting.
     </section>
 
     <div class="section-heading">
       <p class="eyebrow">Same mailbox, different job</p>
-      <h2>Gmail on the web vs TriageBox 1.57</h2>
+      <h2>Gmail on the web vs TriageBox</h2>
       <p>Facts from Gmail's published Manage subscriptions help and from the live Chrome Web Store
-      listing for TriageBox 1.57. No invented ratings.</p>
+      listing for TriageBox. No invented ratings.</p>
     </div>
 
     <table class="vs-table">
       <thead>
-        <tr><th>What you need</th><th>Gmail</th><th>TriageBox 1.57</th></tr>
+        <tr><th>What you need</th><th>Gmail</th><th>TriageBox</th></tr>
       </thead>
       <tbody>
         <tr>
@@ -247,14 +249,14 @@
     Unsubscribe success is not machine-verifiable — the sender may ignore the request.</p>
 
     <div class="section-heading" id="how-it-works">
-      <p class="eyebrow">Store 1.57 · no API key</p>
+      <p class="eyebrow">Desktop Chrome · no API key</p>
       <h2>How bulk unsubscribe and sweep actually run</h2>
       <p>Add to Chrome installs this product, not the in-extension nightly log. These are the
       steps on a signed-in Gmail account you are authorised to use.</p>
     </div>
     <ol class="steps">
       <li><strong>Install and connect Gmail.</strong> Desktop Chrome or another Chromium browser.
-      Google OAuth is still unverified, so the first run shows Google's warning screen. No
+      Google shows the account and permissions you are authorizing; verification warnings depend on the release and account. No
       TriageBox account.</li>
       <li><strong>Unsubscribe per exact sender.</strong> From the popup or from spam review, send
       the List-Unsubscribe / one-click POST for that sender. Marketing can stop; statements from
@@ -297,7 +299,7 @@
       <div>
         <p class="eyebrow">Your inbox, back under control</p>
         <h2 id="unsub-mid-cta">Unsubscribe the sender. Sweep the leftover pile.</h2>
-        <p>Chrome Web Store 1.57. No TriageBox account. Data stays in your browser. AI is optional.</p>
+        <p>Desktop Chrome extension. No TriageBox account. Data stays in your browser. AI is optional.</p>
       </div>
       <a class="btn btn-primary" href="https://chromewebstore.google.com/detail/triagebox-ai-checker-for/fdkbolcjccjkgadblcfnbnlibaiaellj">Add to Chrome <span aria-hidden="true">→</span></a>
     </section>
@@ -308,7 +310,7 @@
     </div>
     <ul class="vs-prose">
       <li>It does not unsubscribe every list in one click. Per exact sender is the product.</li>
-      <li>It does not replace <a href="./checker-plus-alternative.html">Checker Plus for Gmail</a>. They notify; we clear. Many people run both.</li>
+      <li>It can replace <a href="./checker-plus-alternative.html">Checker Plus for Gmail</a> for popup actions and everyday notifications, while adding sender cleanup. Checker Plus offers additional voice and notification controls.</li>
       <li>It does not run on your phone. Gmail's own Manage subscriptions does.</li>
       <li>It does not send mail through a TriageBox server. Optional AI goes from your browser to the key you added.</li>
       <li>It is not a bulk-mail / marketing tool, and it is not for anyone else's mailbox.</li>
@@ -325,7 +327,7 @@
       <div class="faq-list">
         <details open>
           <summary>Can I bulk unsubscribe from Gmail?</summary>
-          <p>Gmail's own Manage subscriptions view (rolling out on web and mobile) unsubscribes one sender at a time. TriageBox 1.57 is a Chrome extension that unsubscribes per exact sender — List-Unsubscribe / one-click POST, including from spam review — then lets you sweep that sender's leftover mail with a live count before anything moves. Whether the sender honours the request is outside TriageBox; success is not machine-verifiable.</p>
+          <p>Gmail's own Manage subscriptions view (rolling out on web and mobile) unsubscribes one sender at a time. TriageBox is a Chrome extension that unsubscribes per exact sender — List-Unsubscribe / one-click POST, including from spam review — then lets you sweep that sender's leftover mail with a live count before anything moves. Whether the sender honours the request is outside TriageBox; success is not machine-verifiable.</p>
         </details>
         <details>
           <summary>Does TriageBox unsubscribe from every list at once?</summary>
@@ -337,11 +339,11 @@
         </details>
         <details>
           <summary>Do I need an AI key to unsubscribe or sweep Gmail?</summary>
-          <p>No. Badge, popup actions, bulk sweeps, unsubscribe and the no-key scam checks work with nothing configured. Summaries and 0–100 scores are optional if you add a Gemini and/or xAI key. A key is not a subscription.</p>
+          <p>No. Badge, popup actions, bulk sweeps, unsubscribe and the no-key scam checks work after you connect Gmail, without an AI key. Summaries and 0–100 scores are optional if you add a Gemini, Grok or OpenRouter key. Provider limits and optional AI charges apply.</p>
         </details>
         <details>
           <summary>Does my mail go through a TriageBox server?</summary>
-          <p>No. There is no developer-operated backend. Processing runs in your browser; Gmail data is not sent to the publisher. Optional AI requests go from your browser to the provider whose key you added.</p>
+          <p>No. There is no TriageBox mailbox backend. The separate public support service counts anonymous likes; it receives no Gmail content. Processing runs in your browser; Gmail data is not sent to the publisher. Optional AI requests go from your browser to the provider whose key you added.</p>
         </details>
       </div>
     </section>

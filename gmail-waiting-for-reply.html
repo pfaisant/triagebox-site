@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Gmail waiting for reply list — TriageBox Chrome extension 1.57</title>
-  <meta name="description" content="See Gmail emails waiting for a reply as a list, not a nudge. TriageBox 1.57 shows sent threads from the last 14 days where you wrote last and nobody answered for 2+ days. Write a nudge from the card. Chrome extension, no TriageBox server." />
+  <title>Gmail waiting for reply list — TriageBox Chrome extension</title>
+  <meta name="description" content="See Gmail emails waiting for a reply as a list, not a nudge. TriageBox shows sent threads from the last 14 days where you wrote last and nobody answered for 2+ days. Write a nudge from the card. Chrome extension, no TriageBox mailbox server." />
   <link rel="canonical" href="https://triagebox.pfa87.cc/gmail-waiting-for-reply.html" />
   <link rel="icon" type="image/png" href="./logo-120.png" />
   <meta name="theme-color" content="#1f9d6f" />
@@ -13,21 +13,21 @@
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="TriageBox" />
   <meta property="og:url" content="https://triagebox.pfa87.cc/gmail-waiting-for-reply.html" />
-  <meta property="og:title" content="Gmail waiting for reply list — TriageBox Chrome extension 1.57" />
-  <meta property="og:description" content="A list of sent Gmail threads from the last 14 days where you wrote last and nobody answered for 2+ days. Not Gmail Nudges. Not open-tracking. Store 1.57. No TriageBox server." />
+  <meta property="og:title" content="Gmail waiting for reply list — TriageBox Chrome extension" />
+  <meta property="og:description" content="A list of sent Gmail threads from the last 14 days where you wrote last and nobody answered for 2+ days. Not Gmail Nudges. Not open-tracking. Desktop Chrome. No TriageBox mailbox server." />
   <meta property="og:image" content="https://triagebox.pfa87.cc/og-card.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@pfaclawd87" />
-  <meta name="twitter:title" content="Gmail waiting for reply list — TriageBox 1.57" />
-  <meta name="twitter:description" content="Sent threads, last 14 days, 2+ days unanswered. Write a nudge from the card. Not Nudges. Chrome extension. No TriageBox server." />
+  <meta name="twitter:title" content="Gmail waiting for reply list — TriageBox" />
+  <meta name="twitter:description" content="Sent threads, last 14 days, 2+ days unanswered. Write a nudge from the card. Not Nudges. Chrome extension. No TriageBox mailbox server." />
   <meta name="twitter:image" content="https://triagebox.pfa87.cc/og-card.jpg" />
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  "name": "Gmail waiting for reply list — TriageBox Chrome extension 1.57",
+  "name": "Gmail waiting for reply list — TriageBox Chrome extension",
   "url": "https://triagebox.pfa87.cc/gmail-waiting-for-reply.html",
-  "description": "See Gmail emails waiting for a reply as a list. Sent threads from the last 14 days where you wrote last and nobody answered for 2+ days. Chrome Web Store 1.57. No TriageBox server.",
+  "description": "See Gmail emails waiting for a reply as a list. Sent threads from the last 14 days where you wrote last and nobody answered for 2+ days. Desktop Chrome extension. No TriageBox mailbox server.",
   "isPartOf": {
     "@type": "WebSite",
     "name": "TriageBox AI Gmail Checker",
@@ -55,7 +55,7 @@
       "name": "How do I see emails waiting for a reply in Gmail?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Gmail’s Nudges (Settings → General → Nudges → Suggest emails to follow up on) can float a sent message back to the top of the inbox after a few days. Gmail decides which threads and when; there is no list of everything outstanding. TriageBox 1.57 is a Chrome extension with a Waiting tab: it scans sent threads from the last 14 days (up to 30), keeps those where the last message is yours and nobody has answered for 2+ days, and sorts them by days waiting. You can write a threaded nudge from the card. This is not open-tracking and it does not send follow-ups for you."
+        "text": "Gmail’s Nudges (Settings → General → Nudges → Suggest emails to follow up on) can float a sent message back to the top of the inbox after a few days. Gmail decides which threads and when; there is no list of everything outstanding. TriageBox is a Chrome extension with a Waiting tab: it scans sent threads from the last 14 days (up to 30), keeps those where the last message is yours and nobody has answered for 2+ days, and sorts them by days waiting. You can write a threaded nudge from the card. This is not open-tracking and it does not send follow-ups for you."
       }
     },
     {
@@ -79,7 +79,7 @@
       "name": "Do I need an AI key to see waiting-for-reply threads?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. The Waiting list, the days-waiting badge, and writing a threaded nudge from the card work with nothing configured. Optional AI (your Gemini and/or xAI key) can draft the nudge in a chosen tone. A key is not a subscription. TriageBox never sends a follow-up unless you press send."
+        "text": "No. The Waiting list, the days-waiting badge, and writing a threaded nudge from the card work after you connect Gmail, without an AI key. Optional AI (your Gemini, Grok or OpenRouter key) can draft the nudge in a chosen tone. Provider limits and optional AI charges apply. TriageBox never sends a follow-up unless you press send."
       }
     },
     {
@@ -87,7 +87,7 @@
       "name": "Does my mail go through a TriageBox server?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. There is no developer-operated backend. Processing runs in your browser; Gmail data is not sent to the publisher. Optional AI requests go from your browser to the provider whose key you added. There is no tracking pixel and no open receipt."
+        "text": "No. There is no TriageBox mailbox backend. The separate public support service counts anonymous likes; it receives no Gmail content. Processing runs in your browser; Gmail data is not sent to the publisher. Optional AI requests go from your browser to the provider whose key you added. There is no tracking pixel and no open receipt."
       }
     }
   ]
@@ -145,6 +145,7 @@
       <a href="./gmail-pdf-summary.html">PDF summary</a>
       <a href="./gmail-snooze-until-reply.html">Snooze until reply</a>
       <a href="./gmail-to-calendar.html">Gmail to Calendar</a>
+      <a href="./gmail-spam-review.html">Spam review</a>
       <a href="./privacy.html">Privacy</a>
       <a href="./terms.html">Terms</a>
       <a href="./donate.html">Donate</a>
@@ -153,16 +154,17 @@
   </header>
 
   <main>
+    <p class="changelog-note">Guide reviewed 10 September 2026 against local release <strong>1.65.0</strong>, pending manual publication. The store may offer an earlier build; <a href="./changelog.html">check release availability</a>.</p>
     <section class="hero" aria-labelledby="wait-title">
       <div class="hero-copy">
         <div class="hero-brand">
-          <p class="eyebrow">Chrome Web Store 1.57 · Gmail, in your browser</p>
+          <p class="eyebrow">Desktop Chrome extension · Gmail, in your browser</p>
         </div>
         <h1 id="wait-title">Gmail waiting for reply — a list of sent mail nobody answered</h1>
         <p class="tagline">TriageBox’s <strong>Waiting</strong> tab lists sent threads from the
         <strong>last 14 days</strong> where the last word is yours and nobody has answered for
         <strong>2+ days</strong>. Days waiting on the card. Write a threaded nudge from there.
-        No AI key. No tracking pixel. No TriageBox server.</p>
+        No AI key. No tracking pixel. No TriageBox mailbox server.</p>
         <p class="tagline">This is not Gmail Nudges, and it is not
         <a href="./bulk-unsubscribe-gmail.html">bulk unsubscribe</a>,
         <a href="./delete-old-emails-gmail.html">deleting old emails</a>, or a
@@ -195,20 +197,20 @@
       <em>Suggest emails to follow up on</em>) can float a sent message back to the top of the
       inbox after a few days, with a line like “Sent 3 days ago. Follow up?”. Gmail chooses
       which threads and when. There is no reviewable list of everything still outstanding.
-      TriageBox 1.57 is built for that second job — Gmail-only, in your browser, after Google
-      OAuth. First-time install still shows Google’s unverified-app screen.</p>
+      TriageBox is built for that second job — Gmail-only, in your browser, after Google
+      OAuth. Review Google's sign-in and permission prompts before connecting.</p>
     </section>
 
     <div class="section-heading">
       <p class="eyebrow">Same mailbox, different job</p>
-      <h2>Gmail Nudges vs TriageBox 1.57 Waiting</h2>
-      <p>Facts from Gmail’s published Nudges setting and from the live Chrome Web Store listing
-      for TriageBox 1.57. No invented ratings.</p>
+      <h2>Gmail Nudges vs TriageBox Waiting</h2>
+      <p>Facts from Gmail’s published Nudges setting and from the current extension documentation
+      for TriageBox. No invented ratings.</p>
     </div>
 
     <table class="vs-table">
       <thead>
-        <tr><th>What you need</th><th>Gmail</th><th>TriageBox 1.57</th></tr>
+        <tr><th>What you need</th><th>Gmail</th><th>TriageBox</th></tr>
       </thead>
       <tbody>
         <tr>
@@ -234,7 +236,7 @@
         <tr>
           <td>Open tracking / read receipts</td>
           <td class="vs-win">None. Gmail does not pixel the recipient.</td>
-          <td class="vs-win">None. No pixel, no backend, no “they opened it”</td>
+          <td class="vs-win">None. No pixel, no mailbox backend, no “they opened it”</td>
         </tr>
         <tr>
           <td>On your phone</td>
@@ -249,14 +251,14 @@
     those 30 sent threads — not a mailbox-wide guarantee.</p>
 
     <div class="section-heading" id="how-it-works">
-      <p class="eyebrow">Store 1.57 · no API key</p>
+      <p class="eyebrow">Desktop Chrome · no API key</p>
       <h2>How the Waiting list actually runs</h2>
       <p>Add to Chrome installs this product, not the in-extension nightly log. These are the
       steps on a signed-in Gmail account you are authorised to use.</p>
     </div>
     <ol class="steps">
       <li><strong>Install and connect Gmail.</strong> Desktop Chrome or another Chromium browser.
-      Google OAuth is still unverified, so the first run shows Google’s warning screen. No
+      Google shows the account and permissions you are authorizing; verification warnings depend on the release and account. No
       TriageBox account.</li>
       <li><strong>Open the Waiting tab.</strong> Unread · Read · Archived · Sent are always
       visible; Waiting appears with the other extra tabs when it has content. The scan is
@@ -265,7 +267,7 @@
       sent (not a draft) and it has been unanswered for two days or more. The card shows
       days waiting. The “from” slot is who the last mail was To — the person who owes the reply.</li>
       <li><strong>Nudge, or leave it.</strong> Write a threaded reply from the card, or open the
-      thread in Gmail. Optional AI can draft the nudge if you added a Gemini or xAI key.
+      thread in Gmail. Optional AI can draft the nudge if you added a Gemini, Grok or OpenRouter key.
       TriageBox does not send unless you do. A 30-minute cache avoids re-scanning on every open.</li>
     </ol>
 
@@ -296,7 +298,7 @@
       <div>
         <p class="eyebrow">What you sent, still unanswered</p>
         <h2 id="wait-mid-cta">Open the list. See the days. Write the nudge yourself.</h2>
-        <p>Chrome Web Store 1.57. No TriageBox account. Data stays in your browser. AI is optional.</p>
+        <p>Desktop Chrome extension. No TriageBox account. Data stays in your browser. AI is optional.</p>
       </div>
       <a class="btn btn-primary" href="https://chromewebstore.google.com/detail/triagebox-ai-checker-for/fdkbolcjccjkgadblcfnbnlibaiaellj">Add to Chrome <span aria-hidden="true">→</span></a>
     </section>
@@ -327,7 +329,7 @@
       <div class="faq-list">
         <details open>
           <summary>How do I see emails waiting for a reply in Gmail?</summary>
-          <p>Gmail’s Nudges (Settings → General → Nudges → Suggest emails to follow up on) can float a sent message back to the top of the inbox after a few days. Gmail decides which threads and when; there is no list of everything outstanding. TriageBox 1.57 is a Chrome extension with a Waiting tab: it scans sent threads from the last 14 days (up to 30), keeps those where the last message is yours and nobody has answered for 2+ days, and sorts them by days waiting. You can write a threaded nudge from the card. This is not open-tracking and it does not send follow-ups for you.</p>
+          <p>Gmail’s Nudges (Settings → General → Nudges → Suggest emails to follow up on) can float a sent message back to the top of the inbox after a few days. Gmail decides which threads and when; there is no list of everything outstanding. TriageBox is a Chrome extension with a Waiting tab: it scans sent threads from the last 14 days (up to 30), keeps those where the last message is yours and nobody has answered for 2+ days, and sorts them by days waiting. You can write a threaded nudge from the card. This is not open-tracking and it does not send follow-ups for you.</p>
         </details>
         <details>
           <summary>Does TriageBox list every unanswered email?</summary>
@@ -339,11 +341,11 @@
         </details>
         <details>
           <summary>Do I need an AI key to see waiting-for-reply threads?</summary>
-          <p>No. The Waiting list, the days-waiting badge, and writing a threaded nudge from the card work with nothing configured. Optional AI (your Gemini and/or xAI key) can draft the nudge in a chosen tone. A key is not a subscription. TriageBox never sends a follow-up unless you press send.</p>
+          <p>No. The Waiting list, the days-waiting badge, and writing a threaded nudge from the card work after you connect Gmail, without an AI key. Optional AI (your Gemini, Grok or OpenRouter key) can draft the nudge in a chosen tone. Provider limits and optional AI charges apply. TriageBox never sends a follow-up unless you press send.</p>
         </details>
         <details>
           <summary>Does my mail go through a TriageBox server?</summary>
-          <p>No. There is no developer-operated backend. Processing runs in your browser; Gmail data is not sent to the publisher. Optional AI requests go from your browser to the provider whose key you added. There is no tracking pixel and no open receipt.</p>
+          <p>No. There is no TriageBox mailbox backend. The separate public support service counts anonymous likes; it receives no Gmail content. Processing runs in your browser; Gmail data is not sent to the publisher. Optional AI requests go from your browser to the provider whose key you added. There is no tracking pixel and no open receipt.</p>
         </details>
       </div>
     </section>

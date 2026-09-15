@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>TriageBox changelog — Chrome Web Store 1.26.2</title>
-  <meta name="description" content="What shipped in TriageBox AI Gmail Checker. Add to Chrome installs Chrome Web Store 1.26.2 (updated 29 Aug 2026). Later OpenRouter notes are in-extension until they ship to the store." />
+  <title>TriageBox changelog — releases and local updates</title>
+  <meta name="description" content="TriageBox local release 1.65.0, pending manual publication. The official Chrome Web Store listing showed 1.26.2 when checked on 10 September 2026." />
   <link rel="canonical" href="https://triagebox.pfa87.cc/changelog.html" />
   <link rel="icon" type="image/png" href="./logo-120.png" />
   <meta name="theme-color" content="#1f9d6f" />
@@ -12,21 +12,21 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="TriageBox" />
   <meta property="og:url" content="https://triagebox.pfa87.cc/changelog.html" />
-  <meta property="og:title" content="TriageBox changelog — Chrome Web Store 1.26.2" />
-  <meta property="og:description" content="Store 1.26.2 is what Add to Chrome installs (updated 29 Aug 2026). Newest first, keep unread, copy, restore tray, exact-count sweeps. Later notes are in-extension." />
+  <meta property="og:title" content="TriageBox changelog — releases and local updates" />
+  <meta property="og:description" content="Local 1.65.0: faster Gmail refresh, improved Settings and feedback, reviewed comparison and genuine support likes. Pending manual publication." />
   <meta property="og:image" content="https://triagebox.pfa87.cc/og-card.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@pfaclawd87" />
-  <meta name="twitter:title" content="TriageBox changelog — Chrome Web Store 1.26.2" />
-  <meta name="twitter:description" content="Store 1.26.2 is what Add to Chrome installs. Newest first, keep unread, copy, restore tray, exact-count sweeps." />
+  <meta name="twitter:title" content="TriageBox changelog — releases and local updates" />
+  <meta name="twitter:description" content="Local 1.65.0 is pending publication; see the separate Chrome Web Store status and release notes." />
   <meta name="twitter:image" content="https://triagebox.pfa87.cc/og-card.jpg" />
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  "name": "TriageBox changelog — Chrome Web Store 1.26.2",
+  "name": "TriageBox changelog — releases and local updates",
   "url": "https://triagebox.pfa87.cc/changelog.html",
-  "description": "What shipped in TriageBox AI Gmail Checker. Add to Chrome installs Chrome Web Store 1.26.2 (updated 29 Aug 2026).",
+  "description": "TriageBox release notes. Local 1.65.0 is pending manual publication; store status is checked separately.",
   "isPartOf": {
     "@type": "WebSite",
     "name": "TriageBox AI Gmail Checker",
@@ -65,6 +65,7 @@
       <a href="./gmail-pdf-summary.html">PDF summary</a>
       <a href="./gmail-snooze-until-reply.html">Snooze until reply</a>
       <a href="./gmail-to-calendar.html">Gmail to Calendar</a>
+      <a href="./gmail-spam-review.html">Spam review</a>
       <a href="./privacy.html">Privacy</a>
       <a href="./terms.html">Terms</a>
       <a href="./donate.html">Donate</a>
@@ -76,8 +77,8 @@
       <div class="hero-copy">
         <p class="eyebrow">Built in public</p>
         <h1 id="chg-title">Changelog</h1>
-        <p class="tagline">Add to Chrome installs the <a href="https://chromewebstore.google.com/detail/triagebox-ai-checker-for/fdkbolcjccjkgadblcfnbnlibaiaellj">Chrome Web Store</a> build <strong>1.26.2</strong> (updated 29 Aug 2026). Items after 1.26.2 below are in-extension until they ship to the store. The full engineering log is in the extension under Docs → Changelog.</p>
-        <p class="tagline">Looking for a <a href="./checker-plus-alternative.html">Checker Plus for Gmail alternative</a>? Honest comparison, losses included.</p>
+        <p class="tagline">Local release <strong>1.65.0</strong> is ready for review and <strong>pending manual publication</strong>. The official <a href="https://chromewebstore.google.com/detail/triagebox-ai-checker-for/fdkbolcjccjkgadblcfnbnlibaiaellj">Chrome Web Store listing</a> showed <strong>1.26.2</strong>, updated 29 August, when checked on <time datetime="2026-09-10">10 September 2026</time>. Add to Chrome follows the store release; it does not install unpublished local changes. The full engineering log is in Documentation → Changelog.</p>
+        <p class="tagline">Looking for a <a href="./checker-plus-alternative.html">Checker Plus for Gmail alternative</a>? Compare the direct replacement workflow and notification trade-offs.</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="https://chromewebstore.google.com/detail/triagebox-ai-checker-for/fdkbolcjccjkgadblcfnbnlibaiaellj">Add to Chrome <span aria-hidden="true">→</span></a>
           <a class="btn btn-ghost" href="./">Back to home</a>
@@ -85,6 +86,19 @@
       </div>
     </section>
     <ol class="changelog">
+      <li>
+        <div class="ver">1.65.0<span class="date">10 Sep 2026 · local · pending publication</span></div>
+        <div class="body"><strong>Faster refresh, clearer settings and useful support.</strong>
+          <ul>
+            <li>Gmail refresh reuses unchanged snapshots and shows actionable synchronization status. Full-page navigation and button layouts are more consistent.</li>
+            <li>Settings and Help &amp; feedback gain clearer controls, recoverable drafts and better diagnostic context.</li>
+            <li>The comparison now covers twelve relevant tools, keeps Checker Plus as the replacement baseline, and defaults to Overall descending. Every rating has reasons and official sources; desktop fit, phone access and background operation are explained separately.</li>
+            <li>Roadmap and voting controls are removed. Documentation describes the features and limits that are actually implemented.</li>
+            <li>The redesigned support page separates likes from donations. The anonymous public like counter starts a new zero-based count when its supporting service is deployed; cleanup activity and donation clicks do not count as likes.</li>
+          </ul>
+          Website and counter-service changes also await manual deployment. This is not a claim that the store or live website already serves this release.
+        </div>
+      </li>
       <li>
         <div class="ver">1.27.3<span class="date">29 Aug 2026</span></div>
         <div class="body">Unticked “use free Gemini” now applies when OpenRouter is pinned; footer shows the full model names; OpenRouter timeouts are 20s.</div>
@@ -103,7 +117,7 @@
       </li>
       <li>
         <div class="ver">1.26.2<span class="date">Store · 29 Aug 2026</span></div>
-        <div class="body">Chrome Web Store listing — this is what Add to Chrome installs. Toasts get their own row so undo / sweep progress sit on blank background instead of covering the message underneath.</div>
+        <div class="body">Chrome Web Store release recorded on 29 August; it remained the listed version when checked on 10 September. Toasts get their own row so undo / sweep progress sit on blank background instead of covering the message underneath.</div>
       </li>
       <li>
         <div class="ver">1.26.1<span class="date">Store</span></div>
@@ -116,6 +130,14 @@
       <li>
         <div class="ver">1.25.0<span class="date">22 Aug 2026</span></div>
         <div class="body">FeedAI Portfolio Grok twin; rail keeps the chosen feed; canonical feed+category URLs; iran.pfa87.cc landing; news navigation stays on the selected provider.</div>
+      </li>
+      <li>
+        <div class="ver">1.24.3<span class="date">18 Aug 2026</span></div>
+        <div class="body">First-run is Gmail, not a Gemini key — connect in one click; AI stays optional. Inbox zero points at already-read mail and a sender sweep.</div>
+      </li>
+      <li>
+        <div class="ver">1.24.2<span class="date">17 Aug 2026</span></div>
+        <div class="body">Desktop notices stay quiet on re-enable — turning notifications back on no longer replays the unread pile.</div>
       </li>
       <li>
         <div class="ver">1.24.0<span class="date">13 Aug 2026</span></div>
@@ -158,7 +180,7 @@
         <div class="body">First Chrome Web Store release — initial public listing of TriageBox: AI Checker for Gmail.</div>
       </li>
     </ol>
-    <p class="changelog-note">Want every patch note? Install TriageBox and open Docs → Changelog.</p>
+    <p class="changelog-note">Older entries describe their release at the time. FeedAI News moved to its own repository on 3 September 2026 and is no longer part of this extension. Want every patch note? Install TriageBox and open Docs → Changelog.</p>
   </main>
 </div>
 </body>
