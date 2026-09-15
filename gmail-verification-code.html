@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Copy Gmail verification code — TriageBox Chrome extension 1.57</title>
-  <meta name="description" content="Copy a Gmail sign-in code from the TriageBox popup. Chrome Web Store 1.57 shows the code on the card with a Copy code button when the subject already contains exactly one. No SMS intercept. No TriageBox server." />
+  <title>Copy Gmail verification code — TriageBox Chrome extension</title>
+  <meta name="description" content="Copy a Gmail sign-in code from the TriageBox popup. Desktop Chrome extension shows the code on the card with a Copy code button when the subject already contains exactly one. No SMS intercept. No TriageBox mailbox server." />
   <link rel="canonical" href="https://triagebox.pfa87.cc/gmail-verification-code.html" />
   <link rel="icon" type="image/png" href="./logo-120.png" />
   <meta name="theme-color" content="#1f9d6f" />
@@ -13,21 +13,21 @@
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="TriageBox" />
   <meta property="og:url" content="https://triagebox.pfa87.cc/gmail-verification-code.html" />
-  <meta property="og:title" content="Copy Gmail verification code — TriageBox Chrome extension 1.57" />
-  <meta property="og:description" content="The sign-in code on the card, Copy code on the button. Spaces and dashes stripped. No API key when the code is already in the subject. Store 1.57. Not an SMS reader." />
+  <meta property="og:title" content="Copy Gmail verification code — TriageBox Chrome extension" />
+  <meta property="og:description" content="The sign-in code on the card, Copy code on the button. Spaces and dashes stripped. No API key when the code is already in the subject. Desktop Chrome. Not an SMS reader." />
   <meta property="og:image" content="https://triagebox.pfa87.cc/og-card.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@pfaclawd87" />
-  <meta name="twitter:title" content="Copy Gmail verification code — TriageBox 1.57" />
-  <meta name="twitter:description" content="Copy the code from the popup card. No key when it is already in the subject. Not SMS. No TriageBox server." />
+  <meta name="twitter:title" content="Copy Gmail verification code — TriageBox" />
+  <meta name="twitter:description" content="Copy the code from the popup card. No key when it is already in the subject. Not SMS. No TriageBox mailbox server." />
   <meta name="twitter:image" content="https://triagebox.pfa87.cc/og-card.jpg" />
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  "name": "Copy Gmail verification code — TriageBox Chrome extension 1.57",
+  "name": "Copy Gmail verification code — TriageBox Chrome extension",
   "url": "https://triagebox.pfa87.cc/gmail-verification-code.html",
-  "description": "Copy a Gmail sign-in or verification code from the TriageBox popup card. Chrome Web Store 1.57. No TriageBox server.",
+  "description": "Copy a Gmail sign-in or verification code from the TriageBox popup card. Desktop Chrome extension. No TriageBox mailbox server.",
   "isPartOf": {
     "@type": "WebSite",
     "name": "TriageBox AI Gmail Checker",
@@ -55,7 +55,7 @@
       "name": "How do I copy a Gmail verification code without opening the email?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "TriageBox 1.57 is a Chrome extension. When a message in your own Gmail is a sign-in or verification code and the subject already contains exactly one code, the card shows that code large, with a Copy code button. Copy strips spaces and dashes. This does not read SMS, and it does not type the code into another site for you."
+        "text": "TriageBox is a Chrome extension. When a message in your own Gmail is a sign-in or verification code and the subject already contains exactly one code, the card shows that code large, with a Copy code button. Copy strips spaces and dashes. This does not read SMS, and it does not type the code into another site for you."
       }
     },
     {
@@ -79,7 +79,7 @@
       "name": "Does my mail go through a TriageBox server?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. There is no developer-operated backend. Processing runs in your browser; Gmail data is not sent to the publisher. The code is copied to your clipboard on this computer."
+        "text": "No. There is no TriageBox mailbox backend. The separate public support service counts anonymous likes; it receives no Gmail content. Processing runs in your browser; Gmail data is not sent to the publisher. The code is copied to your clipboard on this computer."
       }
     }
   ]
@@ -137,6 +137,7 @@
       <a href="./gmail-pdf-summary.html">PDF summary</a>
       <a href="./gmail-snooze-until-reply.html">Snooze until reply</a>
       <a href="./gmail-to-calendar.html">Gmail to Calendar</a>
+      <a href="./gmail-spam-review.html">Spam review</a>
       <a href="./privacy.html">Privacy</a>
       <a href="./terms.html">Terms</a>
       <a href="./donate.html">Donate</a>
@@ -145,15 +146,16 @@
   </header>
 
   <main>
+    <p class="changelog-note">Guide reviewed 10 September 2026 against local release <strong>1.65.0</strong>, pending manual publication. The store may offer an earlier build; <a href="./changelog.html">check release availability</a>.</p>
     <section class="hero" aria-labelledby="code-title">
       <div class="hero-copy">
         <div class="hero-brand">
-          <p class="eyebrow">Chrome Web Store 1.57 · Gmail, in your browser</p>
+          <p class="eyebrow">Desktop Chrome extension · Gmail, in your browser</p>
         </div>
         <h1 id="code-title">Copy a Gmail verification code from the card</h1>
         <p class="tagline">When the subject already contains <strong>exactly one</strong> sign-in code,
-        TriageBox 1.57 puts that code on the card and a <strong>Copy code</strong> button next to it.
-        Spaces and dashes come off. No AI key for that path. No TriageBox server.</p>
+        TriageBox puts that code on the card and a <strong>Copy code</strong> button next to it.
+        Spaces and dashes come off. No AI key for that path. No TriageBox mailbox server.</p>
         <p class="tagline">This is not an SMS reader, and it is not
         <a href="./gmail-phishing-checker.html">a phishing checker</a>,
         <a href="./gmail-waiting-for-reply.html">waiting for reply</a>,
@@ -183,23 +185,22 @@
           <h2 id="gmail-native-code">Open the message if you want the thread. Use TriageBox if the digits are the whole job.</h2>
         </div>
       </div>
-      <p class="vs-prose">Gmail will open the email. That is enough, and it is free. TriageBox 1.57
+      <p class="vs-prose">Gmail will open the email. That is enough, and it is free. TriageBox
       is for the narrower chore: the subject already says the code, and you want it on the
       clipboard without opening Gmail. The card replaces that subject line with the code
-      itself. A sign-in code is treated as a chore, not as spam. First-time install still
-      shows Google’s unverified-app screen.</p>
+      itself. A sign-in code is treated as a chore, not as spam. Review Google's sign-in and permission prompts before connecting.</p>
     </section>
 
     <div class="section-heading">
       <p class="eyebrow">Same mailbox, different job</p>
-      <h2>Opening Gmail vs TriageBox 1.57 Copy code</h2>
-      <p>Facts from the live Chrome Web Store listing for TriageBox 1.57 and from how the
+      <h2>Opening Gmail vs TriageBox Copy code</h2>
+      <p>Facts from the current extension documentation for TriageBox and from how the
       popup actually copies a code. No invented ratings.</p>
     </div>
 
     <table class="vs-table">
       <thead>
-        <tr><th>What you need</th><th>Gmail</th><th>TriageBox 1.57</th></tr>
+        <tr><th>What you need</th><th>Gmail</th><th>TriageBox</th></tr>
       </thead>
       <tbody>
         <tr>
@@ -239,14 +240,14 @@
     does not run on Sent mail you wrote to someone else.</p>
 
     <div class="section-heading" id="how-it-works">
-      <p class="eyebrow">Store 1.57 · no API key when the subject already has the code</p>
+      <p class="eyebrow">Desktop Chrome · no API key when the subject already has the code</p>
       <h2>How Copy code actually runs</h2>
       <p>Add to Chrome installs this product. These are the steps on a signed-in Gmail
       account you are authorised to use.</p>
     </div>
     <ol class="steps">
       <li><strong>Install and connect Gmail.</strong> Desktop Chrome or another Chromium browser.
-      Google OAuth is still unverified, so the first run shows Google’s warning screen. No
+      Google shows the account and permissions you are authorizing; verification warnings depend on the release and account. No
       TriageBox account.</li>
       <li><strong>Leave the code email in the queue.</strong> TriageBox looks at the subject
       for wording like verification code, sign-in code, one-time code, OTP, and the common
@@ -284,7 +285,7 @@
       <div>
         <p class="eyebrow">The digits, then you paste them</p>
         <h2 id="code-mid-cta">Copy the code. Don’t open Gmail for a subject that already has it.</h2>
-        <p>Chrome Web Store 1.57. No TriageBox account. Data stays in your browser.</p>
+        <p>Desktop Chrome extension. No TriageBox account. Data stays in your browser.</p>
       </div>
       <a class="btn btn-primary" href="https://chromewebstore.google.com/detail/triagebox-ai-checker-for/fdkbolcjccjkgadblcfnbnlibaiaellj">Add to Chrome <span aria-hidden="true">→</span></a>
     </section>
@@ -316,7 +317,7 @@
       <div class="faq-list">
         <details open>
           <summary>How do I copy a Gmail verification code without opening the email?</summary>
-          <p>TriageBox 1.57 is a Chrome extension. When a message in your own Gmail is a sign-in or verification code and the subject already contains exactly one code, the card shows that code large, with a Copy code button. Copy strips spaces and dashes. This does not read SMS, and it does not type the code into another site for you.</p>
+          <p>TriageBox is a Chrome extension. When a message in your own Gmail is a sign-in or verification code and the subject already contains exactly one code, the card shows that code large, with a Copy code button. Copy strips spaces and dashes. This does not read SMS, and it does not type the code into another site for you.</p>
         </details>
         <details>
           <summary>Does copying the code need an AI key?</summary>
@@ -328,7 +329,7 @@
         </details>
         <details>
           <summary>Does my mail go through a TriageBox server?</summary>
-          <p>No. There is no developer-operated backend. Processing runs in your browser; Gmail data is not sent to the publisher. The code is copied to your clipboard on this computer.</p>
+          <p>No. There is no TriageBox mailbox backend. The separate public support service counts anonymous likes; it receives no Gmail content. Processing runs in your browser; Gmail data is not sent to the publisher. The code is copied to your clipboard on this computer.</p>
         </details>
       </div>
     </section>
