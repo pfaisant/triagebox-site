@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Gmail phishing checker without an API key — TriageBox Chrome extension 1.57</title>
-  <meta name="description" content="Check Gmail for phishing without an API key. TriageBox 1.57 shows Gmail’s own SPF/DKIM/DMARC, a reply path that leaves the sender, and attachment type on the card. One signal is a fact; two is a warning. Chrome extension, no TriageBox server." />
+  <title>Gmail phishing checker without an API key — TriageBox Chrome extension</title>
+  <meta name="description" content="Check Gmail for phishing without an API key. TriageBox shows Gmail’s own SPF/DKIM/DMARC, a reply path that leaves the sender, and attachment type on the card. One signal is a fact; two is a warning. Chrome extension, no TriageBox mailbox server." />
   <link rel="canonical" href="https://triagebox.pfa87.cc/gmail-phishing-checker.html" />
   <link rel="icon" type="image/png" href="./logo-120.png" />
   <meta name="theme-color" content="#1f9d6f" />
@@ -13,21 +13,21 @@
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="TriageBox" />
   <meta property="og:url" content="https://triagebox.pfa87.cc/gmail-phishing-checker.html" />
-  <meta property="og:title" content="Gmail phishing checker without an API key — TriageBox Chrome extension 1.57" />
-  <meta property="og:description" content="Gmail’s sender check, the real reply address, and attachment type — on the card, with no API key. One signal is a fact; two is a warning. Store 1.57. No TriageBox server." />
+  <meta property="og:title" content="Gmail phishing checker without an API key — TriageBox Chrome extension" />
+  <meta property="og:description" content="Gmail’s sender check, the real reply address, and attachment type — on the card, with no API key. One signal is a fact; two is a warning. Desktop Chrome. No TriageBox mailbox server." />
   <meta property="og:image" content="https://triagebox.pfa87.cc/og-card.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@pfaclawd87" />
-  <meta name="twitter:title" content="Gmail phishing checker without an API key — TriageBox 1.57" />
-  <meta name="twitter:description" content="SPF/DKIM/DMARC, reply path, attachments. No API key. One is a fact; two is a warning. Chrome extension. No TriageBox server." />
+  <meta name="twitter:title" content="Gmail phishing checker without an API key — TriageBox" />
+  <meta name="twitter:description" content="SPF/DKIM/DMARC, reply path, attachments. No API key. One is a fact; two is a warning. Chrome extension. No TriageBox mailbox server." />
   <meta name="twitter:image" content="https://triagebox.pfa87.cc/og-card.jpg" />
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  "name": "Gmail phishing checker without an API key — TriageBox Chrome extension 1.57",
+  "name": "Gmail phishing checker without an API key — TriageBox Chrome extension",
   "url": "https://triagebox.pfa87.cc/gmail-phishing-checker.html",
-  "description": "Check Gmail for phishing without an API key. Gmail’s own SPF/DKIM/DMARC, reply path, and attachment type on the card. One signal is a fact; two is a warning. Chrome Web Store 1.57. No TriageBox server.",
+  "description": "Check Gmail for phishing without an API key. Gmail’s own SPF/DKIM/DMARC, reply path, and attachment type on the card. One signal is a fact; two is a warning. Desktop Chrome extension. No TriageBox mailbox server.",
   "isPartOf": {
     "@type": "WebSite",
     "name": "TriageBox AI Gmail Checker",
@@ -55,7 +55,7 @@
       "name": "How do I check if a Gmail email is phishing without an API key?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Gmail already stamps every message with its own SPF, DKIM and DMARC result (Show original → Authentication-Results). TriageBox 1.57 is a Chrome extension that puts that verdict on the popup card, plus whether a reply would leave the sender’s organisation, and whether an attachment is a program or hides its type behind a second extension. Nothing is sent to an AI. No API key. This is not a banner inside gmail.com — it runs on cards in the TriageBox popup and workbench."
+        "text": "Gmail already stamps every message with its own SPF, DKIM and DMARC result (Show original → Authentication-Results). TriageBox is a Chrome extension that puts that verdict on the popup card, plus whether a reply would leave the sender’s organisation, and whether an attachment is a program or hides its type behind a second extension. Nothing is sent to an AI. No API key. This is not a banner inside gmail.com — it runs on cards in the TriageBox popup and workbench."
       }
     },
     {
@@ -79,7 +79,7 @@
       "name": "Do I need an AI key for the scam checks?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. Sender verification, reply-path and attachment typing read headers Gmail already sent. They work the minute you sign in. Optional AI (your Gemini or xAI key) adds thread summaries, 0–100 scores, and payment-fraud scoring — a change of bank details or an unfamiliar IBAN. A routine invoice to the usual account is not treated as a risk. A key is not a subscription."
+        "text": "No. Sender verification, reply-path and attachment typing read headers Gmail already sent. They work the minute you sign in. Optional AI (your Gemini, Grok or OpenRouter key) adds thread summaries, 0–100 scores, and payment-fraud scoring — a change of bank details or an unfamiliar IBAN. A routine invoice to the usual account is not treated as a risk. Provider limits and optional AI charges apply."
       }
     },
     {
@@ -87,7 +87,7 @@
       "name": "Does my mail go through a TriageBox server?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. There is no developer-operated backend. Processing runs in your browser; Gmail data is not sent to the publisher. Optional AI requests go from your browser to the provider whose key you added."
+        "text": "No. There is no TriageBox mailbox backend. The separate public support service counts anonymous likes; it receives no Gmail content. Processing runs in your browser; Gmail data is not sent to the publisher. Optional AI requests go from your browser to the provider whose key you added."
       }
     }
   ]
@@ -145,6 +145,7 @@
       <a href="./gmail-pdf-summary.html">PDF summary</a>
       <a href="./gmail-snooze-until-reply.html">Snooze until reply</a>
       <a href="./gmail-to-calendar.html">Gmail to Calendar</a>
+      <a href="./gmail-spam-review.html">Spam review</a>
       <a href="./privacy.html">Privacy</a>
       <a href="./terms.html">Terms</a>
       <a href="./donate.html">Donate</a>
@@ -153,16 +154,17 @@
   </header>
 
   <main>
+    <p class="changelog-note">Guide reviewed 10 September 2026 against local release <strong>1.65.0</strong>, pending manual publication. The store may offer an earlier build; <a href="./changelog.html">check release availability</a>.</p>
     <section class="hero" aria-labelledby="phish-title">
       <div class="hero-copy">
         <div class="hero-brand">
-          <p class="eyebrow">Chrome Web Store 1.57 · Gmail, in your browser</p>
+          <p class="eyebrow">Desktop Chrome extension · Gmail, in your browser</p>
         </div>
         <h1 id="phish-title">Gmail phishing checker — no API key, Gmail’s own sender checks</h1>
         <p class="tagline">TriageBox reads what Gmail already stamped on the message:
         <strong>SPF, DKIM and DMARC</strong>, the address a reply would really reach, and whether
         an attachment is a program or hides behind a second extension. One of these is a fact.
-        Two at once is a warning. No AI. No API key. No TriageBox server.</p>
+        Two at once is a warning. No AI. No API key. No TriageBox mailbox server.</p>
         <p class="tagline">This is not a security-company product, and it is not a banner inside
         gmail.com. It runs on cards in the popup. It is also not
         <a href="./bulk-unsubscribe-gmail.html">bulk unsubscribe</a> or
@@ -203,7 +205,7 @@
         <tr>
           <th>Job</th>
           <th>Gmail on the web</th>
-          <th>TriageBox 1.57</th>
+          <th>TriageBox</th>
         </tr>
       </thead>
       <tbody>
@@ -256,14 +258,14 @@
     with no reply teaches you to ignore the banner, including the time it is right.</p>
 
     <div class="section-heading" id="how-it-works">
-      <p class="eyebrow">Store 1.57 · no API key</p>
+      <p class="eyebrow">Desktop Chrome · no API key</p>
       <h2>How the no-key scam checks actually run</h2>
       <p>Add to Chrome installs this product, not the in-extension nightly log. These are the
       steps on a signed-in Gmail account you are authorised to use.</p>
     </div>
     <ol class="steps">
       <li><strong>Install and connect Gmail.</strong> Desktop Chrome or another Chromium browser.
-      Google OAuth is still unverified, so the first run shows Google’s warning screen. No
+      Google shows the account and permissions you are authorizing; verification warnings depend on the release and account. No
       TriageBox account. No API key.</li>
       <li><strong>Open the popup queue.</strong> Newest mail stays on top. Peek a thread without
       clearing Unread. Each card is built locally; the scam checks run at that moment from
@@ -272,7 +274,7 @@
       twice, not an accusation. Two at once raises “Possible phishing” and suppresses the
       clickable CTA. Sign-in codes you did not request are labelled as codes, separately.</li>
       <li><strong>Answer a false alarm.</strong> “Not phishing” trusts that sender; their mail is
-      never flagged again. Undo in Options → Senders. Optional AI (a Gemini or xAI key you add)
+      never flagged again. Undo in Options → Senders. Optional AI (a Gemini, Grok or OpenRouter key you add)
       can then score payment fraud — a change of bank details, an unfamiliar IBAN — if you want
       it. A routine invoice paid to the usual account is not treated as a risk.</li>
     </ol>
@@ -304,7 +306,7 @@
       <div>
         <p class="eyebrow">Headers you already have, in a sentence</p>
         <h2 id="phish-mid-cta">See the fact on the card. Warn only when two agree.</h2>
-        <p>Chrome Web Store 1.57. No TriageBox account. Data stays in your browser. AI is optional.</p>
+        <p>Desktop Chrome extension. No TriageBox account. Data stays in your browser. AI is optional.</p>
       </div>
       <a class="btn btn-primary" href="https://chromewebstore.google.com/detail/triagebox-ai-checker-for/fdkbolcjccjkgadblcfnbnlibaiaellj">Add to Chrome <span aria-hidden="true">→</span></a>
     </section>
@@ -334,7 +336,7 @@
       <div class="faq-list">
         <details open>
           <summary>How do I check if a Gmail email is phishing without an API key?</summary>
-          <p>Gmail already stamps every message with its own SPF, DKIM and DMARC result (Show original → Authentication-Results). TriageBox 1.57 is a Chrome extension that puts that verdict on the popup card, plus whether a reply would leave the sender’s organisation, and whether an attachment is a program or hides its type behind a second extension. Nothing is sent to an AI. No API key. This is not a banner inside gmail.com — it runs on cards in the TriageBox popup and workbench.</p>
+          <p>Gmail already stamps every message with its own SPF, DKIM and DMARC result (Show original → Authentication-Results). TriageBox is a Chrome extension that puts that verdict on the popup card, plus whether a reply would leave the sender’s organisation, and whether an attachment is a program or hides its type behind a second extension. Nothing is sent to an AI. No API key. This is not a banner inside gmail.com — it runs on cards in the TriageBox popup and workbench.</p>
         </details>
         <details>
           <summary>Does TriageBox detect every phishing email?</summary>
@@ -346,11 +348,11 @@
         </details>
         <details>
           <summary>Do I need an AI key for the scam checks?</summary>
-          <p>No. Sender verification, reply-path and attachment typing read headers Gmail already sent. They work the minute you sign in. Optional AI (your Gemini or xAI key) adds thread summaries, 0–100 scores, and payment-fraud scoring — a change of bank details or an unfamiliar IBAN. A routine invoice to the usual account is not treated as a risk. A key is not a subscription.</p>
+          <p>No. Sender verification, reply-path and attachment typing read headers Gmail already sent. They work the minute you sign in. Optional AI (your Gemini, Grok or OpenRouter key) adds thread summaries, 0–100 scores, and payment-fraud scoring — a change of bank details or an unfamiliar IBAN. A routine invoice to the usual account is not treated as a risk. Provider limits and optional AI charges apply.</p>
         </details>
         <details>
           <summary>Does my mail go through a TriageBox server?</summary>
-          <p>No. There is no developer-operated backend. Processing runs in your browser; Gmail data is not sent to the publisher. Optional AI requests go from your browser to the provider whose key you added.</p>
+          <p>No. There is no TriageBox mailbox backend. The separate public support service counts anonymous likes; it receives no Gmail content. Processing runs in your browser; Gmail data is not sent to the publisher. Optional AI requests go from your browser to the provider whose key you added.</p>
         </details>
       </div>
     </section>
