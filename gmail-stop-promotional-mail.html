@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Stop promotional emails in Gmail — TriageBox Chrome extension 1.65</title>
+  <meta name="description" content="Stop promotional emails in Gmail with TriageBox 1.65: bulk sweep Promotions (also Social/Updates/Forums) with a live count before archive or delete; Normal mail only filters the list; Unsubscribe uses RFC 8058 one-click when present. No TriageBox server. Not per-sender bulk unsubscribe." />
+  <link rel="canonical" href="https://triagebox.pfa87.cc/gmail-stop-promotional-mail.html" />
+  <link rel="icon" type="image/png" href="./logo-120.png" />
+  <meta name="theme-color" content="#1f9d6f" />
+  <link rel="stylesheet" href="./site.css?v=20260806" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="TriageBox" />
+  <meta property="og:url" content="https://triagebox.pfa87.cc/gmail-stop-promotional-mail.html" />
+  <meta property="og:title" content="Stop promotional emails in Gmail — TriageBox Chrome extension 1.65" />
+  <meta property="og:description" content="Sweep Promotions with a live count, filter Normal mail only, unsubscribe with RFC 8058 when present. Store 1.65. No TriageBox server." />
+  <meta property="og:image" content="https://triagebox.pfa87.cc/og-card.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@pfaclawd87" />
+  <meta name="twitter:title" content="Stop promotional emails Gmail — TriageBox 1.65" />
+  <meta name="twitter:description" content="Bulk sweep Promotions · Normal mail only · Unsubscribe on cards. Cap marked 20,000+ when capped." />
+  <meta name="twitter:image" content="https://triagebox.pfa87.cc/og-card.jpg" />
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Stop promotional emails in Gmail — TriageBox Chrome extension 1.65",
+  "url": "https://triagebox.pfa87.cc/gmail-stop-promotional-mail.html",
+  "description": "Stop promotional emails and Gmail promotions with bulk sweep, Normal mail only, and RFC 8058 unsubscribe. Chrome Web Store 1.65. No TriageBox server.",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "TriageBox AI Gmail Checker",
+    "url": "https://triagebox.pfa87.cc/"
+  }
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://triagebox.pfa87.cc/"},
+    {"@type": "ListItem", "position": 2, "name": "Stop promotional emails Gmail", "item": "https://triagebox.pfa87.cc/gmail-stop-promotional-mail.html"}
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I stop promotional emails in Gmail without opening every message?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Gmail’s Promotions tab already sorts marketing mail. TriageBox 1.65 is a Chrome extension: Bulk sweep can target Promotions (also Social, Updates, or Forums) with one Gmail query, show a live exact count, then archive or delete. Cap is marked 20,000+ when capped. You can Count all mail instead. Unsubscribe on cards uses RFC 8058 one-click when present. No AI key for core unsub or sweep. No TriageBox mailbox server. Desktop Chrome only."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does Normal mail only do?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Normal mail only toggle (mail icon before Triage) hides newsletters, offers, social/forum mail and messages scored below 45 from the displayed list. It does not archive or delete — it filters what you see. Turn it off to see the full pile again."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is this the same as bulk unsubscribe Gmail?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Bulk unsubscribe is per exact sender, then a leftover sweep — that page is Bulk unsubscribe Gmail. This page is the promotional angle: category/age bulk sweep, Normal mail only, and Unsubscribe on cards (RFC 8058 one-click when present; preference/mailto for manual review; AI link extract last resort). Different job, different page."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does my mail go through a TriageBox server?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. There is no developer-operated backend. Processing runs in your browser; Gmail data is not sent to the publisher."
+      }
+    }
+  ]
+}
+  </script>
+  <script src="./analytics.js?v=20260827-shared2" defer></script>
+  <style>
+    .vs-table { width: 100%; border-collapse: collapse; margin: 8px 0 14px; font-size: 14px; }
+    .vs-table th, .vs-table td { text-align: left; padding: 9px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
+    .vs-table th { color: var(--text-muted); font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; }
+    .vs-table td:first-child { color: var(--text-secondary); }
+    .vs-win { color: var(--emerald-soft); font-weight: 700; }
+    .vs-loss { color: var(--text-muted); }
+    .vs-note { font-size: 13px; color: var(--text-muted); max-width: 46em; }
+    .vs-prose { max-width: 46em; color: var(--text-secondary); margin: 0 0 18px; }
+    .vs-prose strong { color: var(--text-primary); }
+    .steps { list-style: none; padding: 0; margin: 8px 0 48px; counter-reset: step; max-width: 46em; }
+    .steps li { position: relative; padding: 16px 18px 16px 64px; margin: 0 0 10px; background: var(--surface-1); border: 1px solid var(--border); border-radius: var(--radius); color: var(--text-secondary); }
+    .steps li::before { counter-increment: step; content: counter(step, decimal-leading-zero); position: absolute; left: 18px; top: 18px; font: 600 12px/1 var(--mono); color: var(--emerald-soft); }
+    .steps li strong { color: var(--text-primary); }
+  </style>
+</head>
+<body>
+<div class="shell">
+  <header class="topbar">
+    <a class="brand" href="./">
+      <img src="./logo-120.png" width="32" height="32" alt="" onerror="this.style.display='none'" />
+      <span>TriageBox</span>
+    </a>
+    <nav class="nav" aria-label="Site">
+      <a href="./">Home</a>
+      <a href="./changelog.html">Changelog</a>
+      <a href="./checker-plus-alternative.html">vs Checker Plus</a>
+      <a href="./bulk-unsubscribe-gmail.html">Bulk unsubscribe</a>
+      <a href="./delete-old-emails-gmail.html">Delete old mail</a>
+      <a href="./gmail-phishing-checker.html">Phishing check</a>
+      <a href="./gmail-waiting-for-reply.html">Waiting for reply</a>
+      <a href="./gmail-verification-code.html">Sign-in code</a>
+      <a href="./gmail-pdf-summary.html">PDF summary</a>
+      <a href="./gmail-snooze-until-reply.html">Snooze until reply</a>
+      <a href="./gmail-to-calendar.html">Gmail to Calendar</a>
+      <a href="./gmail-spam-review.html">Spam review</a>
+      <a href="./gmail-keep-unread.html">Keep unread</a>
+      <a href="./gmail-stop-promotional-mail.html" aria-current="page">Stop promotions</a>
+      <a href="./privacy.html">Privacy</a>
+      <a href="./terms.html">Terms</a>
+      <a href="./donate.html">Donate</a>
+      <a class="nav-cta" href="https://chromewebstore.google.com/detail/triagebox-ai-checker-for/fdkbolcjccjkgadblcfnbnlibaiaellj">Add to Chrome</a>
+    </nav>
+  </header>
+  <main>
+    <section class="hero" aria-labelledby="promo-title">
+      <div class="hero-copy">
+        <div class="hero-brand">
+          <p class="eyebrow">Chrome Web Store 1.65 · Gmail, in your browser</p>
+        </div>
+        <h1 id="promo-title">Stop promotional emails in Gmail. Sweep the pile. Keep the real mail.</h1>
+        <p class="tagline">TriageBox 1.65’s <strong>Bulk sweep</strong> can target <strong>Promotions</strong>
+        (also Social, Updates, or Forums) with one Gmail query, show a <strong>live exact count</strong>,
+        then archive or delete. <strong>Normal mail only</strong> hides newsletters and offers from the
+        list without moving mail. <strong>Unsubscribe</strong> on cards uses RFC 8058 one-click when
+        present. No AI key for core unsub or sweep. No TriageBox mailbox server.</p>
+        <p class="tagline">This is not
+        <a href="./bulk-unsubscribe-gmail.html">per-exact-sender bulk unsubscribe</a>,
+        <a href="./delete-old-emails-gmail.html">delete old emails by age</a>, or
+        <a href="./gmail-spam-review.html">Spam folder review</a>.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="https://chromewebstore.google.com/detail/triagebox-ai-checker-for/fdkbolcjccjkgadblcfnbnlibaiaellj">Add to Chrome <span aria-hidden="true">→</span></a>
+          <a class="btn btn-ghost" href="#how-it-works">See the steps</a>
+        </div>
+        <p class="hero-micro">Free on the Chrome Web Store · no account · desktop Chrome only</p>
+      </div>
+      <figure class="product-stage">
+        <div class="window-bar" aria-hidden="true"><span></span><span></span><span></span><b>TriageBox</b></div>
+        <img src="./og-card.jpg" width="1280" height="800" alt="TriageBox Gmail popup. Bulk sweep Promotions with a live count; Normal mail only and Unsubscribe on cards." />
+        <figcaption>Count first. Sweep Promotions. Unsubscribe when you want the next mail to stop.</figcaption>
+      </figure>
+    </section>
+    <section class="lead" aria-labelledby="gmail-native-promo">
+      <div class="lead-heading">
+        <span class="privacy-mark" aria-hidden="true">≠</span>
+        <div>
+          <p class="eyebrow">Gmail already has Promotions</p>
+          <h2 id="gmail-native-promo">Use Gmail if sorting the tab is enough. Use TriageBox if you want a counted sweep, a quieter list, and one-click unsub when the header is there.</h2>
+        </div>
+      </div>
+      <p class="vs-prose">Gmail’s Promotions category is free and correct. Moving or deleting from
+      gmail.com works. TriageBox 1.65 is the narrower job: one query scoped like inbox mode
+      (or Count all mail), a live count before archive/delete, Cap marked as 20,000+ when
+      capped, plus Normal mail only and Unsubscribe on cards. First-time install still shows
+      Google’s unverified-app screen.</p>
+    </section>
+    <div class="section-heading">
+      <p class="eyebrow">Same mailbox, different job</p>
+      <h2>Gmail Promotions vs TriageBox 1.65</h2>
+      <p>Facts from Gmail’s categories and from the live Chrome Web Store listing for
+      TriageBox 1.65. No invented ratings.</p>
+    </div>
+    <table class="vs-table">
+      <thead>
+        <tr><th>What you need</th><th>Gmail</th><th>TriageBox 1.65</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Clear Promotions (or Social/Updates/Forums)</td>
+          <td class="vs-win">Open the tab · select · archive/delete</td>
+          <td class="vs-win">Bulk sweep → Categories &amp; age — one query, live/exact count, then archive or delete</td>
+        </tr>
+        <tr>
+          <td>See how many before anything moves</td>
+          <td>Estimate from the list</td>
+          <td class="vs-win">Live exact count; Cap marked 20,000+ when capped; optional Count all mail</td>
+        </tr>
+        <tr>
+          <td>Hide marketing from the triage list</td>
+          <td>Stay on Primary / filters</td>
+          <td class="vs-win">Normal mail only (mail icon before Triage) — filters the displayed list only; does not archive/delete</td>
+        </tr>
+        <tr>
+          <td>Stop the next newsletter</td>
+          <td>Unsubscribe link in the message / Manage subscriptions</td>
+          <td class="vs-win">Unsubscribe on the card: RFC 8058 one-click when present; preference/mailto for manual review; AI link extract last resort</td>
+        </tr>
+        <tr>
+          <td>Per exact sender, then leftover sweep</td>
+          <td>—</td>
+          <td>That is <a href="./bulk-unsubscribe-gmail.html">bulk unsubscribe Gmail</a> — different page</td>
+        </tr>
+        <tr>
+          <td>On your phone</td>
+          <td class="vs-win">Gmail app</td>
+          <td class="vs-loss">Desktop Chrome only</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="vs-note">TriageBox is not affiliated with Google. Gmail, Google and Chrome are
+    trademarks of Google LLC. Bulk sweep does not empty Spam — that is
+    <a href="./gmail-spam-review.html">spam review</a>. Age-first cleanup is
+    <a href="./delete-old-emails-gmail.html">delete old emails</a>. There is no TriageBox
+    mailbox server and no AI key required for core unsub or sweep.</p>
+    <div class="section-heading" id="how-it-works">
+      <p class="eyebrow">Store 1.65 · no API key for core unsub/sweep</p>
+      <h2>How stopping promotions actually runs</h2>
+    </div>
+    <ol class="steps">
+      <li><strong>Install and connect Gmail.</strong> Desktop Chrome. No TriageBox account.</li>
+      <li><strong>Bulk sweep → Categories &amp; age.</strong> Pick Promotions (or Social / Updates / Forums). One Gmail query. Live exact count before archive or delete. Scoped like inbox mode; can Count all mail instead. Cap marked as 20,000+ when capped.</li>
+      <li><strong>Optional: Normal mail only.</strong> Mail icon before Triage hides newsletters, offers, social/forum mail and messages scored below 45. Filters the displayed list only — does not archive or delete.</li>
+      <li><strong>Unsubscribe on cards.</strong> RFC 8058 one-click when present (no confirmation from the sender). Preference or mailto shown for manual review. AI link extract is last resort. Unsubscribe view in Triage: senders you swept stay listed until you unsubscribe or dismiss; searches the whole mailbox including Trash.</li>
+    </ol>
+    <div class="cards">
+      <div class="card">
+        <span class="card-icon" aria-hidden="true">▤</span>
+        <h3>Count, then move</h3>
+        <p>Promotions (and other categories) with a live exact count. Cap marked 20,000+ when capped.</p>
+      </div>
+      <div class="card">
+        <span class="card-icon" aria-hidden="true">✉</span>
+        <h3>Normal mail only</h3>
+        <p>Quieter list. Hides marketing-shaped mail from view — does not archive or delete it.</p>
+      </div>
+      <div class="card">
+        <span class="card-icon" aria-hidden="true">⎋</span>
+        <h3>Unsubscribe on the card</h3>
+        <p>RFC 8058 one-click when the header is there. Preference/mailto when it is not. No AI key for the core path.</p>
+      </div>
+      <div class="card">
+        <span class="card-icon" aria-hidden="true">≠</span>
+        <h3>Not per-sender bulk unsub</h3>
+        <p>Exact-sender unsubscribe then leftover sweep lives on <a href="./bulk-unsubscribe-gmail.html">bulk unsubscribe Gmail</a>.</p>
+      </div>
+    </div>
+    <section class="final-cta" aria-labelledby="promo-mid-cta">
+      <div>
+        <p class="eyebrow">Count first. Sweep second.</p>
+        <h2 id="promo-mid-cta">Clear Promotions with the number in front of you. Filter the list. Unsubscribe when you mean it.</h2>
+        <p>Chrome Web Store 1.65. No TriageBox account. Data stays in your browser.</p>
+      </div>
+      <a class="btn btn-primary" href="https://chromewebstore.google.com/detail/triagebox-ai-checker-for/fdkbolcjccjkgadblcfnbnlibaiaellj">Add to Chrome <span aria-hidden="true">→</span></a>
+    </section>
+    <div class="section-heading">
+      <p class="eyebrow">Limits, stated</p>
+      <h2>What this page does not claim</h2>
+    </div>
+    <ul class="vs-prose">
+      <li>It does not replace Gmail’s Promotions tab. That still works, for free, with no extension.</li>
+      <li>It is not <a href="./bulk-unsubscribe-gmail.html">bulk unsubscribe Gmail</a> — that page is per exact sender, then leftover sweep.</li>
+      <li>It is not <a href="./delete-old-emails-gmail.html">delete old emails</a> — that page is age-first cleanup.</li>
+      <li>It is not <a href="./gmail-spam-review.html">Gmail spam review</a> — that page is the Spam folder.</li>
+      <li>Normal mail only does not archive or delete — it only filters the displayed list.</li>
+      <li>Core unsubscribe and sweep do not require an AI key. AI link extract is last resort only.</li>
+      <li>There is no TriageBox mailbox server. Desktop Chrome only.</li>
+      <li>It is not for anyone else’s mailbox.</li>
+    </ul>
+    <section class="faq" id="faq" aria-labelledby="promo-faq-title">
+      <div class="section-heading">
+        <p class="eyebrow">Quick answers</p>
+        <h2 id="promo-faq-title">Stop promotional emails in Gmail</h2>
+      </div>
+      <div class="faq-list">
+        <details open>
+          <summary>How do I stop promotional emails in Gmail without opening every message?</summary>
+          <p>Gmail’s Promotions tab already sorts marketing mail. TriageBox 1.65 is a Chrome extension: Bulk sweep can target Promotions (also Social, Updates, or Forums) with one Gmail query, show a live exact count, then archive or delete. Cap is marked 20,000+ when capped. You can Count all mail instead. Unsubscribe on cards uses RFC 8058 one-click when present. No AI key for core unsub or sweep. No TriageBox mailbox server. Desktop Chrome only.</p>
+        </details>
+        <details>
+          <summary>What does Normal mail only do?</summary>
+          <p>The Normal mail only toggle (mail icon before Triage) hides newsletters, offers, social/forum mail and messages scored below 45 from the displayed list. It does not archive or delete — it filters what you see. Turn it off to see the full pile again.</p>
+        </details>
+        <details>
+          <summary>Is this the same as bulk unsubscribe Gmail?</summary>
+          <p>No. <a href="./bulk-unsubscribe-gmail.html">Bulk unsubscribe</a> is per exact sender, then a leftover sweep. This page is the promotional angle: category/age bulk sweep, Normal mail only, and Unsubscribe on cards. Use <a href="./delete-old-emails-gmail.html">delete old emails</a> for age-first cleanup and <a href="./gmail-spam-review.html">spam review</a> for the Spam folder.</p>
+        </details>
+        <details>
+          <summary>Does my mail go through a TriageBox server?</summary>
+          <p>No. There is no developer-operated backend. Processing runs in your browser; Gmail data is not sent to the publisher.</p>
+        </details>
+      </div>
+    </section>
+    <section class="final-cta" aria-labelledby="promo-cta-title">
+      <div>
+        <p class="eyebrow">Desktop Chrome · Gmail you already have</p>
+        <h2 id="promo-cta-title">Stop Gmail promotions with a counted sweep — not a twin of bulk unsubscribe.</h2>
+        <p>Free to install. No subscription. No TriageBox account.</p>
+      </div>
+      <a class="btn btn-primary" href="https://chromewebstore.google.com/detail/triagebox-ai-checker-for/fdkbolcjccjkgadblcfnbnlibaiaellj">Add TriageBox to Chrome <span aria-hidden="true">→</span></a>
+    </section>
+    <div class="meta">
+      <p><strong>Trademarks and independence.</strong> TriageBox is not affiliated with, sponsored
+      by or endorsed by Google, and it is not a Google product. Gmail, Google and Chrome are
+      trademarks of Google LLC. This page carries no affiliate links, no paid placement,
+      and no invented ratings.</p>
+      <p><a href="./">← TriageBox home</a> · <a href="./bulk-unsubscribe-gmail.html">Bulk unsubscribe</a> · <a href="./delete-old-emails-gmail.html">Delete old emails</a> · <a href="./gmail-spam-review.html">Spam review</a> · <a href="./privacy.html">Privacy</a></p>
+    </div>
+  </main>
+</div>
+</body>
+</html>
