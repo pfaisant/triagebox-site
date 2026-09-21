@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>TriageBox AI Gmail Checker — Privacy Policy</title>
-  <meta name="description" content="Privacy policy for TriageBox AI Gmail Checker. No product server, telemetry or ads. Gmail stays between your browser and Google. Optional AI uses the key you supply." />
+  <meta name="description" content="Privacy policy for TriageBox AI Gmail Checker. No mailbox server, telemetry or ads; optional anonymous public likes. Gmail stays between your browser and Google. Optional AI uses the key you supply." />
   <link rel="canonical" href="https://triagebox.pfa87.cc/privacy.html" />
   <link rel="icon" type="image/png" href="./logo-120.png" />
   <meta name="theme-color" content="#1f9d6f" />
@@ -12,12 +12,12 @@
   <meta property="og:site_name" content="TriageBox" />
   <meta property="og:url" content="https://triagebox.pfa87.cc/privacy.html" />
   <meta property="og:title" content="TriageBox AI Gmail Checker — Privacy Policy" />
-  <meta property="og:description" content="No product server, telemetry or ads. Gmail stays between your browser and Google. Optional AI uses the key you supply." />
+  <meta property="og:description" content="No mailbox server, telemetry or ads; optional anonymous public likes. Gmail stays between your browser and Google. Optional AI uses the key you supply." />
   <meta property="og:image" content="https://triagebox.pfa87.cc/og-card.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@pfaclawd87" />
   <meta name="twitter:title" content="TriageBox AI Gmail Checker — Privacy Policy" />
-  <meta name="twitter:description" content="No product server, telemetry or ads. Gmail stays between your browser and Google." />
+  <meta name="twitter:description" content="No mailbox server, telemetry or ads; optional anonymous public likes. Gmail stays between your browser and Google." />
   <meta name="twitter:image" content="https://triagebox.pfa87.cc/og-card.jpg" />
   <link rel="stylesheet" href="./site.css?v=20260805" />
   <style>
@@ -51,7 +51,7 @@
   "@type": "WebPage",
   "name": "TriageBox AI Gmail Checker — Privacy Policy",
   "url": "https://triagebox.pfa87.cc/privacy.html",
-  "description": "Privacy policy for TriageBox AI Gmail Checker. No product server, telemetry or ads. Gmail stays between your browser and Google.",
+  "description": "Privacy policy for TriageBox AI Gmail Checker. No mailbox server, telemetry or ads; optional anonymous public likes. Gmail stays between your browser and Google.",
   "isPartOf": {
     "@type": "WebSite",
     "name": "TriageBox AI Gmail Checker",
@@ -81,20 +81,20 @@
     <a href="./donate.html">Donate</a>
   </p>
   <h1>TriageBox AI Gmail Checker — Privacy Policy</h1>
-  <p class="meta">Effective date: 5 August 2026 · Contact: paulfaisant@gmail.com</p>
+  <p class="meta">Effective date: 10 September 2026 · Contact: paulfaisant@gmail.com</p>
 
   <p><strong>TriageBox AI Gmail Checker</strong> (short name: TriageBox) is a Chrome extension
   that helps you triage your own Gmail inbox: unread badge, fast actions (archive / snooze /
   mark read / label), an optional Google Calendar agenda, and optional AI summaries of your
   email threads.</p>
 
-  <div class="lead"><b>The extension has no product server, telemetry, analytics or
+  <div class="lead"><b>Mail processing has no developer server, telemetry, analytics or
   advertising.</b> Working data is stored in your browser; your Todo list can also use
   Chrome Sync so it appears in your other signed-in Chrome browsers. The extension
-  communicates directly with Google, an AI provider you configure, and—only when you enable
-  FeedAI—the feed/article sites you select. The developer receives information only when you
-  deliberately send a feedback report or email. The separate public website uses consent-controlled
-  Google Analytics as described below; it never receives Gmail or extension data.</div>
+  communicates directly with Google and an AI provider you configure. Feedback is an email you choose to send.
+  The Support heart reads a public count from the project website and sends a random token when recording
+  your vote. It sends no Gmail content, account address, settings or AI key. The separate public website
+  uses consent-controlled Google Analytics as described below.</div>
 
   <h2>What the extension accesses, and why</h2>
   <table>
@@ -112,7 +112,7 @@
     <tr>
       <td>Email text and (optionally) a PDF attachment processed by an AI feature you use or enable</td>
       <td>Generate the AI summary, relevance score, digest, or answer you requested</td>
-      <td>Sent directly from your browser to the AI provider <b>you</b> configured with <b>your own API key</b> — Google Gemini API and/or xAI (Grok). Background rating/summarising runs only when you enable those features</td>
+      <td>Sent directly from your browser to the AI provider <b>you</b> configured with <b>your own API key</b> — Google Gemini, xAI (Grok), or OpenRouter and its serving provider. Background rating/summarising runs only when those features are enabled</td>
     </tr>
     <tr>
       <td>Settings, API keys, summaries cache and usage counters</td>
@@ -130,21 +130,19 @@
       <td>Blocked by default. If you press “Load remote images”, or switch on <em>Load remote images automatically</em> in Settings → Gmail, your browser contacts the image host when a preview is displayed; that host can observe your IP address and the unique image URL. Nothing is fetched in the background either way &mdash; only for a preview you have open</td>
     </tr>
     <tr>
-      <td>FeedAI feed URLs, feed/article content and generated briefing</td>
-      <td>Build the optional news briefing after you enable FeedAI and add feeds</td>
-      <td>Your browser contacts the selected publishers directly. Content selected for analysis is sent to your configured AI provider. FeedAI is off by default</td>
-    </tr>
-    <tr>
       <td>Feedback report text and diagnostics you choose to include</td>
       <td>Let you report a problem or request help</td>
-      <td>Shown to you before sending, then sent through Gmail to the developer’s support address only after you confirm</td>
+      <td>Shown in a redacted preview, then sent through Gmail to the displayed support address when you send. The recipient sees your sending address. Retry history retains the original redacted report and diagnostics; exports include them</td>
     </tr>
   </table>
 
   <h2>What we do NOT do</h2>
   <ul>
-    <li>The extension has no developer server, telemetry, analytics, or crash reporting.</li>
-    <li>No selling, sharing, or transferring of user data to anyone.</li>
+    <li>The extension has no mailbox-processing server, telemetry, analytics, or automatic crash reporting.
+      The public support counter is a separate, optional feature described below.</li>
+    <li>No sale of your data. Transfers are limited to requested Google/AI operations,
+      enabled background AI, email recipients, explicit feedback, remote images you allow,
+      and the anonymous support-counter requests described here.</li>
     <li>No use of data for advertising, profiling, or creditworthiness.</li>
     <li>No background loading of remote email images or tracking pixels. They load only in a preview
       you have open, and only after you press “Load remote images” or switch automatic loading on
@@ -160,10 +158,10 @@
   <h2>Third parties</h2>
   <p>When you use or enable an AI feature, the relevant content is handled by the provider
   under its own terms: <a href="https://ai.google.dev/gemini-api/terms">Google Gemini API terms</a>
-  or <a href="https://x.ai/legal/terms-of-service">xAI terms</a>. TriageBox sends nothing to
-  these providers unless you added a key and used or enabled the feature. FeedAI also contacts
-  the feed and article publishers you selected. Those sites receive an ordinary request from
-  your browser and may apply their own privacy policies.</p>
+  or <a href="https://x.ai/legal/terms-of-service">xAI terms</a>, or
+  <a href="https://openrouter.ai/terms">OpenRouter’s terms</a> and the terms of the provider
+  serving that request. Your OpenRouter account/provider settings affect routing. TriageBox sends nothing to
+  these providers unless you added a key and used or enabled the feature.</p>
 
   <h2 id="website-analytics">This website</h2>
   <p>The public website at
@@ -180,44 +178,49 @@
   API keys or other extension data. Google processes analytics data under its
   <a href="https://policies.google.com/privacy">Privacy Policy</a>. Analytics-cookie processing is
   based on your consent; declining does not affect the website or extension.</p>
-  <p>Separately, on the <a href="./donate.html">donate page</a> only, a
-  minimal event log may be recorded so the developer can build aggregate statistics
-  (for example unique supporters and rough geography):</p>
+  <h3 id="public-likes">Public support likes</h3>
+  <p>The <a href="./donate.html">support page</a> and the extension’s Support heart share
+  one public count, starting with the 10 September 2026 counter. A donation click does not count as a like.</p>
   <ul>
-    <li><strong>What:</strong> IP address, coarse location (country / city from a public geo-IP
-      lookup), timestamp, event type (<code>view</code>, <code>like</code>, <code>unlike</code>, <code>donate</code> — a click on a payment link),
-      page path, referrer, and browser user-agent.</li>
-    <li><strong>Why:</strong> Count likes without double-counting the same network, and build
-      simple traffic / support statistics. Not used for advertising or profiling.</li>
-    <li><strong>Where:</strong> Processed via a form/inbox service and/or a private spreadsheet
-      controlled by the developer. The public like total is a simple counter service
-      (no message content).</li>
+    <li><strong>What:</strong> a random token saved in this browser or extension installation,
+      and the like/unlike choice. The server stores a SHA-256 hash of that token and the counter’s
+      reset date in a private database outside the public website files. No email address, Gmail data,
+      AI key, donation activity, location lookup or user-agent profile is stored by the counter.</li>
+    <li><strong>Why:</strong> repeated requests for the same vote do not add duplicate likes;
+      pressing the heart again removes that vote. The total counts browser/installation votes,
+      not verified unique people. Clearing storage or using another profile can create another vote.</li>
+    <li><strong>Where:</strong> <code>https://triagebox.pfa87.cc/api/support-likes</code>, on the
+      existing project site host through Cloudflare. The counter does not contact the retired
+      CounterAPI service, IP-lookup services, a form inbox, or a spreadsheet. Normal network
+      infrastructure can still process request metadata, including IP addresses.</li>
   </ul>
-  <p>This website analytics and logging do <strong>not</strong> apply to the Chrome extension, Gmail data,
-  or AI features. The extension still has no developer server and does not send your mail or
-  settings to the developer.</p>
+  <p>The old support-page event logger, IP-based deduplication and donation-click emails were removed.
+  This does not erase historical events already received. The support-page code emits no analytics
+  events; any consent-controlled tag injected by the site’s shared edge infrastructure is separate.
+  Website analytics do not run in the extension. The support counter never handles your mail or settings.</p>
 
   <h2>Limited Use disclosure</h2>
 
   <p>triageBox's use and transfer of information received from Google APIs adheres to the
   <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API
   Services User Data Policy</a>, including the Limited Use requirements. In particular: data
-  obtained from Google APIs is used only to provide the features you invoke in the extension, is
-  never transferred to anyone except the AI provider whose key <em>you</em> configured (and only
-  for the request you triggered), is never sold, is never used for advertising or profiling, and
-  is never read by a human other than you.</p>
+  obtained from Google APIs is used only to provide the features you use or enable in the extension.
+  It is never sold or used by the developer for advertising or profiling. AI content goes directly
+  to the configured provider for requested or enabled processing. Mail you send, forward or include
+  in feedback goes to the recipient you choose; the developer does not otherwise receive or inspect
+  your mailbox. The support counter is separate from Google API data.</p>
 
   <h2>Who is responsible, and on what basis</h2>
   <p>For website analytics, the lawful basis for storing or reading analytics identifiers is your
   <strong>consent</strong> (Article 6(1)(a) UK GDPR / GDPR). You can withdraw it at any time through
   <strong>Cookie settings</strong>; doing so disables analytics storage and removes accessible GA
   cookies from this site.</p>
-  <p>For the other small amount of processing the developer performs — the donate-page event log
-  and public like counter described above, plus any feedback email you choose to send —
+  <p>For the other small amount of processing the developer performs — the public like counter
+  described above, plus any feedback email you choose to send —
   the <strong>data controller</strong> is the publisher, Paul Faisant
   (<a href="mailto:paulfaisant@gmail.com">paulfaisant@gmail.com</a>). The lawful basis is
   <strong>legitimate interests</strong> (Article 6(1)(f) UK GDPR / GDPR): counting supporters
-  without double-counting a network, and understanding basic traffic to the project's own site.
+  without repeating the same browser vote, and responding to requested feedback.
   You can object to it at any time using the contact address, and nothing about the extension
   depends on it.</p>
   <p>For everything the <em>extension</em> does with your mailbox, <strong>you</strong> are the one
@@ -229,8 +232,13 @@
     <li><strong>On your device:</strong> settings, caches, summaries and todos stay in
       <code>chrome.storage.local</code> until you clear them or uninstall the extension, which
       deletes them. Todos you chose to sync also live in your own Chrome Sync account.</li>
-    <li><strong>Donate-page events:</strong> kept only as long as they are useful for those
-      statistics — in practice no longer than 24 months — and deleted sooner if you ask.</li>
+    <li><strong>Public likes:</strong> the active vote remains until you unlike with the same token
+      or the counter is retired. Clearing local storage loses the token and cannot retract the server vote;
+      unlike first if you want to remove it. Reset epochs preserve old hashes for rollback rather than
+      adding them to the new total. Contact the publisher to request removal.</li>
+    <li><strong>Historical donate-page events:</strong> the former event logger collected the
+      information disclosed in earlier policies. Its existing retention limit remains no longer than 24 months,
+      with earlier deletion on request; this release stops new collection by that logger.</li>
     <li><strong>Website analytics:</strong> retention is controlled in the Google Analytics
       property. Your consent choice remains on your device until you change it or clear site data.</li>
     <li><strong>Feedback you send:</strong> kept in the developer's mailbox while the issue is
@@ -253,10 +261,10 @@
 
   <h2>Where data goes geographically</h2>
   <p>The extension talks to Google and to the AI provider you configured; where those companies
-  process data is governed by their own terms, linked above. Google Analytics and the two small
-  website services used by the donate page (a form/inbox service and a public counter) may process
-  outside the UK and EEA under their own safeguards. No mail content, and nothing from the
-  extension, is sent to any of them.</p>
+  process data is governed by their own terms, linked above. Google Analytics, Cloudflare and payment
+  providers may process outside the UK and EEA under their own safeguards. The public counter runs
+  on the publisher’s existing site host; requests pass through Cloudflare. No mailbox content or AI
+  credentials accompany likes. Payment providers receive the information you give them during checkout.</p>
 
   <h2>Children</h2>
   <p>TriageBox is a productivity tool for the holder of a Google account and is not directed at

@@ -3,39 +3,34 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>TriageBox AI Gmail Checker — AI-powered Gmail triage for Chrome</title>
-  <meta name="description" content="Clear Gmail without living in Gmail. TriageBox turns your inbox into a short queue: one-click archive/snooze/label, bulk sweeps, unsubscribe, phishing alerts. No TriageBox mailbox server. AI optional." />
+  <title>TriageBox AI Gmail Checker — Clear your Gmail inbox in minutes</title>
+  <meta name="description" content="TriageBox scores, sorts and sweeps your Gmail inbox from a Chrome popup. Archive, snooze, unsubscribe and bulk-clean whole senders with an exact count before anything moves. Free, no account, no TriageBox mail server. AI optional on your own key." />
   <meta name="application-name" content="TriageBox AI Gmail Checker" />
   <link rel="canonical" href="https://triagebox.pfa87.cc/" />
   <link rel="icon" type="image/png" href="./logo-120.png" />
   <meta name="theme-color" content="#1f9d6f" />
-  <link rel="stylesheet" href="./site.css?v=20260812" />
+  <link rel="stylesheet" href="./home.css?v=20260919" />
 
-  <!-- Link-preview card: on Reddit/HN/X/Discord/Slack this IS the ad — without it a
-       shared link renders as a bare URL. og:url/og:image stay ABSOLUTE on the canonical
-       host on purpose: the GitHub Pages fallback serves this same file, and previews
-       must still attribute to the real domain. -->
+  <!-- Link-preview card: on Reddit/HN/X/Discord/Slack this IS the ad. og:url/og:image stay
+       ABSOLUTE on the canonical host on purpose: the GitHub Pages fallback serves this same
+       file, and previews must still attribute to the real domain. -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="TriageBox" />
   <meta property="og:url" content="https://triagebox.pfa87.cc/" />
-  <meta property="og:title" content="TriageBox AI Gmail Checker — AI-powered Gmail triage for Chrome" />
+  <meta property="og:title" content="TriageBox AI Gmail Checker — Clear your Gmail inbox in minutes" />
   <meta property="og:description" content="Popup mail actions, optional AI summaries and scores, then sender sweeps with a confirmed count. No TriageBox mailbox backend; optional AI uses your own provider key." />
   <meta property="og:image" content="https://triagebox.pfa87.cc/og-card.jpg" />
   <meta property="og:image:width" content="1280" />
   <meta property="og:image:height" content="800" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@pfaclawd87" />
-  <meta name="twitter:title" content="TriageBox AI Gmail Checker — Clear Gmail without living in Gmail" />
+  <meta name="twitter:title" content="TriageBox AI Gmail Checker — Clear your Gmail inbox in minutes" />
   <meta name="twitter:description" content="Popup triage, bulk sweeps with exact counts, unsubscribe, scam checks. No TriageBox mailbox server. AI optional on your key." />
   <meta name="twitter:image" content="https://triagebox.pfa87.cc/og-card.jpg" />
 
-  <!-- WebSite, not SoftwareApplication. Google requires review or aggregateRating on
-       SoftwareApplication; this listing has no genuine on-site ratings, and inventing
-       them is a Search Console / manual-action risk. Software rich results will not
-       show without a real rating anyway. name still mirrors the H1 / OAuth branding;
-       alternateName is the Chrome Web Store listing. Restore SoftwareApplication only
-       when visible first-party reviews exist on this page. -->
-    <script type="application/ld+json">
+  <!-- WebSite, not SoftwareApplication: Google requires genuine reviews or an aggregateRating
+       for SoftwareApplication rich results, and this page carries no first-party ratings. -->
+  <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebSite",
@@ -89,6 +84,14 @@
     },
     {
       "@type": "Question",
+      "name": "Will TriageBox replace my Gmail?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. TriageBox is not an email client. It works alongside Gmail from a Chrome popup or side panel; every action is a normal Gmail action on your own account, and Gmail stays exactly as it was."
+      }
+    },
+    {
+      "@type": "Question",
       "name": "Does TriageBox replace Checker Plus for Gmail?",
       "acceptedAnswer": {
         "@type": "Answer",
@@ -98,227 +101,296 @@
   ]
 }
   </script>
+  <script src="./apk-request.js?v=20260919" defer></script>
   <script src="./analytics.js?v=20260827-shared2" defer></script>
 </head>
 <body>
-<div class="shell">
-  <header class="topbar">
+
+<header class="topbar">
+  <div class="wrap">
     <a class="brand" href="./">
-      <img src="./logo-120.png" width="32" height="32" alt="" onerror="this.style.display='none'" />
+      <img src="./logo-120.png" width="30" height="30" alt="" onerror="this.style.display='none'" />
       <span>TriageBox</span>
     </a>
     <nav class="nav" aria-label="Site">
-      <a href="./" aria-current="page">Home</a>
+      <a href="#features">Features</a>
+      <a href="#how-it-works">How it works</a>
+      <a href="#privacy">Privacy</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
       <a href="./changelog.html">Changelog</a>
-      <a href="./checker-plus-alternative.html">vs Checker Plus</a>
-      <a href="./bulk-unsubscribe-gmail.html">Bulk unsubscribe</a>
-      <a href="./delete-old-emails-gmail.html">Delete old mail</a>
-      <a href="./gmail-phishing-checker.html">Phishing check</a>
-      <a href="./gmail-waiting-for-reply.html">Waiting for reply</a>
-      <a href="./gmail-verification-code.html">Sign-in code</a>
-      <a href="./gmail-pdf-summary.html">PDF summary</a>
-      <a href="./gmail-snooze-until-reply.html">Snooze until reply</a>
-      <a href="./gmail-to-calendar.html">Gmail to Calendar</a>
-      <a href="./gmail-spam-review.html">Spam review</a>
-      <a href="./gmail-keep-unread.html">Keep unread</a>
-      <a href="./gmail-stop-promotional-mail.html">Stop promotions</a>
-      <a href="./gmail-undo-archive.html">Undo archive</a>
-      <a href="./privacy.html">Privacy</a>
-      <a href="./terms.html">Terms</a>
-      <a href="./donate.html">Donate</a>
-      <a class="x-link" href="https://x.com/pfaclawd87" target="_blank" rel="noopener noreferrer" aria-label="TriageBox on X, @pfaclawd87">
-        <!-- Official X (Twitter) mark -->
-        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"/>
-        </svg>
-        <span>@pfaclawd87</span>
-      </a>
       <a class="nav-cta" href="https://chromewebstore.google.com/detail/triagebox-ai-checker-for/fdkbolcjccjkgadblcfnbnlibaiaellj">Add to Chrome</a>
     </nav>
-  </header>
+  </div>
+</header>
 
-  <main>
-    <section class="hero" aria-labelledby="product-name">
-      <div class="hero-copy">
-        <!-- No logo here: the topbar brand 20px above already shows it, and the pair read
-             as a mistake. The eyebrow alone marks the hero. -->
-        <div class="hero-brand">
-          <p class="eyebrow">Clear Gmail without living in Gmail</p>
-        </div>
-        <!-- Exact OAuth consent app name — must match Google Cloud branding -->
-        <h1 id="product-name">TriageBox AI Gmail Checker</h1>
-        <p class="tagline">Turn your inbox into a short queue. Archive, snooze and unsubscribe from a Chrome popup — then sweep a sender with an exact count before anything moves. AI is optional, on your own key.</p>
-        <div class="hero-actions">
-          <a class="btn btn-primary"
-             href="https://chromewebstore.google.com/detail/triagebox-ai-checker-for/fdkbolcjccjkgadblcfnbnlibaiaellj">
-            Add to Chrome <span aria-hidden="true">→</span>
-          </a>
-          <a class="btn btn-ghost" href="#how-it-works">See how it works</a>
-        </div>
-        <p class="hero-micro">Free on the Chrome Web Store · Store <strong>1.65</strong> · no account · data stays in your browser</p>
-        <p class="hero-android"><a href="#android">Also on Android</a> — the same triage on your phone, as a native app. <a href="https://downloads.pfa87.cc/triagebox.apk">Download the APK</a>.</p>
-        <p class="hero-store-link"><a href="https://chromewebstore.google.com/detail/triagebox-ai-checker-for/fdkbolcjccjkgadblcfnbnlibaiaellj">Chrome Web Store listing</a>
-          · <a href="./checker-plus-alternative.html">Honest comparison with Checker Plus for Gmail</a>
-          · <a href="./bulk-unsubscribe-gmail.html">Bulk unsubscribe Gmail, then sweep the leftover pile</a>
-          · <a href="./delete-old-emails-gmail.html">Delete old emails in Gmail, with the exact count first</a>
-          · <a href="./gmail-phishing-checker.html">Gmail phishing checker — no API key, Gmail’s own sender checks</a>
-          · <a href="./gmail-waiting-for-reply.html">Gmail waiting for reply — a list of sent mail, not a nudge</a>
-          · <a href="./gmail-verification-code.html">Copy a Gmail verification code from the card, when the subject already has exactly one</a>
-          · <a href="./gmail-pdf-summary.html">Summarize a PDF attached to Gmail, on the card, with your own key</a>
-          · <a href="./gmail-snooze-until-reply.html">Snooze Gmail until the sender replies — wakes on answer, 7d max</a>
-          · <a href="./gmail-spam-review.html">Review and empty Gmail spam — Spam tab, Review &amp; clean up, Delete entire folder</a>
-          · <a href="./gmail-keep-unread.html">Keep Gmail unread after peeking — Keep unread on the card more menu, card stays put</a>
-          · <a href="./gmail-stop-promotional-mail.html">Stop promotional emails in Gmail — Promotions sweep with live count, Normal mail only, Unsubscribe on cards</a>
-          · <a href="./gmail-undo-archive.html">Undo archive Gmail / restore archived email — Recently removed tray, toast Undo, last 24h newest 20</a></p>
-        <ul class="trust-list" aria-label="Product highlights">
-          <li>Free to install</li>
-          <li>No subscription</li>
-          <li>No TriageBox account</li>
-          <li>Data stays in your browser</li>
-        </ul>
+<main>
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="wrap">
+      <h1 id="hero-title">Clear your Gmail inbox <em>in minutes</em>, not hours</h1>
+      <p class="lede">TriageBox AI Gmail Checker rewrites every email as one plain sentence, then scores, sorts and sweeps your inbox from a Chrome popup. Archive, snooze, unsubscribe and bulk-clean whole senders, with the exact count in front of you before anything moves.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary btn-large" href="https://chromewebstore.google.com/detail/triagebox-ai-checker-for/fdkbolcjccjkgadblcfnbnlibaiaellj">Add to Chrome, it's free <span aria-hidden="true">→</span></a>
+        <a class="btn btn-ghost btn-large" href="#how-it-works">See how it works</a>
       </div>
-
-      <figure class="product-stage">
-        <div class="window-bar" aria-hidden="true">
-          <span></span><span></span><span></span>
-          <b>TriageBox</b>
-        </div>
-        <img src="./og-card.jpg" width="1280" height="800" alt="TriageBox Gmail queue with unread scores, one-click archive and snooze, and an AI summary on the open thread" />
-        <figcaption>One focused view for mail, calendar and tasks.</figcaption>
-      </figure>
-    </section>
-
-    <section class="outcomes" aria-label="What TriageBox helps you do">
-      <article class="outcome">
-        <span class="outcome-number">01</span>
-        <div><h2>See what matters</h2><p>Newest mail stays on top after scoring. Peek a thread without clearing Unread. Optional relevance scores turn a noisy inbox into a queue.</p></div>
-      </article>
-      <article class="outcome">
-        <span class="outcome-number">02</span>
-        <div><h2>Act in one click</h2><p>Archive, snooze, label, unsubscribe or reply without opening Gmail — or sweep a whole sender with the exact count in front of you first.</p></div>
-      </article>
-      <article class="outcome">
-        <span class="outcome-number">03</span>
-        <div><h2>Keep control</h2><p>AI is optional, keys stay on your device, and every Google permission is granted by you.</p></div>
-      </article>
-    </section>
-
-    <section class="lead" aria-labelledby="purpose-title">
-      <div class="lead-heading">
-        <span class="privacy-mark" aria-hidden="true">✓</span>
-        <div><p class="eyebrow">Private by design</p><h2 id="purpose-title">Your inbox does not pass through a TriageBox server</h2></div>
-      </div>
-      The purpose of <strong>TriageBox AI Gmail Checker</strong> is to help the signed-in user
-      manage and prioritise their own Gmail inbox from the browser.
-      The app is a productivity Chrome extension (toolbar badge + popup / side panel) that,
-      with the user&rsquo;s OAuth consent, accesses the user&rsquo;s Gmail and optionally Google Calendar
-      so they can: view unread mail; archive, snooze, label, trash, or mark threads read/unread;
-      review possible phishing risk; see their calendar agenda; and optionally generate AI
-      summaries using API keys the user supplies.
-      <br /><br />
-      TriageBox AI Gmail Checker has no mailbox backend. Mailbox processing runs in the
-      user&rsquo;s browser; optional AI sends selected content to the configured provider. The separate
-      public support service counts anonymous likes without receiving Gmail content. This homepage is the official product
-      site for the application of the same name configured on the Google OAuth consent screen.
-    </section>
-
-    <div class="section-heading" id="how-it-works">
-      <p class="eyebrow">One extension, one workflow</p>
-      <h2>Move from noise to done</h2>
-      <p>Use the basic triage tools with no AI key, then add summaries only if they earn their place.</p>
+      <p class="hero-micro"><span>Free on Chrome Web Store <strong>1.65</strong> · no account, no subscription</span><span>Works in Chrome, Edge, Brave and Comet</span><span>Data stays in your browser</span><span><a href="#android">Also on Android</a></span></p>
     </div>
-    <div class="cards">
-      <div class="card">
-        <span class="card-icon" aria-hidden="true">↘</span>
-        <h3>Triage the queue</h3>
-        <p>Unread badge, newest-first list, archive, snooze, keep unread, copy the thread, spam, trash — on your account only.</p>
-      </div>
-      <div class="card">
-        <span class="card-icon" aria-hidden="true">◇</span>
-        <h3>Check the signal</h3>
-        <p>Optional risk / phishing scoring on messages you choose to analyse, to help you spot scams faster.</p>
-      </div>
-      <div class="card">
-        <span class="card-icon" aria-hidden="true">□</span>
-        <h3>Plan the follow-up</h3>
-        <p>Optional agenda view and event actions using Google Calendar scopes you approve.</p>
-      </div>
-      <div class="card">
-        <span class="card-icon" aria-hidden="true">✦</span>
-        <h3>Summarise on demand</h3>
-        <p>Add your own Gemini, Grok or OpenRouter key for summaries and scores. Automatic unread
-        rating and summary prefetch follow your Settings choices; provider limits and charges apply.</p>
-      </div>
-    </div>
+  </section>
 
-    <section class="android" id="android" aria-labelledby="android-title">
-      <div class="android-copy">
-        <p class="eyebrow">Native Android app</p>
-        <h2 id="android-title">The same triage, in your pocket</h2>
-        <p>TriageBox for Android is a native app (Java views, no web view) that talks to Gmail directly from your phone. Folder tabs with live counts, DeepSeek summaries prepared before you open an email, snooze with automatic return, one-swipe archive, quick reply and a Gmail-like original view.</p>
-        <ul class="android-list">
-          <li>Prepared summaries: the point, the action and the deadline, in bold, before you tap</li>
-          <li>Snooze to later today, tomorrow, the weekend or a date DeepSeek suggests from the email</li>
-          <li>Swipe for side buttons, long-press for the full menu, 24-hour undo on every action</li>
-          <li>Encrypted on-device caches per account; your Gmail token never leaves the phone</li>
-          <li>Hand an email to your to-do list or to your Grok assistant in one tap</li>
-        </ul>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="https://downloads.pfa87.cc/triagebox.apk">Download the APK <span aria-hidden="true">→</span></a>
-          <a class="btn btn-ghost" href="https://downloads.pfa87.cc/">Version &amp; checksum</a>
+  <div class="worksWith wrap" aria-label="Works with">
+    <p>Works with</p>
+    <ul>
+      <li>Gmail</li>
+      <li>Google Calendar</li>
+      <li>Gemini <small>free tier</small></li>
+      <li>OpenRouter</li>
+      <li>Grok</li>
+      <li>Android</li>
+    </ul>
+  </div>
+
+  <div class="stage wrap">
+    <figure>
+      <div class="window-bar" aria-hidden="true"><span></span><span></span><span></span><b>TriageBox</b></div>
+      <div class="popup" role="img" aria-label="The TriageBox popup: every unread email rewritten as one plain sentence with its action and deadline, a relevance score, and archive, snooze and reply on each row">
+        <div class="popup-top" aria-hidden="true">
+          <span class="tab on">Unread <b>7</b></span><span class="tab">Read</span><span class="tab">Snoozed <b>2</b></span>
+          <span class="popup-search">Search all of Gmail…</span>
         </div>
-        <p class="hero-micro">Android 8.0 or newer · installs outside Google Play (allow “install from this source” once) · updates install over the app and keep your data · same optional AI key as the extension</p>
+        <ol class="cards" aria-hidden="true">
+          <li class="card">
+            <div class="who"><b>Northline Studio</b><span>14 min</span><i class="score hi">86</i></div>
+            <div class="what">Your <em>£180</em> September invoice is due <em>25 September</em>; check whether your standing order covers it.</div>
+            <div class="do"><span class="act">Check the standing order before paying · 25 Sept</span><span class="btns"><u>Archive</u><u>Snooze</u><u>Reply</u></span></div>
+          </li>
+          <li class="card">
+            <div class="who"><b>Harbour Rail</b><span>28 min</span><i class="score hi">74</i></div>
+            <div class="what">Your train to <em>Bristol</em> leaves <em>Saturday 09:12</em>, seat 18A, coach C.</div>
+            <div class="do"><span class="act">Keep the ticket ready · Saturday 09:12</span><span class="btns"><u>Archive</u><u>Snooze</u><u>Calendar</u></span></div>
+          </li>
+          <li class="card">
+            <div class="who"><b>Maya Chen</b><span>41 min</span><i class="score mid">61</i></div>
+            <div class="what">Maya needs a decision on the launch cover, <em>warm or cool</em>, by <em>Friday 14:00</em>.</div>
+            <div class="do"><span class="act">Reply with the cover choice · Friday 14:00</span><span class="btns"><u>Reply</u><u>Snooze</u><u>To-do</u></span></div>
+          </li>
+          <li class="card quiet">
+            <div class="who"><b>The Sunday Edit</b><span>1 h</span><i class="score low">18</i></div>
+            <div class="what">Weekly reading list: five links on calmer desks, books and exhibitions. Nothing to do.</div>
+            <div class="do"><span class="act muted">Newsletter</span><span class="btns"><u>Archive</u><u>Unsubscribe</u></span></div>
+          </li>
+        </ol>
       </div>
-      <div class="android-shots" aria-hidden="true">
-        <img src="./android-inbox.png" width="360" height="688" alt="" loading="lazy" />
-        <img src="./android-reader.png" width="360" height="688" alt="" loading="lazy" />
-      </div>
-    </section>
+      <figcaption>Every email rewritten as one sentence you understand, with the action and the deadline, before you open it.</figcaption>
+    </figure>
+  </div>
 
-    <section class="final-cta" aria-labelledby="final-cta-title">
-      <div>
-        <p class="eyebrow">Your inbox, back under control</p>
-        <h2 id="final-cta-title">Start with the queue. Add AI only if you want it.</h2>
-        <p>Free to install. No TriageBox account and no mailbox data server.</p>
+  <section id="features" aria-labelledby="features-title">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Built for the inbox you already have</p>
+        <h2 id="features-title">From noise to done, without leaving the popup</h2>
+        <p>Every action is a normal Gmail action on your own account. Nothing changes in Gmail itself, and nothing is hidden behind a plan.</p>
       </div>
-      <a class="btn btn-primary" href="https://chromewebstore.google.com/detail/triagebox-ai-checker-for/fdkbolcjccjkgadblcfnbnlibaiaellj">Add to Chrome <span aria-hidden="true">→</span></a>
-    </section>
 
-    <div class="section-heading" id="changelog">
-      <p class="eyebrow">Built in public</p>
-      <h2>What you get from Add to Chrome</h2>
+      <article class="feature">
+        <div class="feature-copy">
+          <h3>Every email, in plain language</h3>
+          <p>Long newsletters, bank notices, school circulars, supplier invoices: each one becomes one clear sentence with the fact that matters in bold, plus the action and the exact deadline when there is one. You decide from the card; you open the original only when you need it.</p>
+          <ul>
+            <li>The point, the action and the deadline on every card, in the email's own language</li>
+            <li>Tables and performance reports are analysed, not described: the numbers that moved</li>
+            <li>PDF attachments summarised on the card, sign-in codes copied in one tap</li>
+          </ul>
+          <a class="more" href="./gmail-pdf-summary.html">Summarise a PDF attached to Gmail</a>
+        </div>
+        <div class="feature-visual">
+          <div class="mock-summary" aria-hidden="true">
+            <div class="from">Council Tax · Bristol City Council</div>
+            <div class="orig">“Further to our previous correspondence regarding the reassessment of your property band under the Local Government Finance Act 1992, we write to inform you that…”</div>
+            <div class="arrow">↓ TriageBox</div>
+            <div class="plain">Your council tax band moves from <em>C to D</em>; the new monthly amount is <em>£178</em> from <em>1 October</em>.</div>
+            <div class="act">Action: appeal by <b>30 September</b> if you disagree</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="feature flip">
+        <div class="feature-copy">
+          <h3>Automatically prioritised. Newest first.</h3>
+          <p>Optional relevance scores turn a noisy inbox into a short queue. Newsletters, offers, receipts and verification codes are tagged on the card, so you can peek at a thread without clearing Unread.</p>
+          <ul>
+            <li>Score and sort the whole inbox with one click on ✦ Triage</li>
+            <li>Keep unread after a peek; the card stays where it was</li>
+            <li>Copy a sign-in code straight from the card when the subject has one</li>
+          </ul>
+          <a class="more" href="./gmail-keep-unread.html">Keep Gmail unread after peeking</a>
+        </div>
+        <div class="feature-visual">
+          <div class="mock-list" aria-hidden="true">
+            <div class="mock-row"><span class="score">92</span><div><b>Contract for signature, due Friday</b><small>Legal · Reply expected</small></div><span class="chip hot">Action</span></div>
+            <div class="mock-row"><span class="score mid">61</span><div><b>Your invoice for September</b><small>Accounts · Receipt</small></div><span class="chip ok">Receipt</span></div>
+            <div class="mock-row"><span class="score low">18</span><div><b>This week in product design</b><small>Weekly digest</small></div><span class="chip news">Newsletter</span></div>
+            <div class="mock-row"><span class="score low">7</span><div><b>Last chance: 40% off everything</b><small>Promotions</small></div><span class="chip warn">Offer</span></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="feature">
+        <div class="feature-copy">
+          <h3>Bulk unsubscribe and sweep, with the exact count first</h3>
+          <p>See which senders you never read, unsubscribe in one click, and sweep the leftover pile by sender, age or category. TriageBox always shows the live number before anything is archived or deleted.</p>
+          <ul>
+            <li>Per-sender unsubscribe using the list's own RFC 8058 header</li>
+            <li>Promotions, Social, Updates and Forums sweeps with a live count</li>
+            <li>Delete old mail by age group; <a href="./gmail-undo-archive.html">24-hour Recently removed</a> tray to restore archive/delete</li>
+          </ul>
+          <a class="more" href="./bulk-unsubscribe-gmail.html">Bulk unsubscribe in Gmail</a>
+        </div>
+        <div class="feature-visual">
+          <div class="mock-confirm" aria-hidden="true">
+            <div style="color:var(--ink-3);font-size:13px;margin-bottom:6px">Sweep by sender · deals@example-shop.com</div>
+            <div class="n">1,284 messages</div>
+            <div style="color:var(--ink-3);font-size:13px;margin-top:4px">Oldest 14 Mar 2024 · newest today · none starred</div>
+            <div class="actions"><span class="go">Archive 1,284</span><span>Delete</span><span>Unsubscribe first</span></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="feature flip">
+        <div class="feature-copy">
+          <h3>Scam checks with no API key</h3>
+          <p>Every card carries Gmail's own SPF, DKIM and DMARC verdict plus reply-path, attachment and look-alike domain signals. A verified sender is never accused of impersonating itself, and you get one clear banner, not four.</p>
+          <ul>
+            <li>Corporate From answering to a personal mailbox: flagged as phishing</li>
+            <li>Brand name in the display name, different domain: flagged</li>
+            <li>Report spam or Not phishing in one click; TriageBox learns the sender</li>
+          </ul>
+          <a class="more" href="./gmail-phishing-checker.html">Gmail phishing checker</a>
+        </div>
+        <div class="feature-visual">
+          <div class="mock-banner" aria-hidden="true"><b>⚠</b><span><b>Possible phishing</b> — Sender name claims "PayPal" but the address is secure-pay-alerts.info. Replying goes to a personal mailbox. Don't click links or reply.</span></div>
+        </div>
+      </article>
+
+      <article class="feature" id="android">
+        <div class="feature-copy">
+          <h3>Your inbox, wherever you work</h3>
+          <p>TriageBox for Android is a native app that talks to Gmail directly from your phone. Folder tabs with live counts, summaries prepared before you open a mail, snooze with automatic return, one-swipe archive and a Gmail-like original view.</p>
+          <ul>
+            <li>Prepared summaries: the point, the action and the deadline, before you tap</li>
+            <li>Swipe for side buttons, long-press for the full menu, 24-hour undo</li>
+            <li>Encrypted on-device caches per account; your token never leaves the phone</li>
+          </ul>
+          <form class="apk-request" id="apk-request" action="mailto:paulfaisant@gmail.com" method="get" aria-label="Request the Android APK">
+            <p class="apk-note">The Android app is not on Google Play yet and is handed out on request. Tell us a little about your phone and we send the signed APK with its checksum and install notes.</p>
+            <label>Your email<input type="email" name="reply" required autocomplete="email" placeholder="you@example.com" /></label>
+            <label>Phone and Android version<input type="text" name="phone" required placeholder="Pixel 8, Android 15" /></label>
+            <label>Why you want it <span class="opt">optional</span><textarea name="why" rows="2" placeholder="What you triage on the phone"></textarea></label>
+            <button class="btn btn-primary" type="submit">Request the APK</button>
+            <p class="apk-fine">Opens a pre-filled email from your own mail app; nothing is stored on this site. Android 8.0 or newer · installs outside Google Play.</p>
+          </form>
+        </div>
+        <div class="feature-visual phones" aria-hidden="true">
+          <img src="./android-inbox.png" width="360" height="688" alt="" loading="lazy" />
+          <img src="./android-reader.png" width="360" height="688" alt="" loading="lazy" />
+        </div>
+      </article>
     </div>
-    <p style="margin-bottom:12px;color:var(--text-secondary);font-size:14px;max-width:42em">
-      The live Chrome Web Store listing is <strong>1.65</strong> as of
-      <time datetime="2026-09-21">21 September 2026</time>.
-      See the <a href="./changelog.html">public changelog</a> for release notes.
-    </p>
-    <ol class="changelog">
-      <li>
-        <div class="ver">1.65<span class="date">Store · checked 21 Sep 2026</span></div>
-        <div class="body"><strong style="color:var(--text-primary)">Live on the Chrome Web Store</strong> — faster Gmail refresh, clearer Settings and Help &amp; feedback, reviewed product comparison, and the redesigned support likes flow. Details in the <a href="./changelog.html">changelog</a>.</div>
-      </li>
-      <li>
-        <div class="ver">1.24.0<span class="date">13 Aug 2026</span></div>
-        <div class="body"><strong style="color:var(--text-primary)">Notifications, resumable sweeps, keyboard</strong> — desktop notices with Archive / Mark read and quiet hours; bulk scans resume after a stop; e / # / s / u in the popup list.</div>
-      </li>
-      <li>
-        <div class="ver">1.23.47<span class="date">6 Aug 2026</span></div>
-        <div class="body"><strong style="color:var(--text-primary)">Scam checks with no API key</strong> — Gmail’s SPF/DKIM/DMARC verdict plus reply-path and attachment signals, so a verified sender is not accused of impersonating itself.</div>
-      </li>
-    </ol>
-    <p class="changelog-note">Want the full engineering log? Open the extension → Docs → Changelog, or see the <a href="./changelog.html">public changelog</a>.</p>
+  </section>
 
+  <section class="steps" id="how-it-works" aria-labelledby="steps-title">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Get started in minutes</p>
+        <h2 id="steps-title">Two clicks to a scored inbox. A third if you want AI.</h2>
+      </div>
+      <div class="step-grid">
+        <div class="step">
+          <div class="num">STEP 1</div>
+          <h3>Add to Chrome and sign in with Google</h3>
+          <p>The button opens the <strong>live</strong> Chrome Web Store listing (<code>fdkbolcjccjkgadblcfnbnlibaiaellj</code>), then Google&rsquo;s consent screen — no TriageBox account. Pin the icon: the badge is your live unread count.</p>
+        </div>
+        <div class="step">
+          <div class="num">STEP 2</div>
+          <h3>Triage from the popup</h3>
+          <p>Archive, snooze, label, unsubscribe or reply without opening Gmail. Open Bulk sweep when a sender or a category has piled up, and confirm the exact count.</p>
+        </div>
+        <div class="step">
+          <div class="num">STEP 3</div>
+          <h3>Add an AI key, only if you want it</h3>
+          <p>Two lanes. A free Google Gemini key keeps summaries and scores entirely free: TriageBox rotates through Gemini's free models and never bills you. For comfort we recommend an OpenRouter key on DeepSeek V4.1 Flash: no daily quota, faster, and a summary costs a fraction of a cent. Either key stays in your browser and calls the provider directly.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <section class="faq" id="faq" aria-labelledby="faq-title">
-      <div class="section-heading">
+  <section id="privacy" aria-labelledby="privacy-title">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Privacy first</p>
+        <h2 id="privacy-title">Your inbox does not pass through a TriageBox server</h2>
+        <p>There is no TriageBox mail backend to trust. Mail moves between your browser and Google's APIs, and optional AI goes straight to the provider you chose.</p>
+      </div>
+      <div class="trust-grid">
+        <div class="trust"><div class="trust-head"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg></span><h3>No mailbox server</h3></div><p>Processing runs in your browser. Your Gmail data is not sent to the publisher. The only shared service counts anonymous likes.</p></div>
+        <div class="trust"><div class="trust-head"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="8" cy="15" r="4.5"/><path d="M11.5 11.5L20 3M16 7l2.5 2.5M14 9l2.5 2.5"/></svg></span><h3>Keys stay on your device</h3></div><p>AI keys live in this browser profile only, never in Chrome Sync, and are sent only to the provider that issued them.</p></div>
+        <div class="trust"><div class="trust-head"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg></span><h3>Permissions you grant</h3></div><p>Google OAuth through Chrome's identity APIs. Revoke any time at myaccount.google.com/permissions; uninstalling removes local data.</p></div>
+        <div class="trust"><div class="trust-head"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 4L7 20M17 4l-2 16M4 9h17M3 15h17"/></svg></span><h3>Exact counts before bulk actions</h3></div><p>Nothing is archived or deleted in bulk until you have seen the live number and confirmed. Trash keeps deleted mail for about 30 days.</p></div>
+      </div>
+      <div class="purpose">
+        <strong>What this app does, in one paragraph.</strong> The purpose of <strong>TriageBox AI Gmail Checker</strong> is to help the signed-in user manage and prioritise their own Gmail inbox from the browser. It is a productivity Chrome extension (toolbar badge, popup and side panel) that, with the user's OAuth consent, accesses the user's Gmail and optionally Google Calendar so they can view unread mail; archive, snooze, label, trash or mark threads read and unread; review possible phishing risk; see their calendar agenda; and optionally generate AI summaries using API keys the user supplies. It has no mailbox backend. This homepage is the official product site for the application of the same name configured on the Google OAuth consent screen. Read the <a href="./privacy.html">Privacy Policy</a> and the <a href="./terms.html">Terms of Service</a>.
+      </div>
+    </div>
+  </section>
+
+  <section class="pricing" id="pricing" aria-labelledby="pricing-title">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Pricing</p>
+        <h2 id="pricing-title">Free. No plan, no trial, no card.</h2>
+        <p>Every feature ships to everyone. Optional AI uses your own provider account: a free Gemini key keeps it at zero, and an OpenRouter key, the comfortable option, costs a fraction of a cent per summary.</p>
+      </div>
+      <div class="plans">
+        <div class="plan main">
+          <span class="tag">Everything included</span>
+          <div class="price">£0<small>forever</small></div>
+          <p class="sub">For anyone with a Gmail account who wants a short, scored queue instead of a pile.</p>
+          <ul>
+            <li>Unread badge, popup and side panel</li>
+            <li>Archive, snooze, label, keep unread, reply</li>
+            <li>Bulk unsubscribe and sender / category sweeps with exact counts</li>
+            <li>Scam checks with no API key</li>
+            <li>Optional AI summaries and scores on your Gemini, OpenRouter or Grok key</li>
+            <li>Calendar agenda and Gmail-to-Calendar</li>
+            <li>Native Android app, on request</li>
+          </ul>
+          <a class="btn btn-primary" href="https://chromewebstore.google.com/detail/triagebox-ai-checker-for/fdkbolcjccjkgadblcfnbnlibaiaellj">Add to Chrome</a>
+        </div>
+        <div class="plan">
+          <span class="tag">Optional</span>
+          <div class="price">♥<small>support the project</small></div>
+          <p class="sub">TriageBox is built and maintained by one person. A donation keeps the lights on; it never unlocks features and is not a purchase.</p>
+          <ul>
+            <li>One-off, any amount</li>
+            <li>Nothing is shipped; nothing to refund</li>
+            <li>Same extension for everyone</li>
+          </ul>
+          <a class="btn btn-ghost" href="./donate.html">Support the project</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" aria-labelledby="faq-title">
+    <div class="wrap">
+      <div class="section-head">
         <p class="eyebrow">Quick answers</p>
-        <h2 id="faq-title">FAQ</h2>
+        <h2 id="faq-title">Frequently asked questions</h2>
       </div>
       <div class="faq-list">
         <details>
           <summary>Is it free?</summary>
-          <p>Yes. Free to install on the Chrome Web Store — no subscription and no TriageBox account. Optional support never unlocks features. Digital download only: nothing is shipped, and there is nothing to return or refund.</p>
+          <p>Yes. Free to install on the Chrome Web Store, with no subscription and no TriageBox account. Optional support never unlocks features. Digital download only: nothing is shipped, and there is nothing to return or refund.</p>
         </details>
         <details>
           <summary>Does mail go through a TriageBox server?</summary>
@@ -326,76 +398,139 @@
         </details>
         <details>
           <summary>Do I need an AI key?</summary>
-          <p>No. Triage, sweeps, unsubscribe and the no-key scam checks work without one. Summaries and AI scores are optional if you add a Gemini, Grok or OpenRouter key.</p>
+          <p>No. Triage, sweeps, unsubscribe and the no-key scam checks work without one. For summaries and scores there are two lanes: a free Gemini key keeps everything free, on Google's free allowance, and is enough for most inboxes; an OpenRouter key on DeepSeek V4.1 Flash is what we recommend for comfort, with no daily quota and a cost of a fraction of a cent per summary. The welcome page walks you through both.</p>
+        </details>
+        <details>
+          <summary>Will it replace Gmail?</summary>
+          <p>No. TriageBox is not an email client. It works alongside Gmail from a popup or side panel; every action is a normal Gmail action on your own account, and Gmail stays exactly as it was.</p>
         </details>
         <details>
           <summary>Will it replace Checker Plus for Gmail?</summary>
-          <p>Yes, for everyday popup mail actions and desktop alerts. TriageBox adds sender cleanup, unsubscribe, spam review and optional AI. Checker Plus retains richer voice and notification controls. <a href="./checker-plus-alternative.html">Honest comparison</a>.</p>
+          <p>Yes, for everyday popup mail actions and desktop alerts. TriageBox adds sender cleanup, unsubscribe, spam review and optional AI. Checker Plus retains richer voice and notification controls. <a href="./checker-plus-alternative.html">Honest comparison, losses included</a>.</p>
+        </details>
+        <details>
+          <summary>Which browsers and phones?</summary>
+          <p>Any Chromium browser that installs Chrome Web Store extensions: Chrome, Edge, Brave, Comet. On Android there is a native app, not yet on Google Play: <a href="#android">request the APK</a> and it arrives by email with its checksum. There is no iOS app.</p>
+        </details>
+        <details>
+          <summary>Who is it for?</summary>
+          <p>Individuals who want a focused inbox workbench for their own Google account. It is not a bulk-mail tool, not a marketing platform, and not intended to access other people's mailboxes.</p>
         </details>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <h2>Who it is for</h2>
-    <p>Individuals who want a focused inbox workbench for <b>their own</b> Google account.
-    It is not a bulk-mail tool, not a marketing platform, and not intended to access other people&rsquo;s mailboxes.</p>
+  <section class="final" aria-labelledby="final-title">
+    <div class="wrap">
+      <h2 id="final-title">Get your inbox back under control</h2>
+      <p>Start with the queue. Add AI only if you want it. Free to install, no TriageBox account, no mailbox data server.</p>
+      <a class="btn btn-primary btn-large" href="https://chromewebstore.google.com/detail/triagebox-ai-checker-for/fdkbolcjccjkgadblcfnbnlibaiaellj">Add to Chrome <span aria-hidden="true">→</span></a>
+    </div>
+  </section>
+</main>
 
-    <h2>How sign-in works</h2>
-    <p>Add to Chrome opens the <strong>live</strong> Chrome Web Store listing (<code>fdkbolcjccjkgadblcfnbnlibaiaellj</code>), then Google&rsquo;s consent screen — no TriageBox account.
-    Google sign-in uses OAuth via Chrome&rsquo;s identity APIs. You grant access on Google&rsquo;s consent screen.
-    You can revoke access at any time at
-    <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>.
-    Uninstalling the extension removes local data stored by the app.</p>
-
-    <h2>Privacy &amp; terms</h2>
-    <ul>
-      <li><a href="./privacy.html">Privacy Policy</a> — what data is accessed and where it goes</li>
-      <li><a href="./terms.html">Terms of Service</a> — use of the extension</li>
-      <li><a href="./donate.html">Support / donate</a> — optional, not required to use the app</li>
-      <li><a href="./checker-plus-alternative.html">TriageBox vs Checker Plus for Gmail</a> — an honest comparison, losses included</li>
-      <li><a href="./bulk-unsubscribe-gmail.html">Bulk unsubscribe Gmail</a> — per exact sender, then sweep with an exact count</li>
-      <li><a href="./delete-old-emails-gmail.html">Delete old emails in Gmail</a> — age and category groups, live count before archive or delete</li>
-      <li><a href="./gmail-phishing-checker.html">Gmail phishing checker</a> — no API key; Gmail’s SPF/DKIM/DMARC, reply path, attachments. Not a security-company claim</li>
-      <li><a href="./gmail-waiting-for-reply.html">Gmail waiting for reply</a> — sent threads from the last 14 days where you wrote last and nobody answered for 2+ days. Not Gmail Nudges, not open-tracking</li>
-      <li><a href="./gmail-verification-code.html">Copy a Gmail verification code</a> — on the card, when the subject already contains exactly one. Not SMS, not a phishing verdict</li>
-      <li><a href="./gmail-pdf-summary.html">Summarize a PDF attached to Gmail</a> — the attachment itself, on the card. Needs your own AI key. Not a thread summary</li>
-      <li><a href="./gmail-snooze-until-reply.html">Snooze until the sender replies</a> — wakes when someone answers, or after 7 days. Not Waiting for reply</li>
-      <li><a href="./gmail-to-calendar.html">Gmail to Google Calendar</a> — .ics on the card, or Add to calendar from a dated summary. Amend and Remove stay</li>
-      <li><a href="./gmail-spam-review.html">Gmail spam review</a> — Spam tab, Review &amp; clean up full page, Delete entire folder with armed confirm. Not the phishing checker</li>
-      <li><a href="./gmail-keep-unread.html">Keep Gmail unread</a> — Keep unread on the card more menu; peek without clearing Unread; card stays put. Not snooze or waiting-for-reply</li>
-      <li><a href="./gmail-stop-promotional-mail.html">Stop promotional emails in Gmail</a> — Promotions (also Social/Updates/Forums) bulk sweep with live count; Normal mail only; RFC 8058 unsub. Not per-sender bulk unsubscribe</li>
-      <li><a href="./gmail-undo-archive.html">Undo archive Gmail</a> — Toast Undo after archive/delete; Recently removed tray (↩ beside Refresh); last 24h, newest 20; Restore. Not keep-unread, spam Delete entire folder, or delete-old</li>
-    </ul>
-
-    <h2>Independence and trademarks</h2>
-    <p>TriageBox AI Gmail Checker is an independent tool. It is <strong>not affiliated with,
-    sponsored by or endorsed by Google</strong>, and it is not a Google product. It works with a
-    Google account you already have, using Google&rsquo;s public APIs under their own terms, with your
-    OAuth consent. Gmail, Google Calendar, Google and Chrome are trademarks of Google LLC; xAI and
-    Grok are trademarks of X.AI Corp. X is a trademark of X Corp. Any other product name used in the
-    extension or on this site belongs to its owner and is used only to identify the product being referred to.</p>
-
-    <h2>Developer contact</h2>
-    <p>Publisher: Paul Faisant ·
-    <a href="mailto:paulfaisant@gmail.com">paulfaisant@gmail.com</a></p>
-    <p>This site is the official homepage for <strong>TriageBox AI Gmail Checker</strong>,
-    the same application name used on the Google OAuth consent screen and related store listings.</p>
-
-    <div class="meta">
-      <p><strong>OAuth / verification note for Google reviewers:</strong>
-      Homepage URL: <code>https://triagebox.pfa87.cc/</code> ·
-      Privacy: <code>https://triagebox.pfa87.cc/privacy.html</code> ·
-      Terms: <code>https://triagebox.pfa87.cc/terms.html</code></p>
-      <p>Application name on this homepage: <strong>TriageBox AI Gmail Checker</strong>.</p>
-      <div class="footer-row">
-        <a class="x-link" href="https://x.com/pfaclawd87" target="_blank" rel="noopener noreferrer">
-          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"/>
-          </svg>
-          @pfaclawd87 on X
-        </a>
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="brand" href="./"><img src="./logo-120.png" width="30" height="30" alt="" /><span>TriageBox</span></a>
+        <p>TriageBox AI Gmail Checker. Clear Gmail without living in Gmail. Built and published by Paul Faisant.</p>
+        <p><a class="x-link" href="https://x.com/pfaclawd87" target="_blank" rel="noopener noreferrer" aria-label="TriageBox on X, @pfaclawd87"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"/></svg>@pfaclawd87</a></p>
+      </div>
+      <div>
+        <h4>Product</h4>
+        <ul>
+          <li><a href="https://chromewebstore.google.com/detail/triagebox-ai-checker-for/fdkbolcjccjkgadblcfnbnlibaiaellj">Chrome Web Store</a></li>
+          <li><a href="#android">Android app</a></li>
+          <li><a href="./changelog.html">Changelog</a></li>
+          <li><a href="./donate.html">Support the project</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Guides</h4>
+        <ul>
+          <li><a href="./bulk-unsubscribe-gmail.html">Bulk unsubscribe Gmail</a></li>
+          <li><a href="./delete-old-emails-gmail.html">Delete old emails</a></li>
+          <li><a href="./gmail-stop-promotional-mail.html">Stop promotional mail</a></li>
+          <li><a href="./gmail-undo-archive.html">Undo archive / restore</a></li>
+          <li><a href="./gmail-spam-review.html">Spam review</a></li>
+          <li><a href="./gmail-phishing-checker.html">Phishing checker</a></li>
+          <li><a href="./gmail-keep-unread.html">Keep unread</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>More guides</h4>
+        <ul>
+          <li><a href="./gmail-waiting-for-reply.html">Waiting for reply</a></li>
+          <li><a href="./gmail-snooze-until-reply.html">Snooze until reply</a></li>
+          <li><a href="./gmail-verification-code.html">Copy a sign-in code</a></li>
+          <li><a href="./gmail-pdf-summary.html">Summarize a PDF</a></li>
+          <li><a href="./gmail-to-calendar.html">Gmail to Calendar</a></li>
+          <li><a href="./checker-plus-alternative.html">vs Checker Plus</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="./privacy.html">Privacy Policy</a></li>
+          <li><a href="./terms.html">Terms of Service</a></li>
+          <li><a href="https://myaccount.google.com/permissions">Revoke Google access</a></li>
+          <li><a href="mailto:paulfaisant@gmail.com">Contact the publisher</a></li>
+        </ul>
       </div>
     </div>
-  </main>
-</div>
+
+    <div class="notices">
+      <p><strong>Independence and trademarks.</strong> TriageBox AI Gmail Checker is an independent tool. It is <strong>not affiliated with, sponsored by or endorsed by Google</strong>, and it is not a Google product. It works with a Google account you already have, using Google's public APIs under their own terms, with your OAuth consent. Gmail, Google Calendar, Google and Chrome are trademarks of Google LLC; xAI and Grok are trademarks of X.AI Corp. X is a trademark of X Corp. Any other product name used in the extension or on this site belongs to its owner and is used only to identify the product being referred to.</p>
+      <p><strong>How sign-in works.</strong> Google sign-in uses OAuth via Chrome's identity APIs. You grant access on Google's consent screen and can revoke it at any time at <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>. Uninstalling the extension removes local data stored by the app.</p>
+      <p><strong>OAuth / verification note for Google reviewers.</strong> Homepage URL: <code>https://triagebox.pfa87.cc/</code> · Privacy: <code>https://triagebox.pfa87.cc/privacy.html</code> · Terms: <code>https://triagebox.pfa87.cc/terms.html</code>. Application name on this homepage: <strong>TriageBox AI Gmail Checker</strong>, the same application name used on the Google OAuth consent screen and related store listings. Publisher: Paul Faisant · <a href="mailto:paulfaisant@gmail.com">paulfaisant@gmail.com</a>.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Fixed status bar, same shape as games.pfa87.cc: today's visitors and views for
+     THIS host only, read from the pfa87 edge (/__pfa87/traffic). Bots excluded there;
+     a failed read says so instead of showing a made-up number. -->
+<footer class="traffic-footer" aria-label="Site traffic">
+  <div class="traffic-inner">
+    <span class="traffic-brand">TriageBox</span>
+    <div id="trafficCounts" class="traffic-counts" role="status">
+      <span id="trafficPeriod">Today (UTC)</span>
+      <span><strong id="visitorCount">—</strong> visitors</span>
+      <span><strong id="viewCount">—</strong> views</span>
+    </div>
+    <span id="trafficStatus" class="traffic-status">Loading counts…</span>
+  </div>
+</footer>
+<script>
+(function () {
+  'use strict';
+  var $ = function (id) { return document.getElementById(id); };
+  var refreshing = false, last = null;
+  var count = function (n) { return Number(n).toLocaleString('en-GB'); };
+  function refresh() {
+    if (refreshing) return;
+    refreshing = true;
+    var ctl = typeof AbortController === 'function' ? new AbortController() : null;
+    var timer = ctl ? setTimeout(function () { ctl.abort(); }, 10000) : 0;
+    fetch('/__pfa87/traffic', { cache: 'no-store', signal: ctl ? ctl.signal : undefined })
+      .then(function (r) { return r.ok ? r.json() : Promise.reject(new Error(String(r.status))); })
+      .then(function (d) {
+        if (!d || d.ok !== true || !isFinite(d.visitors) || !isFinite(d.views)) throw new Error('shape');
+        last = d;
+        $('visitorCount').textContent = count(d.visitors);
+        $('viewCount').textContent = count(d.views);
+        $('trafficPeriod').textContent = d.date === new Date().toISOString().slice(0, 10) ? 'Today (UTC)' : d.date;
+        $('trafficStatus').textContent = d.stale ? 'Last snapshot' : 'Bots excluded';
+        $('trafficCounts').title = 'Daily visitors and page views for this site. Updated ' + new Date(d.updatedAt).toLocaleString() + '. Known bots excluded.';
+      })
+      .catch(function () { $('trafficStatus').textContent = last ? 'Last loaded counts' : 'Counts unavailable'; })
+      .then(function () { clearTimeout(timer); refreshing = false; });
+  }
+  refresh();
+  setInterval(function () { if (!document.hidden) refresh(); }, 60000);
+  document.addEventListener('visibilitychange', function () { if (!document.hidden) refresh(); });
+})();
+</script>
 </body>
 </html>

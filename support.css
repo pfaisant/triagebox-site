@@ -1,0 +1,55 @@
+* { box-sizing: border-box; }
+:root { color-scheme: light; --ink: #18362e; --muted: #556a61; --green: #076747; --border: #d6e1db; }
+body { margin: 0; background: #f4f7f5; color: var(--ink); font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; min-height: 100svh; padding: 0 32px; display: flex; flex-direction: column; }
+a { color: var(--green); text-decoration: none; }
+a:hover { text-decoration: underline; }
+button, input { font: inherit; }
+button { cursor: pointer; }
+button:disabled { cursor: wait; opacity: .65; }
+[hidden] { display: none !important; }
+:focus-visible { outline: 3px solid #258a67; outline-offset: 4px; }
+.topbar, main, footer { width: 100%; max-width: 1080px; margin-inline: auto; }
+.topbar { display: flex; align-items: center; justify-content: space-between; gap: 20px; min-height: 76px; border-bottom: 1px solid var(--border); }
+.brand { display: inline-flex; align-items: center; gap: 10px; color: var(--ink); font-weight: 750; font-size: 19px; }
+nav { display: flex; flex-wrap: wrap; gap: 20px; font-size: 14px; }
+nav a[aria-current] { font-weight: 750; color: var(--ink); }
+main { flex: 1; display: flex; flex-direction: column; justify-content: center; padding-block: 24px; }
+.intro { display: flex; align-items: center; justify-content: space-between; gap: 32px; margin-bottom: 24px; }
+h1 { font-size: clamp(26px, 3vw, 38px); letter-spacing: -.04em; line-height: 1.12; margin: 8px 0 12px; max-width: 570px; }
+p { margin: 0; color: var(--muted); }
+.eyebrow, .card-kicker { color: var(--green); font-size: 13px; font-weight: 700; letter-spacing: .03em; }
+.like-wrap { flex: 0 0 242px; text-align: center; }
+.like-btn { min-height: 48px; display: inline-flex; align-items: center; justify-content: center; gap: 10px; border: 1px solid #b7cdc0; border-radius: 999px; padding: 10px 18px; background: white; color: var(--ink); font-size: 15px; font-weight: 700; }
+.heart { color: #bc3159; font-size: 23px; line-height: 1; }
+.like-btn[aria-pressed="true"] { background: #e4f3eb; border-color: var(--green); }
+#like-count { font-variant-numeric: tabular-nums; min-width: 1em; }
+#like-hint { font-size: 12px; margin-top: 9px; max-width: 270px; }
+.text-btn { background: transparent; color: var(--green); border: 0; padding: 4px 8px; font-size: 13px; text-decoration: underline; }
+.support-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.card { border: 1px solid var(--border); border-radius: 16px; padding: 24px; background: white; display: flex; flex-direction: column; gap: 16px; }
+.giving { border-top: 4px solid var(--green); padding-top: 21px; }
+h2 { font-size: 21px; letter-spacing: -.025em; margin: 4px 0 8px; }
+.card p { font-size: 15px; }
+.payment-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.btn, .revolut-pay-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 10px 14px; border-radius: 8px; border: 1px solid var(--border); color: var(--ink); background: white; font-size: 14px; font-weight: 600; text-align: center; }
+.btn:hover { background: #edf5f0; text-decoration: none; }
+.revolut-pay-btn { background: #191c1f; border-color: #191c1f; color: white; font-weight: 500; }
+.revolut-pay-btn:hover { background: #31373b; text-decoration: none; }
+.bitcoin { font-size: 14px; }
+.bitcoin summary { color: var(--green); cursor: pointer; padding-block: 4px; }
+.bitcoin label { display: block; margin-block: 10px 5px; font-size: 12px; }
+.copy-row { display: flex; align-items: center; gap: 6px; }
+.copy-row input { width: 100%; min-width: 0; padding: 10px; border: 1px solid var(--border); border-radius: 8px; font-size: 12px; color: var(--ink); }
+.card .small { font-size: 12px; line-height: 1.5; }
+.giving-note { margin-top: auto; }
+.helping { gap: 0; }
+.help-link { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 18px; border: 0; border-top: 1px solid var(--border); padding: 14px 0; color: var(--ink); background: none; text-align: left; }
+.help-link:hover { color: var(--green); text-decoration: none; }
+.help-link strong { display: block; font-size: 15px; }
+.help-link small { display: block; font-size: 13px; color: var(--muted); margin-top: 3px; }
+.help-link:last-child { padding-bottom: 0; }
+.privacy-note { margin-top: 16px; font-size: 12px; }
+footer { display: flex; justify-content: space-between; align-items: center; gap: 20px; padding-block: 18px; border-top: 1px solid var(--border); font-size: 12px; color: var(--muted); }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+@media (min-width: 801px) and (max-height: 760px) { .topbar { min-height: 60px; } main { padding-block: 16px; } .intro { margin-bottom: 16px; } .card { padding: 18px; } .giving { padding-top: 15px; } footer { padding-block: 12px; } }
+@media (max-width: 800px) { body { padding-inline: 18px; } .intro { flex-direction: column; align-items: flex-start; gap: 16px; } .like-wrap { flex-basis: auto; text-align: left; } #like-hint { max-width: none; } .support-grid { grid-template-columns: 1fr; } .card { padding: 20px; } .giving { padding-top: 17px; } footer { flex-wrap: wrap; } .topbar { gap: 12px; flex-wrap: wrap; padding-block: 14px; } nav { gap: 14px; } }

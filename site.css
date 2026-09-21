@@ -542,6 +542,9 @@ code {
   font-size: 13px;
   line-height: 1.45;
 }
+.hero-android { margin: 8px 0 0; font-size: 13px; color: var(--text-muted); }
+.hero-android a { color: var(--emerald-bright); text-decoration: none; }
+.hero-android a:hover { text-decoration: underline; }
 .hero-store-link {
   margin: 0 0 14px;
   font-size: 13px;
@@ -573,3 +576,11 @@ code {
   font-size: 14px;
   line-height: 1.55;
 }
+
+/* Android showcase */
+.android { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: 32px; align-items: center; padding: 56px 0; border-top: 1px solid var(--border); }
+.android-list { margin: 16px 0 24px; padding-left: 18px; color: var(--text-muted); font-size: 15px; line-height: 1.6; }
+.android-list li { margin: 4px 0; }
+.android-shots { display: flex; gap: 16px; justify-content: center; }
+.android-shots img { width: min(44%, 220px); height: auto; border-radius: 18px; border: 1px solid var(--border); box-shadow: 0 12px 32px rgba(0, 0, 0, .28); }
+@media (max-width: 760px) { .android { grid-template-columns: 1fr; padding: 40px 0; } .android-shots img { width: 44%; } }
