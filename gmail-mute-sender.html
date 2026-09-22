@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mute sender Gmail / hide emails from sender — TriageBox Chrome extension 1.65</title>
+  <meta name="description" content="Mute sender in Gmail and hide emails from a sender with TriageBox 1.65: card more menu Mute sender filters that address out of Unread/Read into the Muted tab; Unmute sender restores. Does not delete mail, unsubscribe, or empty Promotions. No AI key. No TriageBox server. Desktop Chrome only." />
+  <link rel="canonical" href="https://triagebox.pfa87.cc/gmail-mute-sender.html" />
+  <link rel="icon" type="image/png" href="./logo-120.png" />
+  <meta name="theme-color" content="#1f9d6f" />
+  <link rel="stylesheet" href="./site.css?v=20260806" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="TriageBox" />
+  <meta property="og:url" content="https://triagebox.pfa87.cc/gmail-mute-sender.html" />
+  <meta property="og:title" content="Mute sender Gmail / hide emails from sender — TriageBox Chrome extension 1.65" />
+  <meta property="og:description" content="Mute sender from the card more menu → Muted tab. Unmute restores. Does not delete or unsubscribe. Store 1.65. No TriageBox server." />
+  <meta property="og:image" content="https://triagebox.pfa87.cc/og-card.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@pfaclawd87" />
+  <meta name="twitter:title" content="Mute sender Gmail — TriageBox 1.65" />
+  <meta name="twitter:description" content="Hide emails from a sender · Muted tab · Unmute restores. Not delete, not unsub, not Promotions sweep." />
+  <meta name="twitter:image" content="https://triagebox.pfa87.cc/og-card.jpg" />
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Mute sender Gmail / hide emails from sender — TriageBox Chrome extension 1.65",
+  "url": "https://triagebox.pfa87.cc/gmail-mute-sender.html",
+  "description": "Mute a Gmail sender from the TriageBox card more menu; mail leaves Unread/Read for the Muted tab. Unmute restores. Chrome Web Store 1.65. No TriageBox server.",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "TriageBox AI Gmail Checker",
+    "url": "https://triagebox.pfa87.cc/"
+  }
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://triagebox.pfa87.cc/"},
+    {"@type": "ListItem", "position": 2, "name": "Mute sender Gmail", "item": "https://triagebox.pfa87.cc/gmail-mute-sender.html"}
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I mute a sender in Gmail from a Chrome extension?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "In TriageBox 1.65, open the card more menu and choose Mute sender. That email address is filtered out of Unread and Read and collected in the Muted tab (markUnimportant). Unmute sender from the Muted tab restores the sender to Unread/Read (markImportant). The Muted tab appears when it has content. Mail is not deleted. This does not unsubscribe and does not empty Promotions. No AI key. No TriageBox server. Desktop Chrome only."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does mute delete mail or unsubscribe the sender?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Mute only filters that sender out of Unread/Read into the Muted tab. Messages stay in the mailbox. Unsubscribe is a different card action (and bulk unsubscribe is a different page). Emptying Promotions is Bulk sweep on the stop-promotional page."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is this the same as stop promotions, bulk unsubscribe, or undo archive?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Stop promotions is category/age bulk sweep plus Normal mail only. Bulk unsubscribe is per exact sender then leftover sweep. Undo archive is toast Undo and the Recently removed tray. This page is mute/unmute one sender into the Muted tab."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does my mail go through a TriageBox server?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. There is no developer-operated backend. Processing runs in your browser; Gmail data is not sent to the publisher."
+      }
+    }
+  ]
+}
+  </script>
+  <script src="./analytics.js?v=20260827-shared2" defer></script>
+  <style>
+    .vs-table { width: 100%; border-collapse: collapse; margin: 8px 0 14px; font-size: 14px; }
+    .vs-table th, .vs-table td { text-align: left; padding: 9px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
+    .vs-table th { color: var(--text-muted); font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; }
+    .vs-table td:first-child { color: var(--text-secondary); }
+    .vs-win { color: var(--emerald-soft); font-weight: 700; }
+    .vs-loss { color: var(--text-muted); }
+    .vs-note { font-size: 13px; color: var(--text-muted); max-width: 46em; }
+    .vs-prose { max-width: 46em; color: var(--text-secondary); margin: 0 0 18px; }
+    .vs-prose strong { color: var(--text-primary); }
+    .steps { list-style: none; padding: 0; margin: 8px 0 48px; counter-reset: step; max-width: 46em; }
+    .steps li { position: relative; padding: 16px 18px 16px 64px; margin: 0 0 10px; background: var(--surface-1); border: 1px solid var(--border); border-radius: var(--radius); color: var(--text-secondary); }
+    .steps li::before { counter-increment: step; content: counter(step, decimal-leading-zero); position: absolute; left: 18px; top: 18px; font: 600 12px/1 var(--mono); color: var(--emerald-soft); }
+    .steps li strong { color: var(--text-primary); }
+  </style>
+</head>
+<body>
+<div class="shell">
+  <header class="topbar">
+    <a class="brand" href="./">
+      <img src="./logo-120.png" width="32" height="32" alt="" onerror="this.style.display='none'" />
+      <span>TriageBox</span>
+    </a>
+    <nav class="nav" aria-label="Site">
+      <a href="./">Home</a>
+      <a href="./changelog.html">Changelog</a>
+      <a href="./checker-plus-alternative.html">vs Checker Plus</a>
+      <a href="./bulk-unsubscribe-gmail.html">Bulk unsubscribe</a>
+      <a href="./delete-old-emails-gmail.html">Delete old mail</a>
+      <a href="./gmail-phishing-checker.html">Phishing check</a>
+      <a href="./gmail-waiting-for-reply.html">Waiting for reply</a>
+      <a href="./gmail-verification-code.html">Sign-in code</a>
+      <a href="./gmail-pdf-summary.html">PDF summary</a>
+      <a href="./gmail-snooze-until-reply.html">Snooze until reply</a>
+      <a href="./gmail-to-calendar.html">Gmail to Calendar</a>
+      <a href="./gmail-spam-review.html">Spam review</a>
+      <a href="./gmail-keep-unread.html">Keep unread</a>
+      <a href="./gmail-stop-promotional-mail.html">Stop promotions</a>
+      <a href="./gmail-undo-archive.html">Undo archive</a>
+      <a href="./gmail-mute-sender.html" aria-current="page">Mute sender</a>
+      <a href="./privacy.html">Privacy</a>
+      <a href="./terms.html">Terms</a>
+      <a href="./donate.html">Donate</a>
+      <a class="nav-cta" href="https://chromewebstore.google.com/detail/triagebox-ai-checker-for/fdkbolcjccjkgadblcfnbnlibaiaellj">Add to Chrome</a>
+    </nav>
+  </header>
+  <main>
+    <section class="hero" aria-labelledby="mute-title">
+      <div class="hero-copy">
+        <div class="hero-brand">
+          <p class="eyebrow">Chrome Web Store 1.65 · Gmail, in your browser</p>
+        </div>
+        <h1 id="mute-title">Mute sender in Gmail. Hide emails from one address without deleting them.</h1>
+        <p class="tagline">TriageBox 1.65’s card more menu has <strong>Mute sender</strong>: that email address is
+        filtered out of <strong>Unread</strong> and <strong>Read</strong> into the <strong>Muted</strong> tab
+        (<code>markUnimportant</code>). <strong>Unmute sender</strong> from Muted restores
+        (<code>markImportant</code>). The Muted tab appears when it has content. No AI key. No TriageBox server.</p>
+        <p class="tagline">This is not
+        <a href="./gmail-stop-promotional-mail.html">stop promotional emails</a>,
+        <a href="./bulk-unsubscribe-gmail.html">per-exact-sender bulk unsubscribe</a>, or
+        <a href="./gmail-undo-archive.html">undo archive / Recently removed</a>.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="https://chromewebstore.google.com/detail/triagebox-ai-checker-for/fdkbolcjccjkgadblcfnbnlibaiaellj">Add to Chrome <span aria-hidden="true">→</span></a>
+          <a class="btn btn-ghost" href="#how-it-works">See the steps</a>
+        </div>
+        <p class="hero-micro">Free on the Chrome Web Store · no account · desktop Chrome only</p>
+      </div>
+      <figure class="product-stage">
+        <div class="window-bar" aria-hidden="true"><span></span><span></span><span></span><b>TriageBox</b></div>
+        <img src="./og-card.jpg" width="1280" height="800" alt="TriageBox Gmail popup. Mute sender on the card more menu moves that address into the Muted tab." />
+        <figcaption>Mute sender on the card. Mail leaves Unread/Read for Muted — Unmute brings it back.</figcaption>
+      </figure>
+    </section>
+    <section class="lead" aria-labelledby="gmail-native-mute">
+      <div class="lead-heading">
+        <span class="privacy-mark" aria-hidden="true">≠</span>
+        <div>
+          <p class="eyebrow">Gmail already has Mute and filters</p>
+          <h2 id="gmail-native-mute">Use Gmail if a conversation mute or a filter is enough. Use TriageBox if you want one-sender mute from the popup card into a Muted tab.</h2>
+        </div>
+      </div>
+      <p class="vs-prose">Gmail’s own Mute (conversation) and filters are free and correct. TriageBox 1.65 is the
+      narrower job: from the Chrome popup card more menu, mute that <strong>sender address</strong> so
+      their mail leaves Unread/Read and collects in <strong>Muted</strong> until you unmute. Settings
+      also lists muted senders. First-time install still shows Google’s unverified-app screen.</p>
+    </section>
+    <div class="section-heading">
+      <p class="eyebrow">Same mailbox, different job</p>
+      <h2>Gmail mute / hide sender vs TriageBox 1.65 Mute sender</h2>
+      <p>Facts from Gmail’s mute/filter behaviour and from the live Chrome Web Store listing for
+      TriageBox 1.65. No invented ratings.</p>
+    </div>
+    <table class="vs-table">
+      <thead>
+        <tr><th>What you need</th><th>Gmail</th><th>TriageBox 1.65</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Hide one noisy sender from the triage list</td>
+          <td>Filter / skip inbox · or Mute on a thread</td>
+          <td class="vs-win">Card more menu → <strong>Mute sender</strong> — address filtered out of Unread/Read into <strong>Muted</strong></td>
+        </tr>
+        <tr>
+          <td>See muted mail later</td>
+          <td>All Mail / search / filter label</td>
+          <td class="vs-win"><strong>Muted</strong> tab (appears when it has content)</td>
+        </tr>
+        <tr>
+          <td>Bring the sender back</td>
+          <td>Edit/delete the filter · Unmute thread</td>
+          <td class="vs-win"><strong>Unmute sender</strong> from the Muted tab (or Settings → Muted senders)</td>
+        </tr>
+        <tr>
+          <td>Delete the mail</td>
+          <td class="vs-win">Delete / Trash</td>
+          <td class="vs-loss">Mute does <strong>not</strong> delete — mail stays in the mailbox</td>
+        </tr>
+        <tr>
+          <td>Stop the next newsletter</td>
+          <td>Unsubscribe / Manage subscriptions</td>
+          <td>That is <a href="./bulk-unsubscribe-gmail.html">bulk unsubscribe</a> or card Unsubscribe — different job</td>
+        </tr>
+        <tr>
+          <td>Clear Promotions</td>
+          <td>Promotions tab</td>
+          <td>That is <a href="./gmail-stop-promotional-mail.html">stop promotional emails</a> — different page</td>
+        </tr>
+        <tr>
+          <td>On your phone</td>
+          <td class="vs-win">Gmail app</td>
+          <td class="vs-loss">Desktop Chrome only</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="vs-note">TriageBox is not affiliated with Google. Gmail, Google and Chrome are
+    trademarks of Google LLC. Mute does not empty Promotions — that is
+    <a href="./gmail-stop-promotional-mail.html">stop promotional emails</a>. Per-sender unsub is
+    <a href="./bulk-unsubscribe-gmail.html">bulk unsubscribe</a>. Restore after archive/delete is
+    <a href="./gmail-undo-archive.html">undo archive</a>. There is no TriageBox server and no AI key
+    for this path.</p>
+    <div class="section-heading" id="how-it-works">
+      <p class="eyebrow">Store 1.65 · no API key</p>
+      <h2>How mute sender actually runs</h2>
+    </div>
+    <ol class="steps">
+      <li><strong>Install and connect Gmail.</strong> Desktop Chrome. No TriageBox account.</li>
+      <li><strong>Open the card more menu.</strong> Choose <strong>Mute sender</strong>. TriageBox stores that address in <code>unimportantSenders</code> and filters it out of Unread/Read (<code>markUnimportant</code>).</li>
+      <li><strong>Open the Muted tab.</strong> It appears when it has content. Muted mail collects there — nothing was deleted.</li>
+      <li><strong>Unmute when you want them back.</strong> From the Muted tab, <strong>Unmute sender</strong> (<code>markImportant</code>), or remove the address under Settings → Muted senders. A toast Undo is offered right after mute.</li>
+    </ol>
+    <div class="cards">
+      <div class="card">
+        <span class="card-icon" aria-hidden="true">🔕</span>
+        <h3>Mute from the card</h3>
+        <p>More menu → Mute sender. That address leaves Unread/Read for the Muted tab.</p>
+      </div>
+      <div class="card">
+        <span class="card-icon" aria-hidden="true">▤</span>
+        <h3>Muted tab when needed</h3>
+        <p>Appears when it has content. Review muted mail without it cluttering Unread.</p>
+      </div>
+      <div class="card">
+        <span class="card-icon" aria-hidden="true">🔔</span>
+        <h3>Unmute restores</h3>
+        <p>Unmute sender from Muted (or Settings). Toast Undo right after mute if you misfired.</p>
+      </div>
+      <div class="card">
+        <span class="card-icon" aria-hidden="true">≠</span>
+        <h3>Not delete / unsub / Promotions</h3>
+        <p><a href="./bulk-unsubscribe-gmail.html">Bulk unsubscribe</a>, <a href="./gmail-stop-promotional-mail.html">stop promotions</a>, and <a href="./gmail-undo-archive.html">undo archive</a> are different pages.</p>
+      </div>
+    </div>
+    <section class="final-cta" aria-labelledby="mute-mid-cta">
+      <div>
+        <p class="eyebrow">Hide the sender. Keep the mail.</p>
+        <h2 id="mute-mid-cta">Mute one address from the card more menu — Unread stays quieter; Muted holds the rest.</h2>
+        <p>Chrome Web Store 1.65. No TriageBox account. Data stays in your browser.</p>
+      </div>
+      <a class="btn btn-primary" href="https://chromewebstore.google.com/detail/triagebox-ai-checker-for/fdkbolcjccjkgadblcfnbnlibaiaellj">Add to Chrome <span aria-hidden="true">→</span></a>
+    </section>
+    <div class="section-heading">
+      <p class="eyebrow">Limits, stated</p>
+      <h2>What this page does not claim</h2>
+    </div>
+    <ul class="vs-prose">
+      <li>It does not replace Gmail’s own Mute on a conversation or Filters. Those still work, for free, with no extension.</li>
+      <li>It does not delete mail. Muted messages stay in the mailbox.</li>
+      <li>It does not unsubscribe. That is card Unsubscribe or <a href="./bulk-unsubscribe-gmail.html">bulk unsubscribe Gmail</a>.</li>
+      <li>It does not empty Promotions — that is <a href="./gmail-stop-promotional-mail.html">stop promotional emails</a>.</li>
+      <li>It is not <a href="./gmail-undo-archive.html">undo archive</a> / Recently removed.</li>
+      <li>It does not require an AI key or a TriageBox server.</li>
+      <li>It does not run on your phone — desktop Chrome only.</li>
+      <li>It is not for anyone else’s mailbox.</li>
+    </ul>
+    <section class="faq" id="faq" aria-labelledby="mute-faq-title">
+      <div class="section-heading">
+        <p class="eyebrow">Quick answers</p>
+        <h2 id="mute-faq-title">Mute sender Gmail</h2>
+      </div>
+      <div class="faq-list">
+        <details open>
+          <summary>How do I mute a sender in Gmail from a Chrome extension?</summary>
+          <p>In TriageBox 1.65, open the card more menu and choose Mute sender. That email address is filtered out of Unread and Read and collected in the Muted tab. Unmute sender from the Muted tab restores the sender. The Muted tab appears when it has content. Mail is not deleted. This does not unsubscribe and does not empty Promotions. No AI key. No TriageBox server. Desktop Chrome only.</p>
+        </details>
+        <details>
+          <summary>Does mute delete mail or unsubscribe the sender?</summary>
+          <p>No. Mute only filters that sender out of Unread/Read into the Muted tab. Messages stay in the mailbox. Unsubscribe is a different card action (and <a href="./bulk-unsubscribe-gmail.html">bulk unsubscribe</a> is a different page). Emptying Promotions is Bulk sweep on <a href="./gmail-stop-promotional-mail.html">stop promotional emails</a>.</p>
+        </details>
+        <details>
+          <summary>Is this the same as stop promotions, bulk unsubscribe, or undo archive?</summary>
+          <p>No. <a href="./gmail-stop-promotional-mail.html">Stop promotions</a> is category/age bulk sweep plus Normal mail only. <a href="./bulk-unsubscribe-gmail.html">Bulk unsubscribe</a> is per exact sender then leftover sweep. <a href="./gmail-undo-archive.html">Undo archive</a> is toast Undo and the Recently removed tray. This page is mute/unmute one sender into the Muted tab.</p>
+        </details>
+        <details>
+          <summary>Does my mail go through a TriageBox server?</summary>
+          <p>No. There is no developer-operated backend. Processing runs in your browser; Gmail data is not sent to the publisher.</p>
+        </details>
+      </div>
+    </section>
+    <section class="final-cta" aria-labelledby="mute-cta-title">
+      <div>
+        <p class="eyebrow">Desktop Chrome · Gmail you already have</p>
+        <h2 id="mute-cta-title">Mute sender Gmail — hide emails from one address, without unsub or Promotions sweep.</h2>
+        <p>Free to install. No subscription. No TriageBox account.</p>
+      </div>
+      <a class="btn btn-primary" href="https://chromewebstore.google.com/detail/triagebox-ai-checker-for/fdkbolcjccjkgadblcfnbnlibaiaellj">Add TriageBox to Chrome <span aria-hidden="true">→</span></a>
+    </section>
+    <div class="meta">
+      <p><strong>Trademarks and independence.</strong> TriageBox is not affiliated with, sponsored
+      by or endorsed by Google, and it is not a Google product. Gmail, Google and Chrome are
+      trademarks of Google LLC. This page carries no affiliate links, no paid placement,
+      and no invented ratings.</p>
+      <p><a href="./">← TriageBox home</a> · <a href="./gmail-stop-promotional-mail.html">Stop promotions</a> · <a href="./bulk-unsubscribe-gmail.html">Bulk unsubscribe</a> · <a href="./gmail-undo-archive.html">Undo archive</a> · <a href="./privacy.html">Privacy</a></p>
+    </div>
+  </main>
+</div>
+</body>
+</html>
