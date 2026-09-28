@@ -58,5 +58,12 @@
       e.preventDefault();
       banner(true);
     }
+    var cws = e.target.closest('[data-cws-cta]');
+    if (cws) {
+      gtag('event', 'cws_click', {
+        cta_placement: cws.getAttribute('data-cws-cta') || '',
+        page_path: location.pathname || '/'
+      });
+    }
   });
 })();
