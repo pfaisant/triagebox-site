@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Gmail waiting for reply list — TriageBox Chrome extension</title>
-  <meta name="description" content="See Gmail emails waiting for a reply as a list, not a nudge. TriageBox shows sent threads from the last 14 days where you wrote last and nobody answered for 2+ days. Write a nudge from the card. Chrome extension, no TriageBox mailbox server." />
+  <title>Waiting for reply in Gmail — TriageBox: Gmail Cleanup, Unsubscribe &amp; Scam Checks</title>
+  <meta name="description" content="Waiting for reply in Gmail: a list of sent mail nobody answered — last 14 days, 2+ days unanswered, days-waiting on the card, write a threaded nudge. Not Gmail Nudges. No API key for core Waiting list. AI optional. Free Chrome extension — no TriageBox mailbox server." />
   <link rel="canonical" href="https://triagebox.pfa87.cc/gmail-waiting-for-reply.html" />
   <link rel="icon" type="image/png" href="./logo-120.png" />
   <meta name="theme-color" content="#1f9d6f" />
@@ -13,21 +13,21 @@
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="TriageBox" />
   <meta property="og:url" content="https://triagebox.pfa87.cc/gmail-waiting-for-reply.html" />
-  <meta property="og:title" content="Gmail waiting for reply list — TriageBox Chrome extension" />
-  <meta property="og:description" content="A list of sent Gmail threads from the last 14 days where you wrote last and nobody answered for 2+ days. Not Gmail Nudges. Not open-tracking. Desktop Chrome. No TriageBox mailbox server." />
+  <meta property="og:title" content="Waiting for reply in Gmail — TriageBox: Gmail Cleanup, Unsubscribe &amp; Scam Checks" />
+  <meta property="og:description" content="Waiting for reply in Gmail: sent mail nobody answered — last 14 days, 2+ days unanswered, days-waiting, write a threaded nudge. Not Gmail Nudges. No API key for core Waiting list. AI optional." />
   <meta property="og:image" content="https://triagebox.pfa87.cc/og-card.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@pfaclawd87" />
-  <meta name="twitter:title" content="Gmail waiting for reply list — TriageBox" />
-  <meta name="twitter:description" content="Sent threads, last 14 days, 2+ days unanswered. Write a nudge from the card. Not Nudges. Chrome extension. No TriageBox mailbox server." />
+  <meta name="twitter:title" content="Waiting for reply in Gmail — TriageBox: Gmail Cleanup, Unsubscribe &amp; Scam Checks" />
+  <meta name="twitter:description" content="Waiting for reply in Gmail: sent mail nobody answered — last 14 days, 2+ days unanswered, days-waiting, write a threaded nudge. No API key for core Waiting list. AI optional." />
   <meta name="twitter:image" content="https://triagebox.pfa87.cc/og-card.jpg" />
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  "name": "Gmail waiting for reply list — TriageBox Chrome extension",
+  "name": "Waiting for reply in Gmail — TriageBox: Gmail Cleanup, Unsubscribe & Scam Checks",
   "url": "https://triagebox.pfa87.cc/gmail-waiting-for-reply.html",
-  "description": "See Gmail emails waiting for a reply as a list. Sent threads from the last 14 days where you wrote last and nobody answered for 2+ days. Desktop Chrome extension. No TriageBox mailbox server.",
+  "description": "Waiting for reply in Gmail: a list of sent mail nobody answered — last 14 days, 2+ days unanswered, days-waiting on the card, write a threaded nudge. Not Gmail Nudges. No API key for core Waiting list. AI optional. Free Chrome extension — no TriageBox mailbox server.",
   "isPartOf": {
     "@type": "WebSite",
     "name": "TriageBox: Gmail Cleanup, Unsubscribe & Scam Checks",
@@ -41,7 +41,7 @@
   "@type": "BreadcrumbList",
   "itemListElement": [
     {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://triagebox.pfa87.cc/"},
-    {"@type": "ListItem", "position": 2, "name": "Gmail waiting for reply", "item": "https://triagebox.pfa87.cc/gmail-waiting-for-reply.html"}
+    {"@type": "ListItem", "position": 2, "name": "Waiting for reply in Gmail", "item": "https://triagebox.pfa87.cc/gmail-waiting-for-reply.html"}
   ]
 }
   </script>
@@ -158,18 +158,19 @@
   </header>
 
   <main>
-    <p class="changelog-note">Guide reviewed 23 September 2026. The live Chrome Web Store listing for TriageBox is <strong>1.72</strong>. See the <a href="./changelog.html">changelog</a> for what shipped.</p>
+    <p class="changelog-note">Guide reviewed <time datetime="2026-09-28">28 September 2026</time>. The live Chrome Web Store listing for TriageBox is <strong>1.72</strong>. See the <a href="./changelog.html">changelog</a> for what shipped.</p>
     <section class="hero" aria-labelledby="wait-title">
       <div class="hero-copy">
         <div class="hero-brand">
-          <p class="eyebrow">Desktop Chrome extension · Gmail, in your browser</p>
+          <p class="eyebrow">Cleanup · Waiting for reply · Desktop Chrome</p>
         </div>
-        <h1 id="wait-title">Gmail waiting for reply — a list of sent mail nobody answered</h1>
-        <p class="tagline">TriageBox’s <strong>Waiting</strong> tab lists sent threads from the
-        <strong>last 14 days</strong> where the last word is yours and nobody has answered for
-        <strong>2+ days</strong>. Days waiting on the card. Write a threaded nudge from there.
-        No AI key. No tracking pixel. No TriageBox mailbox server.</p>
-        <p class="tagline">This is not Gmail Nudges, and it is not
+        <h1 id="wait-title">Waiting for reply in Gmail — a list of sent mail nobody answered</h1>
+        <p class="tagline">TriageBox’s <strong>Waiting</strong> tab is the reviewable list Gmail
+        Nudges never shows: sent threads from the <strong>last 14 days</strong> where the last
+        word is yours and nobody has answered for <strong>2+ days</strong>. Days waiting on the
+        card. Write a threaded nudge from there. No API key for core Waiting list. AI optional
+        (draft the nudge). No tracking pixel. No TriageBox mailbox server.</p>
+        <p class="tagline">This is not Gmail Nudges (a heuristic bump of one thread), and it is not
         <a href="./bulk-unsubscribe-gmail.html">bulk unsubscribe</a>,
         <a href="./delete-old-emails-gmail.html">deleting old emails</a>, or a
         <a href="./gmail-phishing-checker.html">phishing checker</a>.</p>
@@ -177,14 +178,14 @@
           <a data-cws-cta="hero" class="btn btn-primary" href="https://chromewebstore.google.com/detail/triagebox-ai-checker-for/fdkbolcjccjkgadblcfnbnlibaiaellj">Add to Chrome <span aria-hidden="true">→</span></a>
           <a class="btn btn-ghost" href="#how-it-works">See the steps</a>
         </div>
-        <p class="hero-micro">Free on the Chrome Web Store · no account · desktop Chrome only</p>
+        <p class="hero-micro">CWS <strong>1.72</strong> · Add to Chrome → Google consent → pin the badge · Waiting list needs no AI key</p>
       </div>
       <figure class="product-stage">
         <div class="window-bar" aria-hidden="true">
           <span></span><span></span><span></span>
           <b>TriageBox</b>
         </div>
-        <img src="./og-card.jpg" width="1280" height="800" alt="TriageBox Gmail queue with unread scores, one-click archive and snooze, and an AI summary on the open thread" />
+        <img src="./og-card.jpg" width="1280" height="800" alt="TriageBox Waiting tab listing sent Gmail threads still unanswered, with days-waiting and write-a-nudge" />
         <figcaption>What you sent, still unanswered — as a list you can open.</figcaption>
       </figure>
     </section>
@@ -200,9 +201,11 @@
       <p class="vs-prose">Gmail’s <strong>Nudges</strong> (Settings → General → Nudges →
       <em>Suggest emails to follow up on</em>) can float a sent message back to the top of the
       inbox after a few days, with a line like “Sent 3 days ago. Follow up?”. Gmail chooses
-      which threads and when. There is no reviewable list of everything still outstanding.
-      TriageBox is built for that second job — Gmail-only, in your browser, after Google
-      OAuth. Review Google's sign-in and permission prompts before connecting.</p>
+      which threads and when. There is no exact-count list of everything still outstanding.
+      TriageBox Waiting is that list — same Sent folder, days waiting on each card, write the
+      nudge yourself (nothing sends until you press send). Not open-tracking. Gmail-only, in
+      your browser, after Google OAuth. Review Google's sign-in and permission prompts before
+      connecting.</p>
     </section>
 
     <div class="section-heading">
@@ -302,7 +305,7 @@
       <div>
         <p class="eyebrow">What you sent, still unanswered</p>
         <h2 id="wait-mid-cta">Open the list. See the days. Write the nudge yourself.</h2>
-        <p>Desktop Chrome extension. No TriageBox account. Data stays in your browser. AI is optional.</p>
+        <p>Bulk unsubscribe &amp; archive, scam checks. No API key. AI optional.</p>
       </div>
       <a data-cws-cta="mid" class="btn btn-primary" href="https://chromewebstore.google.com/detail/triagebox-ai-checker-for/fdkbolcjccjkgadblcfnbnlibaiaellj">Add to Chrome <span aria-hidden="true">→</span></a>
     </section>
@@ -358,7 +361,7 @@
       <div>
         <p class="eyebrow">Desktop Chrome · Gmail you already have</p>
         <h2 id="wait-cta-title">A list of what you sent. Not a nudge Gmail chose.</h2>
-        <p>Free to install. No subscription. No TriageBox account.</p>
+        <p>Bulk unsubscribe &amp; archive, scam checks. No API key. AI optional. Free to install — no TriageBox account.</p>
       </div>
       <a data-cws-cta="final" class="btn btn-primary" href="https://chromewebstore.google.com/detail/triagebox-ai-checker-for/fdkbolcjccjkgadblcfnbnlibaiaellj">Add TriageBox to Chrome <span aria-hidden="true">→</span></a>
     </section>
