@@ -9,7 +9,7 @@
   <link rel="canonical" href="https://triagebox.pfa87.cc/" />
   <link rel="icon" type="image/png" href="./logo-120.png" />
   <meta name="theme-color" content="#1f9d6f" />
-  <link rel="stylesheet" href="./home.css?v=20260919" />
+  <link rel="stylesheet" href="./home.css?v=20260924" />
 
   <!-- Link-preview card: on Reddit/HN/X/Discord/Slack this IS the ad. og:url/og:image stay
        ABSOLUTE on the canonical host on purpose: the GitHub Pages fallback serves this same
@@ -102,7 +102,7 @@
 }
   </script>
   <script src="./apk-request.js?v=20260919" defer></script>
-  <script src="./analytics.js?v=20260928-cws-click" defer></script>
+  <script src="./analytics.js?v=20260929-first-aha" defer></script>
 </head>
 <body>
 
@@ -149,6 +149,28 @@
       <li>Android</li>
     </ul>
   </div>
+
+
+  <section class="steps first-aha" id="first-60-seconds" aria-labelledby="first-aha-title">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Your first 60 seconds</p>
+        <h2 id="first-aha-title">Install, open, then one sticky clean</h2>
+        <p>First successful triage action in session with a visible result — Waiting-tab non-empty <strong>or</strong> unsubscribe batch applied.</p>
+      </div>
+      <ol class="first-aha-list">
+        <li>Open Gmail in Chrome with the account you use every day.</li>
+        <li>Click the TriageBox toolbar icon and open the popup.</li>
+        <li>Run triage once on Unread — rows show an exact live count before anything moves.</li>
+        <li>Make Waiting non-empty (park one thread you are not done with), <strong>or</strong> confirm Bulk unsubscribe on one sender using the exact live count shown.</li>
+        <li>Check Gmail: the Waiting item stays parked, or the unsubscribe batch sticks.</li>
+      </ol>
+      <div class="hero-actions" style="margin-top:22px">
+        <a data-cws-cta="first-aha" class="btn btn-primary" href="https://chromewebstore.google.com/detail/triagebox-ai-checker-for/fdkbolcjccjkgadblcfnbnlibaiaellj">Add to Chrome <span aria-hidden="true">→</span></a>
+        <a class="btn btn-ghost" href="#how-it-works">See how it works</a>
+      </div>
+    </div>
+  </section>
 
   <div class="stage wrap">
     <figure>
@@ -491,45 +513,83 @@
   </div>
 </footer>
 
-<!-- Fixed status bar, same shape as games.pfa87.cc: today's visitors and views for
-     THIS host only, read from the pfa87 edge (/__pfa87/traffic). Bots excluded there;
-     a failed read says so instead of showing a made-up number. -->
-<footer class="traffic-footer" aria-label="Site traffic">
+<!-- Fixed status bar, same shape as games.pfa87.cc: unique visitors and views for
+     THIS host only (today, 7 days, since counting began), read from the pfa87 edge
+     (/__pfa87/traffic). Bots excluded there; a failed read says so instead of
+     showing a made-up number. -->
+<div class="traffic-bar" role="region" aria-label="TriageBox visitors">
   <div class="traffic-inner">
-    <span class="traffic-brand">TriageBox</span>
-    <div id="trafficCounts" class="traffic-counts" role="status">
-      <span id="trafficPeriod">Today (UTC)</span>
-      <span><strong id="visitorCount">—</strong> visitors</span>
-      <span><strong id="viewCount">—</strong> views</span>
+    <span class="traffic-brand"><img src="./logo-120.png" alt="" width="18" height="18" />TriageBox</span>
+    <div class="traffic-periods" role="group" aria-label="Visitor count period">
+      <button type="button" data-period="1d" aria-pressed="true">Today</button>
+      <button type="button" data-period="7d" aria-pressed="false">7D</button>
+      <button type="button" data-period="all" aria-pressed="false">All</button>
     </div>
+    <p id="trafficCounts" class="traffic-counts" role="status">
+      <span id="visitorBox"><strong id="visitorCount">—</strong> <span id="visitorUnit">visitors</span></span>
+      <span><strong id="viewCount">—</strong> views</span>
+    </p>
     <span id="trafficStatus" class="traffic-status">Loading counts…</span>
   </div>
-</footer>
+</div>
 <script>
 (function () {
   'use strict';
   var $ = function (id) { return document.getElementById(id); };
-  var refreshing = false, last = null;
-  var count = function (n) { return Number(n).toLocaleString('en-GB'); };
+  var bar = document.querySelector('.traffic-bar');
+  var KEY = 'triagebox.trafficPeriod';
+  var PERIODS = { '1d': 1, '7d': 1, all: 1 };
+  var period = '1d', data = null, failed = false, refreshing = false;
+  try { if (PERIODS[localStorage.getItem(KEY)]) period = localStorage.getItem(KEY); } catch (e) {}
+  var count = function (n) { return typeof n === 'number' && isFinite(n) && n >= 0 ? n.toLocaleString('en-GB') : '—'; };
+  var day = function (iso) { return new Date(iso + 'T12:00:00Z').toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' }); };
+  function counts() {
+    if (!data) return null;
+    if (period === '1d') return { visitors: data.visitors, views: data.views };
+    return (period === '7d' ? data.week : data.total) || null;
+  }
+  function render() {
+    var buttons = bar.querySelectorAll('[data-period]');
+    for (var i = 0; i < buttons.length; i++) buttons[i].setAttribute('aria-pressed', String(buttons[i].getAttribute('data-period') === period));
+    var c = counts();
+    $('visitorCount').textContent = count(c && c.visitors);
+    // The edge id changes every day: over 7 days or more this is each day's
+    // unique visitors added up, so it is called visits there.
+    $('visitorUnit').textContent = period === '1d' ? 'visitors' : 'visits';
+    $('visitorBox').title = period === '1d'
+      ? 'Unique visitors today (UTC). A phone and a computer count as two.'
+      : 'Each day\u2019s unique visitors added up (UTC): someone who came on three days counts three times.';
+    $('viewCount').textContent = count(c && c.views);
+    $('trafficStatus').textContent = !data ? (failed ? 'Counts unavailable' : 'Loading counts…')
+      : failed ? 'Last loaded counts'
+      : data.stale ? 'Snapshot ' + new Date(data.updatedAt).toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' })
+      : 'Bots excluded';
+    var range = period === '1d' ? 'Today (UTC)' : period === '7d' ? 'Last 7 days (UTC)'
+      : data && data.total && data.total.since ? 'Since ' + day(data.total.since) : '';
+    $('trafficCounts').title = range ? range + ': page views on this site. Known bots excluded.' : '';
+  }
   function refresh() {
     if (refreshing) return;
     refreshing = true;
     var ctl = typeof AbortController === 'function' ? new AbortController() : null;
     var timer = ctl ? setTimeout(function () { ctl.abort(); }, 10000) : 0;
-    fetch('/__pfa87/traffic', { cache: 'no-store', signal: ctl ? ctl.signal : undefined })
+    fetch('/__pfa87/traffic', { cache: 'no-store', credentials: 'omit', signal: ctl ? ctl.signal : undefined })
       .then(function (r) { return r.ok ? r.json() : Promise.reject(new Error(String(r.status))); })
       .then(function (d) {
         if (!d || d.ok !== true || !isFinite(d.visitors) || !isFinite(d.views)) throw new Error('shape');
-        last = d;
-        $('visitorCount').textContent = count(d.visitors);
-        $('viewCount').textContent = count(d.views);
-        $('trafficPeriod').textContent = d.date === new Date().toISOString().slice(0, 10) ? 'Today (UTC)' : d.date;
-        $('trafficStatus').textContent = d.stale ? 'Last snapshot' : 'Bots excluded';
-        $('trafficCounts').title = 'Daily visitors and page views for this site. Updated ' + new Date(d.updatedAt).toLocaleString() + '. Known bots excluded.';
+        data = d; failed = false;
       })
-      .catch(function () { $('trafficStatus').textContent = last ? 'Last loaded counts' : 'Counts unavailable'; })
-      .then(function () { clearTimeout(timer); refreshing = false; });
+      .catch(function () { failed = true; })
+      .then(function () { clearTimeout(timer); refreshing = false; render(); });
   }
+  bar.querySelector('.traffic-periods').addEventListener('click', function (e) {
+    var b = e.target.closest('[data-period]');
+    if (!b || !PERIODS[b.getAttribute('data-period')]) return;
+    period = b.getAttribute('data-period');
+    try { localStorage.setItem(KEY, period); } catch (err) {}
+    render();
+  });
+  render();
   refresh();
   setInterval(function () { if (!document.hidden) refresh(); }, 60000);
   document.addEventListener('visibilitychange', function () { if (!document.hidden) refresh(); });
