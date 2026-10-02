@@ -65,5 +65,20 @@
         page_path: location.pathname || '/'
       });
     }
+    var post = e.target.closest('[data-post-install]');
+    if (post) {
+      var kind = post.getAttribute('data-post-install') || '';
+      if (kind === 'open-gmail') {
+        gtag('event', 'open_gmail_click', {
+          cta_placement: kind,
+          page_path: location.pathname || '/'
+        });
+      } else {
+        gtag('event', 'post_install_click', {
+          cta_placement: kind,
+          page_path: location.pathname || '/'
+        });
+      }
+    }
   });
 })();

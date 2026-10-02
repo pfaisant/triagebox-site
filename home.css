@@ -319,3 +319,17 @@ body { padding-bottom: 48px; }
   color: var(--ink-2);
   letter-spacing: 0.01em;
 }
+
+
+/* First-60 post-install path micro + Open Gmail secondary */
+.first-aha .first-aha-micro {
+  text-align: center;
+  margin-top: 14px;
+  font-weight: 500;
+  color: var(--ink-3);
+}
+.btn .btn-sub {
+  font-weight: 500;
+  opacity: 0.85;
+  margin-left: 4px;
+}
