@@ -399,6 +399,18 @@ a:hover { color: var(--emerald-bright); }
   margin: 0;
 }
 
+/* Supporting guides follow the product demonstration, so the first screen shows
+   the product and the next action before the longer feature index. */
+.product-guides { margin: 0 0 64px; scroll-margin-top: 24px; }
+.guide-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.guide-grid a { display: block; padding: 14px 16px; border: 1px solid var(--border); border-radius: 8px; text-decoration: none; background: var(--surface-2); }
+.guide-grid a:hover { border-color: var(--emerald); background: var(--surface-1); }
+.guide-grid a:focus-visible { outline: 2px solid var(--emerald-soft); outline-offset: 3px; }
+.guide-grid strong { display: block; color: var(--text-primary); font-size: 14px; font-weight: 650; }
+.guide-grid span { display: block; margin-top: 4px; color: var(--text-secondary); font-size: 12.5px; line-height: 1.5; }
+@media (max-width: 900px) { .guide-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 640px) { .guide-grid { grid-template-columns: 1fr; } }
+
 /* Changelog */
 .changelog {
   list-style: none;
